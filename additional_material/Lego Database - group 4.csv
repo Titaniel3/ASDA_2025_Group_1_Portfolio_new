@@ -1,0 +1,41 @@
+id,color,is duplo?,size type,base shape,base dimensions,number of studs,has slope?,slope degree,in stock,transparent
+,coral,1,plate,rectangle,2x4,8,0,0,1,0
+,lime green,1,plate,rectangle,2x8,16,0,0,1,0
+,red,1,brick,square,2x2,4,0,0,1,0
+,black,1,brick,square,2x2,4,0,0,1,0
+,orange,1,brick,square,2x2,4,0,0,1,0
+,blue,1,brick,rectangle,2x4,8,0,0,1,0
+,green,1,brick,rectangle,2x4,8,0,0,1,0
+,blue,0,brick,rectangle,2x6,12,0,0,1,0
+,purple,0,brick,rectangle,2x4,8,0,0,1,0
+,grey,0,brick,rectangle,2x3,6,0,0,1,0
+,blue,0,brick,square,2x2,4,0,0,1,0
+,green,0,brick,rectangle,1x2,2,0,0,1,0
+,brick red,0,brick,rectangle,1x2,2,0,0,1,0
+,cyan,0,brick,rectangle,1x4,4,0,0,1,0
+,grey,0,brick,rectangle,1x3,3,0,0,1,0
+,white,0,brick,square,1x1,1,0,0,1,0
+,red,0,brick,circle,2x2,4,0,0,1,0
+,grey,0,plate,circle,4x4,12,0,0,1,0
+,pink,0,plate,rectangle,4x6,24,0,0,1,0
+,navy blue,0,plate,rectangle,2x8,16,0,0,1,0
+,baby blue,0,plate,rectangle,1x4,4,0,0,1,0
+,black,0,plate,square,2x2,4,0,0,1,0
+,orange,0,plate,rectangle,2x4,8,0,0,1,0
+,yellow,0,plate,rectangle,2x3,6,0,0,1,0
+,blue,0,plate,trapezoid,2x2,4,0,0,1,0
+,green,0,plate,trapezoid,1x4,4,0,0,1,0
+,brick red,0,plate,rectangle,1x2,2,0,0,1,0
+,black,0,plate,square,2x2,2,0,0,1,0
+,cafe,0,plate,circle,2x2,4,0,0,1,0
+,neon yellow,0,plate,rectangle,1x2,2,0,0,1,1
+,red,0,plate,square,1x1,1,0,0,1,1
+,navy blue,0,tile,rectangle,1x2,0,0,0,1,0
+,yellow,0,tile,square,1x1,0,0,0,1,0
+,yellow,0,brick,square,2x2,2,1,45,1,0
+,dark green,0,tile,square,1x1,0,1,45,1,0
+,hot magent,0,tile,circle,1x1,0,0,0,1,1
+,orange,0,brick,circle,1x1,1,0,0,1,1
+,pink,0,brick,rectangle,1x2,2,1,45,1,0
+,white,0,brick,square,2x2,4,1,45,1,0
+,green,0,brick,rectangle,1x2,1,1,45,1,0

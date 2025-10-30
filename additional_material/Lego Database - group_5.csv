@@ -1,0 +1,42 @@
+id,color,is duplo?,size type,base shape,base dimensions,number of studs,has slope?,slope degree,in stock
+,Green ,TRUE,Brick,Rectangle,2*4,8,FALSE,0,1
+,Red,TRUE,Brick,Rectangle,2*4,8,FALSE,0,1
+,Blue,TRUE,Brick,Square,2*2,4,FALSE,0,1
+,Purple,TRUE,Brick,Square,2*2,4,FALSE,0,1
+,Yellow,TRUE,Brick,Square,2*2,4,FALSE,0,1
+,Light Green,FALSE,Plate,Rectangle,2*8,16,FALSE,0,1
+,Red,FALSE,Plate,Rectangle,4*6,24,FALSE,0,1
+,White,FALSE,Plate,Rectangle,2*4,8,FALSE,0,1
+,Black,FALSE,Plate,Rectangle,2*8,16,FALSE,0,1
+,White,FALSE,Plate,Rectangle,2*4,8,FALSE,0,1
+,Grey,FALSE,Plate,Square,2*2,4,FALSE,0,1
+,Yellow,FALSE,Plate,Rectangle,1*4,4,FALSE,0,1
+,Blue,FALSE,Brick,Rectangle,2*6,12,FALSE,0,1
+,Black,FALSE,Plate,Square,2*2,2,FALSE,0,1
+,Green ,FALSE,Brick,Rectangle,2*6,6,FALSE,0,1
+,Yellow,FALSE,Plate,Rectangle,1*3,0,FALSE,0,1
+,Beige,FALSE,Brick,Rectangle,1*3,3,FALSE,0,1
+,Purple,FALSE,Brick,Square,2*2,4,FALSE,0,1
+,Yellow,FALSE,Brick,Rectangle,2*4,8,FALSE,0,1
+,Beige,FALSE,Plate,Rectangle,2*4,6,FALSE,0,1
+,Sky Blue,FALSE,Plate,Round,4*4,12,FALSE,0,1
+,Deep Blue,FALSE,Brick,Rectangle,1*2,2,FALSE,0,1
+,Pink,FALSE,Brick,Rectangle,1*2,2,FALSE,0,1
+,Grey,FALSE,Plate,Square,1*1,0,FALSE,0,1
+,Light Green,FALSE,Brick,Square,1*2,2,TRUE,45,1
+,Sky Blue,FALSE,Brick,Square,2*2,4,TRUE,45,1
+,Purple,FALSE,Plate,Square,1*1,0,FALSE,0,1
+,Pink,FALSE,Brick,Rectangle,1*2,1,TRUE,45,1
+,Green,FALSE,Plate,Rectangle,1*4,0,FALSE,0,1
+,Purple,FALSE,Plate,Rectangle,1*2,2,FALSE,0,1
+,Brown,FALSE,Brick,Rectangle,1*2,2,TRUE,45,1
+,Sky blue,FALSE,Brick,Square,1*1,1,FALSE,0,1
+,Grey,FALSE,Plate,Round,2*2,4,FALSE,0,1
+,Dark Blue,FALSE,Plate,Wadge,1*4,4,FALSE,0,1
+,Transparent yellow,FALSE,Plate,Rectangle,1*2,2,FALSE,0,1
+,Black,FALSE,Brick,Round,2*2,4,FALSE,0,1
+,Transparent orange,FALSE,Plate,Square,1*1,0,FALSE,0,1
+,Blck,FALSE,Plate,Trapezium,2*2,4,FALSE,0,1
+,Yellow,FALSE,Plate,Rectangle,1*2,0,FALSE,0,1
+,Transparent sky blue,FALSE,Plate,Round,1*1,0,FALSE,0,1
+,Transparent yellow,FALSE,Plate,Round,1*1,0,FALSE,0,1
