@@ -16,7 +16,8 @@
 
 | Feature/Variable | Data Type | Description | # Unique Values | Example Values |
 |------------------|-----------|--------------|-----------------|----------------|
-
+|       mfg            |           |              |                 |                 |
+|                  |           |
 ---
 
 ## 3. Descriptive Statistics (Clean Version)
