@@ -4,11 +4,12 @@
 
 | Item | Description |
 |------|--------------|
-| **Dataset Name** |  |
+| **Dataset Name** | Lego Inventory Dataset  |
 | **Authors** |  |
 | **Number of Entries** |  |
 | **Number of Features/Variables** |  |
-| **Format File** | `.csv` / `.xlsx` / `.txt` / etc. |
+| **Format File** | .xlsx |
+| **Date/time**| 30-10-2025 / 10.30 am |
 
 ---
 
@@ -16,8 +17,8 @@
 
 | Feature/Variable | Data Type | Description | # Unique Values | Example Values |
 |------------------|-----------|--------------|-----------------|----------------|
-|       mfg            |           |              |                 |                 |
-|                  |           |
+|                  |           |              |                 |                 |
+|                  |           | 
 ---
 
 ## 3. Descriptive Statistics (Clean Version)
