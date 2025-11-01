@@ -15,7 +15,7 @@
 
 ## 2. Dataset Structure (Clean Version)
 
-| Feature/Variable | Data Type | Description | # Unique Values | Example Values |
+| Feature/Variable | Data Type | Description |  Unique Values | Example Values |
 |------------------|-----------|--------------|-----------------|----------------|
 |                  |           |              |                 |                 |
 |                  |           | 
