@@ -43,7 +43,7 @@
 | Statistic | Column 1 | Column 2 | Column 3 |
 |------------|-----------|-----------|-----------|
 | **Count** |  |  |  |
-| **# of Unique Values** |  |  |  |
+| **Number of Unique Values** |  |  |  |
 | **Most Frequent Value** |  |  |  |
 | **Most Frequent Value (Frequency)** |  |  |  |
 | **Least Frequent Value** |  |  |  |
