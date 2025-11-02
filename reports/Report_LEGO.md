@@ -1,24 +1,33 @@
-# 🧱 Lego Inventory Cleaning — Project Report
+# 🧱 Lego Inventory Dataset Cleaning — Project Report
 
 ## 1. Dataset Overview (Clean Version)
 
 | Item | Description |
 |------|--------------|
 | **Dataset Name** | Lego Inventory Dataset  |
-| **Authors** |  |
-| **Number of Entries** |  |
-| **Number of Features/Variables** |  |
+| **Authors** | Group 1 , Group 2, Group 3, Group 4, Group 5 |
+| **Number of Entries** |  204 |
+| **Number of Features/Variables** | 10 + 1 (One additional feature (Transparent) had added by Group 4) |
 | **Format File** | .xlsx |
 | **Date/time**| 30-10-2025 / 10.30 am |
 
----
+**Description:** This dataset contains an inventory description of various Lego pieces, detailing their physical and geometric properties.
 
+---
 ## 2. Dataset Structure (Clean Version)
 
-| Feature/Variable | Data Type | Description | # Unique Values | Example Values |
+| Feature/Variable | Data Type | Description |  Unique Values | Example Values |
 |------------------|-----------|--------------|-----------------|----------------|
-|                  |           |              |                 |                 |
-|                  |           | 
+| id          |      Integer | Unique identifier for the Lego piece.|  1 to 204               |         |
+| color         | String|Color names of the pieces.|
+| is duplo? | Boolean| This indicates whether the piece belongs to the larger Duplo system or not.|
+| size type | String |The physical type of the piece.|
+| base shape| String|The geometric shape of the base of the piece.
+| base dimensions| Integer|The physical length and width of the piece in units.|
+| number of studs| Integer|The total count of studs on the piece's surface.|
+| has slope?| Boolean| This indicates if the piece features an angled or sloped surface.|
+|slope degree| Integer|The specific degree of the slope.|
+|in stock| Boolean|This indicates the availability of the piece|
 ---
 
 ## 3. Descriptive Statistics (Clean Version)
@@ -43,7 +52,7 @@
 | Statistic | Column 1 | Column 2 | Column 3 |
 |------------|-----------|-----------|-----------|
 | **Count** |  |  |  |
-| **# of Unique Values** |  |  |  |
+| **Number of Unique Values** |  |  |  |
 | **Most Frequent Value** |  |  |  |
 | **Most Frequent Value (Frequency)** |  |  |  |
 | **Least Frequent Value** |  |  |  |
