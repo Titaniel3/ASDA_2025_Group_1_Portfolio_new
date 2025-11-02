@@ -34,29 +34,29 @@
 
 ### Numeric Columns
 
-| Statistic | Column 1 | Column 2 | Column 3 |
+| Statistic | number of studs | slope degree | in stock |
 |------------|-----------|-----------|-----------|
-| **Count** |  |  |  |
-| **Mean** |  |  |  |
-| **Standard Deviation** |  |  |  |
-| **Min** |  |  |  |
-| **25%** |  |  |  |
-| **50% (Median)** |  |  |  |
-| **75%** |  |  |  |
-| **Max** |  |  |  |
+| **Count** | 204 |204  | 204 |
+| **Mean** | 4.90 | 5.07 |1.0  |
+| **Standard Deviation** |4.99  | 14.11 | 0 |
+| **Min** |0  |  0|1.0  |
+| **25%** | 2.00 | 0 |1.0  |
+| **50% (Median)** | 4.00 |0  | 1.0 |
+| **75%** |6.00  | 0 | 1.0 |
+| **Max** | 24.00 | 45 | 1.0 |
 
 ---
 
 ### Categorical / Object Columns
 
-| Statistic | Column 1 | Column 2 | Column 3 |
-|------------|-----------|-----------|-----------|
-| **Count** |  |  |  |
-| **Number of Unique Values** |  |  |  |
-| **Most Frequent Value** |  |  |  |
-| **Most Frequent Value (Frequency)** |  |  |  |
-| **Least Frequent Value** |  |  |  |
-| **Least Frequent Value (Frequency)** |  |  |  |
+| Statistic | Color | Size type | Base shape  | Base dimensions |
+|------------|-----------|-----------|-----------|--------------|
+| **Count** | 204 |204  |204  |204|
+| **Number of Unique Values** | 63 |2  |5  |21|
+| **Most Frequent Value** | Yellow |Plate  |Rectangle  |2x2|
+| **Most Frequent Value (Frequency)** | 16 |108  |109  |47|
+| **Least Frequent Value** | Transparent sky blue |Brick  |Triangle  |3x1|
+| **Least Frequent Value (Frequency)** |1  |96  |2  |1|
 
 ---
 
@@ -98,4 +98,4 @@ If any part of the work (e.g., code, visualization, cleaning logic) was assisted
 
 ---
 
-## Suggested Notebook Structure (for y
+
