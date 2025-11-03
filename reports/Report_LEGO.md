@@ -19,8 +19,8 @@
 | Feature/Variable | Data Type | Description |  Unique Values | Example Values |
 |------------------|-----------|--------------|-----------------|----------------|
 | id          |      Integer | Unique identifier for the Lego piece.|  1 to 204               |         |
-| color         | String|Color names of the pieces.|
-| is duplo? | Boolean| This indicates whether the piece belongs to the larger Duplo system or not.|
+| color         | String|Color names of the pieces.|63|
+| is duplo? | Boolean| This indicates whether the piece belongs to the larger Duplo system or not.|2|
 | size type | String |The physical type of the piece.|
 | base shape| String|The geometric shape of the base of the piece.
 | base dimensions| Integer|The physical length and width of the piece in units.|
