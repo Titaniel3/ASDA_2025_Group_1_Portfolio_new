@@ -38,27 +38,25 @@ Information is for the clean version of the dataset, so the final dataset we rec
 
 | Statistic | Number of Studs | Slope Degree | In Stock |
 |------------|-----------|-----------|-----------|
-| **Count** |  |  |  |
-| **Mean** |  |  |  |
-| **Standard Deviation** |  |  |  |
-| **Min** |  |  |  |
-| **25%** |  |  |  |
-| **50% (Median)** |  |  |  |
-| **75%** |  |  |  |
-| **Max** |  |  |  |
+| **Count** |  185|185  | 185 |
+| **Mean** | 4.75 |  5.59| 1.10 |
+| **Standard Deviation** |5.11  | 14.72 |0.36  |
+| **Min** | 0 | 0 | 1 |
+| **25%** | 2 | 0 | 1 |
+| **50% (Median)** | 4 |0  | 1 |
+| **75%** |6  | 0 | 1 |
+| **Max** |  24|45  | 3 |
 
 ---
 
 ### Categorical / Object Columns
 
-| Statistic | Column 1 | Column 2 | Column 3 |
-|------------|-----------|-----------|-----------|
-| **Count** |  |  |  |
-| **Number of Unique Values** |  |  |  |
-| **Most Frequent Value** |  |  |  |
-| **Most Frequent Value (Frequency)** |  |  |  |
-| **Least Frequent Value** |  |  |  |
-| **Least Frequent Value (Frequency)** |  |  |  |
+| Statistic | Color | Size Type | Base Shape | Base Dimension
+|------------|-----------|-----------|-----------|-----------|
+| **Most Frequent Value** | Grey | Plate | Rectangle |2x2|
+| **Most Frequent Value (Frequency)** |12  | 103 | 97 |41|
+| **Least Frequent Value** |  Many, f.e. "Transparent Orange"| Brick | Triangle |4x4|
+| **Least Frequent Value (Frequency)** | 1 | 82 | 2 |3|
 
 ---
 
