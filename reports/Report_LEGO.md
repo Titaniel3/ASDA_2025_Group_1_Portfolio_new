@@ -2,7 +2,10 @@
 
 ## 1. Dataset Overview (Clean Version)
 
-Information is for the clean version of the dataset, so the final dataset we received after cleaning it.
+Information is for the clean version of the dataset, so the final dataset we received after cleaning it. 
+
+The cleaned LEGO dataset used for this analysis can be found [here](../additional_material/Lego_cleaned_dataset.csv).
+
 
 | Item | Description |
 |------|--------------|
@@ -87,9 +90,9 @@ Here are some basic plots of our dataset
 
 First, there was the column "Transparent", which only group 4 used. As the goal was to find duplicate Lego pieces, we deleted this column, as there was no data regarding this for the other groups which made finding duplicates more difficult.
 
-For most of the categories, all groups used different formats. For Example, Base Dimension was sometimes "2x2", "2 x 2" or "2*2". As this all means the same, the major challenge was to merge them all into the same format (here: "2x2"). This problem affected the columns: "is duplo?", "size type", "base shape", "base dimensions", "has slope?", "in stock".
+For most of the categories, all groups used different formats. For example, Base Dimension was sometimes "2x2", "2 x 2" or "2*2". As this all means the same, the major challenge was to merge them all into the same format (here: "2x2"). This problem affected most of the columns: "is duplo?", "size type", "base shape", "base dimensions", "has slope?" and "in stock" (one group used "yes" for this variable instead of "1").
 
-Especially challenging was the color variable, because some groups wrote them with capital letters ("Blue"), some did not ("blue"). There were also differences with more complex colors ("lightblue" vs. "light blue"). All of these different formats were merged into the same format "Light Blue", with capital letters starting each word and a space between each word.
+Especially challenging was the color variable, because some groups wrote them with capital letters ("Blue"), some did not ("blue"). There were also differences with more complex colors ("lightblue" vs. "light blue"). All of these different formats were merged into the same format (f.e."Light Blue"), with capital letters starting each word and a space between each word. This was done by using code which defined modifiers (f.e. "light" or "dark") and bases (f.e. "blue" or "red") for each possible color, then splitted them (if necessary) and capitalized the first letter of each word.
 
 ---
 
@@ -107,9 +110,9 @@ For visualization we found that box plots should be viewed independently for eac
 
 ## 7. AI Disclaimer
 
-We used AI for visualization. We first did it ourselves but the visuals did not look so great so we optimized the colour schema and the general look of the plots using ChatGPT by prompting what we wanted our plots to look like and providing our code and asking ChatGPT to optimize it.
+We used AI for visualization. We first did it ourselves but the visuals did not look so great so we optimized the color schema and the general look of the plots using ChatGPT by prompting what we wanted our plots to look like and providing our code and asking ChatGPT to optimize it.
 
-For the Coding, we asked ChatGPT to help us with the Code for cleaning the Colors, as this was quite difficult and even after excessive research we could not figure it out ourselves. So we wrote a prompt with the excact description of the problem and received ready-to-use code.
+For the Data cleaning process, we asked ChatGPT to help us with the code for cleaning the colors, as this was quite difficult and even after excessive research we could not figure it out ourselves. So we wrote a prompt with the excact description of the problem and the solution we wanted to implement (with modifiers, bases and the capitalization of the first letters) and received ready-to-use code.
 
 ---
 
