@@ -84,32 +84,32 @@ Here are some basic plots of our dataset
 
 ### 5.1 Major Data Inconsistencies
 
-| Issue | Columns Affected | Description of the Issue | Action Taken |
-|--------|------------------|---------------------------|---------------|
-| Inconsistent column labeling |  |  |  |
-| Wrong data types |  |  |  |
-| Missing values |  |  |  |
-| Duplicates |  |  |  |
-| Inconsistent categories |  |  |  |
+
+First, there was the column "Transparent", which only group 4 used. As the goal was to find duplicate Lego pieces, we deleted this column, as there was no data regarding this for the other groups which made finding duplicates more difficult.
+
+For most of the categories, all groups used different formats. For Example, Base Dimension was sometimes "2x2", "2 x 2" or "2*2". As this all means the same, the major challenge was to merge them all into the same format (here: "2x2"). This problem affected the columns: "is duplo?", "size type", "base shape", "base dimensions", "has slope?", "in stock".
+
+Especially challenging was the color variable, because some groups wrote them with capital letters ("Blue"), some did not ("blue"). There were also differences with more complex colors ("lightblue" vs. "light blue"). All of these different formats were merged into the same format "Light Blue", with capital letters starting each word and a space between each word.
 
 ---
 
 ### 5.2 Minor Data Inconsistencies
 
-List any small or secondary issues that couldn’t be included above but were addressed or noted.
-
----
+When reviewing the final data set in Excel, we realised that slope degree was wrong (f.e. 450 instead of 45). So we had to fix the code to fix this issue. 
 
 ## 6. Recommendations for Good Practices
 
-Summarize best practices for future data collection and entry to prevent inconsistencies or data loss.
+Before starting the data collection process, each group should have agreed on one data format for each variable, because this way the data cleaning process would have been way easier. Especially for the colors, this would have been extremely helpful, as there are probably more duplicates in the dataset which cannot be found due to different color namings.
+
+For visualization we found that box plots should be viewed independently for each category as using the same scale for each category might be misleading. 
 
 ---
 
 ## 7. AI Disclaimer
 
-If any part of the work (e.g., code, visualization, cleaning logic) was assisted or generated with AI tools, describe **which parts** and **how** they were used.
+We used AI for visualization. We first did it ourselves but the visuals did not look so great so we optimized the colour schema and the general look of the plots using ChatGPT by prompting what we wanted our plots to look like and providing our code and asking ChatGPT to optimize it.
+
+For the Coding, we asked ChatGPT to help us with the Code for cleaning the Colors, as this was quite difficult and even after excessive research we could not figure it out ourselves. So we wrote a prompt with the excact description of the problem and received ready-to-use code.
 
 ---
 
-## Suggested Notebook Structure (for y
