@@ -2,14 +2,16 @@
 
 ## 1. Dataset Overview (Clean Version)
 
+Information is for the clean version of the dataset, so the final dataset we received after cleaning it.
+
 | Item | Description |
 |------|--------------|
 | **Dataset Name** | Lego Inventory Dataset  |
-| **Authors** | Group 1 , Group 2, Group 3, Group 4, Group 5 |
-| **Number of Entries** |  204 |
-| **Number of Features/Variables** | 10 + 1 (One additional feature (Transparent) had added by Group 4) |
-| **Format File** | .xlsx |
-| **Date/time**| 30-10-2025 / 10.30 am |
+| **Authors** | Tobias Demming, Ranjit Singh, Daniel Lichtmannecker, Saddam Kham, Shreyas Krishnamurthy |
+| **Number of Entries** |  185 |
+| **Number of Features/Variables** | 10 ("Transparent" was deleted, as only one group used it) |
+| **Format File** | .csv |
+| **Date/time**| 30-10-2025 / 10.30 am (Date of downloading the original data)|
 
 **Description:** This dataset contains an inventory description of various Lego pieces, detailing their physical and geometric properties.
 
@@ -18,64 +20,51 @@
 
 | Feature/Variable | Data Type | Description |  Unique Values | Example Values |
 |------------------|-----------|--------------|-----------------|----------------|
-| id          |      Integer | Unique identifier for the Lego piece.|  1 to 204 |1,2,3,4...         |
-| color         | String|Color names of the pieces.|63|Yellow, green,Brown..|
+| id          |      Integer | Unique identifier for the Lego piece.|  185 |[1, ..., 185]       |1,2,3
+| color         | String|Color names of the pieces.|63 | Blue, Light Blue, Transparent Sky Blue
 | is duplo? | Boolean| This indicates whether the piece belongs to the larger Duplo system or not.|2| True, False
-| size type | String |The physical type of the piece.|2| Brick, Plate|
-| base shape| String|The geometric shape of the base of the piece.|5 |Rectangle, Sqaure , Circle ..|
-| base dimensions| Integer|The physical length and width of the piece in units.|21|2x4, 2x8,1,3...|
-| number of studs| Integer|The total count of studs on the piece's surface.|10|8,4,6,3....|
-| has slope?| Boolean| This indicates if the piece features an angled or sloped surface.|2| True, False|
-|slope degree| Integer|The specific degree of the slope.|4|0,45,15,30|
-|in stock| Boolean|This indicates the availability of the piece|1|1|
+| size type | String |The physical type of the piece.|2 | Plate, Brick
+| base shape| String|The geometric shape of the base of the piece. | 5|Circle, Triangle, Trapezium, Square, Rectangle
+| base dimensions| String|The physical length and width of the piece in units.|12 | 2x2, 2x4, 1x1
+| number of studs| Integer|The total count of studs on the piece's surface.|10  | 24, 6, 8
+| has slope?| Boolean| This indicates if the piece features an angled or sloped surface.| 2| True, False
+|slope degree| Integer|The specific degree of the slope.| 4 | 0, 15, 30, 45
+|in stock|Integer|This indicates the number of available pieces in stock | 3 |1, 2, 3
 ---
 
 ## 3. Descriptive Statistics (Clean Version)
 
 ### Numeric Columns
 
-| Statistic | number of studs | slope degree | in stock |
+| Statistic | Number of Studs | Slope Degree | In Stock |
 |------------|-----------|-----------|-----------|
-| **Count** | 204 |204  | 204 |
-| **Mean** | 4.90 | 5.07 |1.0  |
-| **Standard Deviation** |4.99  | 14.11 | 0 |
-| **Min** |0  |  0|1.0  |
-| **25%** | 2.00 | 0 |1.0  |
-| **50% (Median)** | 4.00 |0  | 1.0 |
-| **75%** |6.00  | 0 | 1.0 |
-| **Max** | 24.00 | 45 | 1.0 |
+| **Count** |  |  |  |
+| **Mean** |  |  |  |
+| **Standard Deviation** |  |  |  |
+| **Min** |  |  |  |
+| **25%** |  |  |  |
+| **50% (Median)** |  |  |  |
+| **75%** |  |  |  |
+| **Max** |  |  |  |
 
 ---
 
 ### Categorical / Object Columns
 
-| Statistic | Color | Size type | Base shape  | Base dimensions |
-|------------|-----------|-----------|-----------|--------------|
-| **Count** | 204 |204  |204  |204|
-| **Number of Unique Values** | 63 |2  |5  |21|
-| **Most Frequent Value** | Yellow |Plate  |Rectangle  |2x2|
-| **Most Frequent Value (Frequency)** | 16 |108  |109  |47|
-| **Least Frequent Value** | Transparent sky blue |Brick  |Triangle  |3x1|
-| **Least Frequent Value (Frequency)** |1  |96  |2  |1|
+| Statistic | Column 1 | Column 2 | Column 3 |
+|------------|-----------|-----------|-----------|
+| **Count** |  |  |  |
+| **Number of Unique Values** |  |  |  |
+| **Most Frequent Value** |  |  |  |
+| **Most Frequent Value (Frequency)** |  |  |  |
+| **Least Frequent Value** |  |  |  |
+| **Least Frequent Value (Frequency)** |  |  |  |
 
 ---
 
 ## 4. Exploratory Plots (Optional)
 
 Include any relevant basic plots (e.g., histograms, boxplots, barplots) that help understand the dataset.
-
-<img width="820" height="356" alt="image" src="https://github.com/user-attachments/assets/b66aa8e2-e387-4b7e-986b-972de5f1bb73" />
-
-<img width="806" height="362" alt="image" src="https://github.com/user-attachments/assets/a137f633-e1b8-440d-9faf-fb380e175114" />
-
-<img width="842" height="352" alt="image" src="https://github.com/user-attachments/assets/c5007318-4cfd-4bac-a1f7-d609691badd9" />
-
-<img width="812" height="357" alt="image" src="https://github.com/user-attachments/assets/9ee4b318-b642-43ff-b450-07a673050b86" />
-
-<img width="832" height="357" alt="image" src="https://github.com/user-attachments/assets/cde50c0b-98c3-49ef-bdb4-3b6cb299827d" />
-<img width="921" height="736" alt="image" src="https://github.com/user-attachments/assets/db84c8c7-f81c-4ede-aa93-55bda0fbfc20" />
-
-<img width="962" height="727" alt="image" src="https://github.com/user-attachments/assets/992a2b79-9ebd-434c-90f3-2a35cc4f645c" />
 
 ---
 
@@ -111,4 +100,4 @@ If any part of the work (e.g., code, visualization, cleaning logic) was assisted
 
 ---
 
-
+## Suggested Notebook Structure (for y
