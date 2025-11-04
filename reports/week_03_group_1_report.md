@@ -66,13 +66,13 @@ The cleaned LEGO dataset used for this analysis can be found [here](../additiona
 ## 4. Exploratory Plots (Optional)
 
 Here are some basic plots of our dataset
-<img width="845" height="365" alt="Screenshot 2025-11-03 153141" src="https://github.com/user-attachments/assets/1d33806e-d6a8-4544-823f-84dc1e49120f" />
-<img width="820" height="355" alt="Screenshot 2025-11-03 153254" src="https://github.com/user-attachments/assets/3588bbab-07df-4965-9258-7bbbeed98447" />
-<img width="826" height="364" alt="Screenshot 2025-11-03 153505" src="https://github.com/user-attachments/assets/f1dbf7e5-1f76-4372-934a-74eb14065f9f" />
-<img width="840" height="358" alt="Screenshot 2025-11-03 153528" src="https://github.com/user-attachments/assets/fd4627d2-b297-4a9f-bab9-0a55431e28c7" />
-<img width="855" height="359" alt="Screenshot 2025-11-03 153611" src="https://github.com/user-attachments/assets/42dfee9a-6b5b-472f-be2d-d349f385ddf9" />
+![top20_colors](https://github.com/user-attachments/assets/ebc660a8-7998-4e16-85ec-268620c2ca0e)
+![categorical_distributions_2x2](https://github.com/user-attachments/assets/bf89e4b7-b0ff-4f45-a917-960a80208e0c)
+
+
 <img width="851" height="731" alt="Screenshot 2025-11-03 153646" src="https://github.com/user-attachments/assets/6c9cdead-4f6e-429c-b4bc-9ff74f4e80ee" />
 <img width="966" height="732" alt="Screenshot 2025-11-03 153801" src="https://github.com/user-attachments/assets/a6d4f6a7-7ce8-4ffe-b47e-93f0c9f0fe5c" />
+
 
 
 
