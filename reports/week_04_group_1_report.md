@@ -34,8 +34,7 @@ Your report should be **concise, factual, and readable** — avoid long theoreti
 | :---- | :---- |
 | Dataset name | Airbnb European Cities Dataset |
 | Number of rows | 1104  |
-| Number of columns | 19 (excluding an unlabelled row index column), 
-                      20 (including an unlabelled row index column)  |
+| Number of columns | 19 (excluding an unlabelled row index column), 20 (including an unlabelled row index column)  |
 | Format file (.csv, .txt, etc) | CSV (.csv)  |
 | Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider)  |
 | Source (name) | AirDNA  |
