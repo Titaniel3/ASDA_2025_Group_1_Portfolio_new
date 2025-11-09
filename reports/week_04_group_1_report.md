@@ -84,9 +84,8 @@ Your report should be **concise, factual, and readable** — avoid long theoreti
 4\. **Descriptive statistics**   
 Numeric columns
 
-|   | Price | person_capacity | cleanliness_rating |
+|   | Price | person_capacity | cleanliness_rating | guest_satisfaction_overall  | bedrooms | dist | metro_dist | attr_index | attr_index_norm  | rest_index | rest_index_norm | lng | lat | log_Price |
 
-|   | guest_satisfaction_overall  | bedrooms | dist | metro_dist | attr_index | attr_index_norm  | rest_index | rest_index_norm | lng | lat | log_Price |
 | :---- | :---- | :---- | :---- |
 | Count |   |   |   |
 | Mean |   |   |   |
