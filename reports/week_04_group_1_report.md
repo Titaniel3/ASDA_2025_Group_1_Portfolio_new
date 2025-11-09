@@ -22,7 +22,7 @@ Your report should be **concise, factual, and readable** — avoid long theoreti
 
 | Name | Contribution |
 | :---- | :---- |
-| Shreyas Krishnamurthy | 1\. **Dataset Overview**  2\. **Dataset Structure** 4\. **Descriptive statistics**    |
+| Shreyas Krishnamurthy | 1\. **Dataset Overview**  2\. **Dataset Structure**  4\. **Descriptive statistics**    |
 |  |   |
 |  |   |
 |  |   |
