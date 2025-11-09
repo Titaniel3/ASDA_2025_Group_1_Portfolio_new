@@ -32,13 +32,13 @@ Your report should be **concise, factual, and readable** — avoid long theoreti
 
 | Item | Description |
 | :---- | :---- |
-| Dataset name |  |
-| Number of rows |   |
-| Number of columns |   |
-| Format file (.csv, .txt, etc) |   |
-| Authors of the dataset |   |
-| Source (name) |   |
-| Source (link) |   |
+| Dataset name | Airbnb European Cities Dataset |
+| Number of rows | 1104  |
+| Number of columns | 19 (excluding an unlabelled row index column), 20 (includingan unlabelled row index column)  |
+| Format file (.csv, .txt, etc) | CSV (.csv)  |
+| Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider)  |
+| Source (name) | AirDNA  |
+| Source (link) | https://docs.google.com/spreadsheets/d/1ecopK6oyyb4d_7-QLrCr8YlgFrCetHU7-VQfnYej7JY/edit?usp=sharing  |
 
    
    
