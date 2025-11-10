@@ -134,9 +134,9 @@ To visualize this we map each property in the city and display whether the host 
 It is clearly visible in many cities, that the commercial properties tend to be closer to the city center. One could argue that this is a sign of gentrification, however this is highly speculative without any additional information of the housing marketing in the city in general.
 
 **Color Schema:**
-- Private:  Blue
-- Semi commercial: Orange
-- Commercial: Red
+- Private (1 property):  Blue
+- Semi commercial (2 - 4 properties): Orange
+- Commercial (> 4 properties): Red
 
 ### Berlin
 ![Airbnb_Berlin.png](../additional_material/Plots/Airbnb_Berlin.png)
@@ -178,6 +178,12 @@ It is clearly visible in many cities, that the commercial properties tend to be 
 ### Vienna
 ![Airbnb_Vienna.png](../additional_material/Plots/Airbnb_Vienna.png)
 *Figure 13: Distribution of Host type in Vienna*
+
+## Analysis 5: Capacity blocked by commercial hosts
+We argue that flats used commercially are no available to the public housing market anymore. Therefore they can be count towards lost public housing capacity.
+
+
+![Airbnb_Capacity.png](../additional_material/Plots/Airbnb_Capacity.png)
 
 
 
