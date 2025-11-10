@@ -20,7 +20,7 @@
 | Format file (.csv, .txt, etc) |.csv |
 | Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider), authors of the final dataset are equivalent to the authors of the report  |
 | Source (name) | airbnb_group1  |
-| Source (link) | [here](../datasets/airbnb_group1.csv) |
+| Source (link) | [here](../additional_material/airbnb_group1.csv) |
 | Date/Time| 10.11.2025, 21:30 |
 
    
