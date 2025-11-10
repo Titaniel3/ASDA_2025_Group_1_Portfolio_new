@@ -121,20 +121,20 @@ Category columns
 ---
 
 Context
-![alt text](image.png)
+![alt text](../additional_material/Plots/Airbnb_Price_City.png)
 
 hard to determine patterns regarding gentrification as we would need more information (cost of living, income, ...). 
 
 ## Analysis 2: 
 ---
 Context
-![alt text](image-1.png)
+![alt text](../additional_material/Plots/Airbnb_Share_Roomtype.png)
 cities with higher share of entire home/apartments have higer risk of gentrification, because...
 
 ## Analysis 3:
 ---
 Context
-![alt text](image-3.png)
+![Airbnb_Share_Host_Portfolio.png](../additional_material/Plots/Airbnb_Share_Host_Portfolio.png)
 cities with higher share of hosts with more than four listings have higher risk for gentrification. The initial business model of airbnb was letting strangers use your apartment while your somewhere else yourself. It is clear that this type of host is not the central business model of the platform anymore.
 
 ## Analysis 4 – Distribution of host types across city: 
