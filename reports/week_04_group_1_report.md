@@ -1,141 +1,131 @@
-## Airbnb Report Group 1
+# Airbnb Report Group 1
 
-**Project Report Suggested Structure**
-
-**Scenario**
-
-You are a team of data analysts working for the **European Commission for Sustainable Cities**. Your task is to explore Airbnb data from ten European cities and write a **clear, data-driven report** about the current state of the Airbnb market and its possible connections to **gentrification**.
-
-This is an **exploratory analysis**, not a full scientific study. You are not expected to run statistical tests or build models. Instead, focus on describing what the data shows — for example, how Airbnb listings, prices, and guest satisfaction differ across cities, and whether some of these patterns might suggest housing pressure or early signs of gentrification.
-
-Support your discussion with **figures or plots** that help illustrate your points. Each figure should be:
-
-* properly labeled and titled,  
-* briefly described in a caption, and  
-* clearly mentioned in the text where it’s relevant.
-
-Your report should be **concise, factual, and readable** — avoid long theoretical discussions or unnecessary text. The goal is to communicate insights that a city planner or policymaker could easily understand.
-
-**Important:** Do **not** include code in the report. All code and data analysis belong in your Jupyter notebook.
-
-0\. **Authors of the report**
+## Authors of the report
 
 | Name | Contribution |
 | :---- | :---- |
-| Shreyas Krishnamurthy | 1\. **Dataset Overview**  2\. **Dataset Structure**  4\. **Descriptive statistics**    |
-|  |   |
-|  |   |
-|  |   |
+| Shreyas Krishnamurthy | Dataset Overview, Dataset Structure, Descriptive statistics, Notebook questions   |
+|Daniel Lichtmannecker  | Data Cleaning, Notebook questions, group report   |
+| Tobias Demming | Data Cleaning, Notebook questions, group report   |
+| Ranjit Singh |  Data Cleaning, Notebook questions, group report  |
 |  |   |
 
-1\. **Dataset Overview** 
+## Final Dataset Overview
 
 | Item | Description |
 | :---- | :---- |
 | Dataset name | Airbnb European Cities Dataset |
-| Number of rows | 1104  |
-| Number of columns | 19 (excluding an unlabelled row index column), 20 (including an unlabelled row index column)  |
-| Format file (.csv, .txt, etc) | CSV (.csv)  |
-| Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider)  |
-| Source (name) | AirDNA  |
-| Source (link) | https://docs.google.com/spreadsheets/d/1ecopK6oyyb4d_7-QLrCr8YlgFrCetHU7-VQfnYej7JY/edit?usp=sharing  |
-| Date/Time| 6-11-2025 / 15.15.00 |
+| Number of rows | 51707  |
+| Number of columns | 19  |
+| Format file (.csv, .txt, etc) |.csv |
+| Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider), authors of the final dataset are equivalent to the authors of the report  |
+| Source (name) | airbnb_final  |
+| Source (link) | [here](../additional_material/airbnb_group1.csv) |
+| Date/Time| 10.11.2025, 21:30 |
 
    
    
-2\. **Dataset Structure** 
+## Dataset Structure
 
 | Feature/variable | Data type | Description | Number of Unique values | Example values |
 | :---- | :---- | :---- | :---- | :---- |
 | Price   | float64  | The final price for the booking (typically a two-night stay for two guests) in Euros (€).  | 10497  | 194.0336981  |
 | room_type      | object (String)  | The type of space offered: 'Entire home/apt', 'Private room', or 'Shared room'.  | 3  | Private room  |
-| room_shared    | bool  | Indicates if the room is a shared space (e.g., dormitory bed).  | 2  | False  |
-| room_private   | bool  | Indicates if the room is a private room within a shared unit.  | 2  | True  |
 | person_capacity   | float64  | The maximum number of guests the listing can accommodate.  | 5  | 2  |
 | host_is_superhost  | bool  | True if the host has Superhost status, False otherwise.  | 2  | False  |
-| multi     | int64  | Binary indicator (1/0) for hosts managing multiple listings (often >5 in the original study).  | 5 | 1  |
-| biz    | int64  | Binary indicator (1/0) for listings marked as suitable for business travel.  | 2  | 0  |
 | cleanliness_rating   | int64  | The listing's cleanliness rating score, typically on a 5-10 scale.  | 9  | 10  |
 | guest_satisfaction_overall  | int64  | The overall guest satisfaction rating, typically on a 0-100 scale.  | 51707  | 53  |
 | bedrooms   | float64  | The number of bedrooms in the listing (e.g, 0 for studio apartments).  | 51707  | 10  |
-| dist  | float64  | The distance from the listing to the city center (units depend on the source, often kilometers).  | 51707  | 5.022963798  |
-| metro_dist  | float64  | The distance from the listing to the nearest metro/subway station.  | 51707  | 2.539380003  |
-| attr_index   | float64  | Attraction Index: A raw score reflecting the attractiveness (cultural, historical sites) of the area.  | 51707   | 78.69037927  |
-| attr_index_norm  | float64  | The Normalized Attraction Index, scaled to a 0-100 range.  | 51688  | 4.166707868  |
-| rest_index     | float64  | Restaurant Index: A raw score reflecting the availability of dining options in the vicinity.  | 51707  | 98.25389587  |
-| rest_index_norm     | float64  | The Normalized Restaurant Index, scaled to a 0-100 range.  | 51688  | 6.846472824  |
-| lng    | float64  | Geographical coordinates (Longitude).  | 23600  | 4.90569  |
-| lat  | float64  | Geographical coordinates (Latitude).  | 21484  | 52.41772  |
+| dist  | float64  | The distance from the listing to the city center (units depend on the source, often kilometers).  | 51707  | 5.02 |
+| metro_dist  | float64  | The distance from the listing to the nearest metro/subway station.  | 51707  | 2.54  |
+| attr_index   | float64  | Attraction Index: A raw score reflecting the attractiveness (cultural, historical sites) of the area.  | 51707   | 78.69  |
+| attr_index_norm  | float64  | The Normalized Attraction Index, scaled to a 0-100 range.  | 51688  | 4.17  |
+| rest_index     | float64  | Restaurant Index: A raw score reflecting the availability of dining options in the vicinity.  | 51707  | 98.25  |
+| rest_index_norm     | float64  | The Normalized Restaurant Index, scaled to a 0-100 range.  | 51688  | 6.85  |
+| lng    | float64  | Geographical coordinates (Longitude).  | 23600  | 4.91  |
+| lat  | float64  | Geographical coordinates (Latitude).  | 21484  | 52.42  |
 | city     | object (String)  | The European city where the listing is located.  | 10  | london  |
 | day_type    | object (String)  | Categorization of the booking period: 'weekdays' or 'weekends'.  | 2  | weekend  |
 | country  | object (String)  | The country where the city is located (newly engineered column).  | 10  | France  |
+| host portfolio  | object (String)  | How many listings each host has (newly engineered column).  | 3  | one, two_to_four, more_than_four  |
  
 
-3\. **Data cleaning** 
+## Data cleaning
 
-| Issue | Names of Columns affected | Description of the Issue | Action Taken |
-| :---- | :---- | :---- | :---- |
-| Inconsistent column labeling |   |   |   |
-| Wrong data types |   |   |   |
-| Missing values |   |   |   |
-| Duplicates |   |   |   |
-| Inconsistent categories |   |   |   |
-| Other |  |  |  |
+We deleted the dummy variables "room_shared", "room_private", "multi", "biz", as their information was redundant. 
 
-4\. **Descriptive statistics**   
-Numeric columns
+We created new columns "city", "days", "country", "host_portfolio" for better analysis of the data.
+
+We did some other minor changes, like deleting the first column (which only numbered the listings) and renamed some variables ("realSum" -> "Price")
+
+
+## Descriptive statistics
+
+**Numeric columns**
 
 |   | Price | person_capacity | cleanliness_rating | guest_satisfaction_overall  | bedrooms | dist | metro_dist | attr_index | attr_index_norm  | rest_index | rest_index_norm | lng | lat | log_Price |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Count | 51707.00  |  51707.00     | 51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |  51707.00  |
-| Mean | 279.879591   | 3.161661   | 9.390624  | 92.628232  | 1.15876  | 3.191285  | 0.681540   | 294.204105   | 13.423792   | 626.856696   | 22.786177    | 7.426068    | 45.671128    | 5.424688    |
-| Standard deviation | 327.948386    | 1.298545   | 0.954868   |8.945531    | 0.62741    | 2.393803   | 0.858023    | 224.754123    | 9.807985  |  497.920226   | 17.804096     |  9.799725   |   5.249263  |    0.594014    |
-| Min | 34.779339     |  2.00  | 2.00  | 20.00  |    0.00   |   0.015045  |    0.002301  |  15.152201    |     0.926301   |  19.576924    |     0.592757    |  -9.226340   |  37.953000   |   3.577371    |
-| 25% | 148.752174  |  2.00  | 9.00     | 90.00   |   1.00   |   1.453142  |    0.248480   |   136.797385    |     6.380926   | 250.854114    |     8.751480   |  -0.072500  |   41.399510    |  5.008982    | 
-| 50% | 211.343089  |  3.00  | 10.00     |     95.00    |  1.00   |   2.613538  |    0.413269   |  234.331748     |   11.468305  |  522.052783   |     17.542238   |   4.873000    | 47.506690   |   5.358203   |
-| 75% | 319.694287   |  4.00  | 10.00     |  99.00    |  1.00  |    4.263077  |    0.737840     |   385.756381  |      17.415082  |  832.628988   |     32.964603  |   13.518825   |  51.471885   |   5.770488    |
-| Max | 18545.450285  | 6.00  | 10.00     | 100.00   |  10.00  |   25.284557  |   14.273577   | 4513.563486     |  100.00 |  6696.156772  |     100.00  | 23.786020  |   52.641410  |    9.828034   |
+| Mean | 279.88   | 3.16 | 9.39 | 92.63| 1.16 | 3.19  | 0.68   | 294.20  | 13.42 | 626.86  | 22.79   | 7.43    | 45.67    | 5.42  |
+| Standard deviation | 327.95   | 1.30   | 0.95  |8.95   | 0.63    | 2.39| 0.86    | 224.76   | 9.81 |  497.92   | 17.80    |  9.80   |   5.25 |    0.59    |
+| Min | 34.78    |  2.00  | 2.00  | 20.00  |    0.00   |   0.015 |    0.002 |  15.15  |     0.93   |  19.58  |     0.59   |  -9.23   |  37.95  |   3.58   |
+| 25% | 148.75 |  2.00  | 9.00     | 90.00   |   1.00   |   1.45 |    0.25  |   136.80   |     6.30926   | 250.85  |     8.75  |  -0.07 |   41.40  |  5.01  | 
+| 50% | 211.34  |  3.00  | 10.00     |     95.00    |  1.00   |   2.61  |    0.41  |  234.33    |   11.47  |  522.05  |     17.54  |   4.87   | 47.51 |   5.36  |
+| 75% | 319.69  |  4.00  | 10.00     |  99.00    |  1.00  |    4.26 |    0.74    |   385.76 |      17.41|  832.63   |     32.96 |   13.52   |  51.47   |   5.77   |
+| Max | 18545.45  | 6.00  | 10.00     | 100.00   |  10.00  |   25.28  |   14.27  | 4513.56    |  100.00 |  6696.16 |     100.00  | 23.79 |   52.64|    9.83  |
    
-Category columns
+**Category columns**
 
-|   | Column 1 | Column 2 | Column 3 |
-| :---- | :---- | :---- | :---- |
-| Count |   |   |   |
-| Number of unique values |   |   |   |
-| Most frequent value |   |   |   |
-| Most frequent value (frequency) |   |   |   |
-| Least frequent value |   |   |   |
-| Least frequent value (frequency) |   |   |   |
+|   | room_type | City | days | country | host_portfolio |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| Number of unique values |3   | 10  |  2 |10 |3 |
+| Most frequent value | Entire home/apt  |  london | weekends	 | United Kingdom | one |
+| Most frequent value (frequency) | 32648  |  9993 |  26207 |9993 |18534  |
+
 
  
 
-**5\. Analysis \- Research question**
+# 5. Research question: How do AirBnb flats aggravate the risk of gentrification in big european cities?
 
--> Explain why looking at AirBnb Data makes sense in the context of Gentrification 
+ Airbnb data can help us understand how short-term rentals affect life in European cities. In many places, the growth of Airbnb has been linked to rising rents and changes in local neighborhoods.These patterns are often connected to gentrification. Gentrification happens when wealthier people move into previously affordable areas, leading to higher housing costs and the displacement of long-term residents.
 
--> Briefly explain what gentrification even means
+The aim of this report is to look for early patterns in Airbnb activity across ten European cities. By comparing prices, listing types, and host characteristics, we hope to spot possible signs of housing pressure or trends that could relate to gentrification.
 
--> (State goal of the report: To find first possible patterns in the data)
+## Analysis 1: Do Prices differ between cities?
 
-## Analysis 1:
----
+This analysis looks at how Airbnb prices differ between European cities. Comparing price levels helps us understand where short-term rentals might be putting more pressure on local housing markets — something often linked to gentrification. High Airbnb prices can make it harder for locals to compete with tourist demand for housing.
 
-Context
 ![alt text](../additional_material/Plots/Airbnb_Price_City.png)
+*Figure 1: Airbnb prices across cities (outliers excluded). Higher median prices can point to stronger market pressure and higher demand for short-term rentals.*
 
-hard to determine patterns regarding gentrification as we would need more information (cost of living, income, ...). 
+The chart shows clear differences between cities. Amsterdam, London, and Paris stand out with noticeably higher prices and wider variation, suggesting stronger demand and possibly more tension in the local housing markets. In contrast, cities like Athens or Budapest have lower and more consistent prices, which may indicate a smaller Airbnb impact for now.
 
-## Analysis 2: 
+Still, we shouldn’t jump to conclusions. Prices alone don’t tell the full story because factors like income levels, cost of living, or housing availability are also important. To really understand gentrification risks, this data would need to be looked at together with broader economic and social information.
+
+## Analysis 2: What are the dominant room types by city?
 ---
-Context
+This analysis looks at the types of Airbnb listings available in each city. The goal is to see whether short-term rentals mostly consist of entire apartments or smaller spaces like private or shared rooms. This matters because a high share of entire homes and apartments often means that housing is being taken off the long-term market. This trend can contribute to gentrification and housing shortages.
+
 ![alt text](../additional_material/Plots/Airbnb_Share_Roomtype.png)
-cities with higher share of entire home/apartments have higer risk of gentrification, because...
+*Figure 2: Share of different Airbnb room types per city. A higher share of entire homes or apartments can signal stronger housing pressure and less availability for local renters.*
 
-## Analysis 3:
+Most cities show that entire homes or apartments make up the majority of listings, especially in cities like Athens, Budapest and Vienna. This suggests that Airbnb is being used more as a commercial rental platform rather than for occasional room sharing which is moving away from Airbnb’s original idea of sharing a spare room.
+
+In contrast, Barcelona and Berlin have a noticeably higher share of private rooms, meaning a larger portion of listings still come from residents renting out part of their own homes.
+
+There is a very low share of shared rooms in any city, with Berlin having the highest share.
+
+From a gentrification perspective, cities with many entire-home listings may face greater housing pressure, since these apartments are effectively removed from the long-term rental market. 
+
+## Analysis 3: Are the AirBnbs used privately or commercially?
 ---
-Context
+This analysis looks at how many listings each host manages in different cities. This helps to see whether Airbnb is mainly used by private individuals or by professional hosts who run several apartments as a business. Understanding this balance is important because a high share of professional hosts can point to more commercial use of the platform, which may increase housing pressure.
+
 ![Airbnb_Share_Host_Portfolio.png](../additional_material/Plots/Airbnb_Share_Host_Portfolio.png)
-cities with higher share of hosts with more than four listings have higher risk for gentrification. The initial business model of airbnb was letting strangers use your apartment while your somewhere else yourself. It is clear that this type of host is not the central business model of the platform anymore.
+*Figure 3: Distribution of host portfolios per city. A larger share of hosts with more than four listings suggests a more commercial use of Airbnb and a higher potential impact on local housing markets.*
+
+The figure shows clear differences between cities. Especially in Lisbon, many hosts manage several apartments, while in cities such as Amsterdam or Berlin, more hosts have only one listing. A large number of multi-listing hosts means that Airbnb is not only used for occasional rentals but has become part of a business model focused on profit.
+
+Cities with many hosts managing more than four listings may face higher risks related to gentrification. When apartments are rented out commercially instead of being available to residents, it can reduce the local housing supply and raise prices. 
 
 ## Analysis 4 – Distribution of host types across city: 
 ---
@@ -151,37 +141,44 @@ It is clearly visible in many cities, that the commercial properties tend to be 
 
 ### Berlin
 ![Airbnb_Berlin.png](../additional_material/Plots/Airbnb_Berlin.png)
+*Figure 4: Distribution of Host type in Berlin*
 
 ### Amsterdam
 ![Airbnb_Amsterdam.png](../additional_material/Plots/Airbnb_Amsterdam.png)
+*Figure 5: Distribution of Host type in Amsterdam*
+
 
 ### Athens
 ![Airbnb_Athens.png](../additional_material/Plots/Airbnb_Athens.png)
+*Figure 6: Distribution of Host type in Athens*
 
 ### Barcelona
 ![Airbnb_Barcelona.png](../additional_material/Plots/Airbnb_Barcelona.png)
-
-### Berlin
-![Airbnb_Berlin.png](../additional_material/Plots/Airbnb_Berlin.png)
+*Figure 7: Distribution of Host type in Barcelona*
 
 ### Budapest
 ![Airbnb_Budapest.png](../additional_material/Plots/Airbnb_Budapest.png)
+*Figure 8: Distribution of Host type in Budapest*
 
 ### Lisboa
 ![Airbnb_Lisboa.png](../additional_material/Plots/Airbnb_Lisboa.png)
+*Figure 9: Distribution of Host type in Lisboa*
 
 ### London
 ![Airbnb_London.png](../additional_material/Plots/Airbnb_London.png)
+*Figure 10: Distribution of Host type in London*
 
 ### Paris
 ![Airbnb_Paris.png](../additional_material/Plots/Airbnb_Paris.png)
+*Figure 11: Distribution of Host type in Paris*
 
 ### Roma
 ![Airbnb_Roma.png](../additional_material/Plots/Airbnb_Roma.png)
+*Figure 12: Distribution of Host type in Roma*
 
 ### Vienna
 ![Airbnb_Vienna.png](../additional_material/Plots/Airbnb_Vienna.png)
-
+*Figure 13: Distribution of Host type in Vienna*
 
 
 
