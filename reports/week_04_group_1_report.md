@@ -4,7 +4,7 @@
 
 | Name | Contribution |
 | :---- | :---- |
-| Shreyas Krishnamurthy | Dataset Overview, Dataset Structure, Descriptive statistics, Notebook questions   |
+| Shreyas Krishnamurthy | Descriptive statistics, Notebook questions   |
 |Daniel Lichtmannecker  | Data Cleaning, Notebook questions, group report   |
 | Tobias Demming | Data Cleaning, Notebook questions, group report   |
 | Ranjit Singh |  Data Cleaning, Notebook questions, group report  |
@@ -19,8 +19,8 @@
 | Number of columns | 19  |
 | Format file (.csv, .txt, etc) |.csv |
 | Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider), authors of the final dataset are equivalent to the authors of the report  |
-| Source (name) | airbnb_final  |
-| Source (link) | [here](../additional_material/airbnb_group1.csv) |
+| Source (name) | airbnb_group1  |
+| Source (link) | [here](../datasets/airbnb_group1.csv) |
 | Date/Time| 10.11.2025, 21:30 |
 
    
