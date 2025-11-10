@@ -135,12 +135,52 @@ cities with higher share of entire home/apartments have higer risk of gentrifica
 ---
 Context
 ![alt text](image-3.png)
-cities with higher share of hosts with more than four listings have higher risk for gentrification
+cities with higher share of hosts with more than four listings have higher risk for gentrification. The initial business model of airbnb was letting strangers use your apartment while your somewhere else yourself. It is clear that this type of host is not the central business model of the platform anymore.
 
-## Analysis 4: 
+## Analysis 4 – Distribution of host types across city: 
 ---
-Maps of different citites
+We showed that hosts with more that four properties are closer to the city center than hosts with only one property. We think this is because commercially operating hosts have pushed out private hosts from the city centers.
+To visualize this we map each property in the city and display whether the host is private (1 flat), semi commercial (2-4 flats) or commercial (> 4 flats).
 
+It is clearly visible in many cities, that the commercial properties tend to be closer to the city center. One could argue that this is a sign of gentrification, however this is highly speculative without any additional information of the housing marketing in the city in general.
+
+**Color Schema:**
+- Private:  Blue
+- Semi commercial: Orange
+- Commercial: Red
+
+### Berlin
+![Airbnb_Berlin.png](../additional_material/Plots/Airbnb_Berlin.png)
+
+### Amsterdam
+![Airbnb_Amsterdam.png](../additional_material/Plots/Airbnb_Amsterdam.png)
+
+### Athens
+![Airbnb_Athens.png](../additional_material/Plots/Airbnb_Athens.png)
+
+### Barcelona
+![Airbnb_Barcelona.png](../additional_material/Plots/Airbnb_Barcelona.png)
+
+### Berlin
+![Airbnb_Berlin.png](../additional_material/Plots/Airbnb_Berlin.png)
+
+### Budapest
+![Airbnb_Budapest.png](../additional_material/Plots/Airbnb_Budapest.png)
+
+### Lisboa
+![Airbnb_Lisboa.png](../additional_material/Plots/Airbnb_Lisboa.png)
+
+### London
+![Airbnb_London.png](../additional_material/Plots/Airbnb_London.png)
+
+### Paris
+![Airbnb_Paris.png](../additional_material/Plots/Airbnb_Paris.png)
+
+### Roma
+![Airbnb_Roma.png](../additional_material/Plots/Airbnb_Roma.png)
+
+### Vienna
+![Airbnb_Vienna.png](../additional_material/Plots/Airbnb_Vienna.png)
 
 
 
