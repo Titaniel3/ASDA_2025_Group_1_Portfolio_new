@@ -180,10 +180,13 @@ It is clearly visible in many cities, that the commercial properties tend to be 
 *Figure 13: Distribution of Host type in Vienna*
 
 ## Analysis 5: Capacity blocked by commercial hosts
-We argue that flats used commercially are no available to the public housing market anymore. Therefore they can be count towards lost public housing capacity.
+We argue that flats used commercially are no available to the public housing market anymore. Therefore they can be count towards lost public housing capacity and might lead to a faster gentrification.
 
 
 ![Airbnb_Capacity.png](../additional_material/Plots/Airbnb_Capacity.png)
+
+*Figure 14: Total capacity offered by commercial hosts*
+
 
 
 
