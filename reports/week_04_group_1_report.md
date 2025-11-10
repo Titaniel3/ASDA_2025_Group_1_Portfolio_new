@@ -39,6 +39,7 @@ Your report should be **concise, factual, and readable** — avoid long theoreti
 | Authors of the dataset | Original Data Scraped by AirDNA (A commercial data provider)  |
 | Source (name) | AirDNA  |
 | Source (link) | https://docs.google.com/spreadsheets/d/1ecopK6oyyb4d_7-QLrCr8YlgFrCetHU7-VQfnYej7JY/edit?usp=sharing  |
+| Date/Time| 6-11-2025 / 15.15.00 |
 
    
    
