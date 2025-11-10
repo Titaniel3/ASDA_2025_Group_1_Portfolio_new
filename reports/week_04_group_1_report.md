@@ -111,3 +111,37 @@ Category columns
 
 **5\. Analysis \- Research question**
 
+-> Explain why looking at AirBnb Data makes sense in the context of Gentrification 
+
+-> Briefly explain what gentrification even means
+
+-> (State goal of the report: To find first possible patterns in the data)
+
+## Analysis 1:
+---
+
+Context
+![alt text](image.png)
+
+hard to determine patterns regarding gentrification as we would need more information (cost of living, income, ...). 
+
+## Analysis 2: 
+---
+Context
+![alt text](image-1.png)
+cities with higher share of entire home/apartments have higer risk of gentrification, because...
+
+## Analysis 3:
+---
+Context
+![alt text](image-3.png)
+cities with higher share of hosts with more than four listings have higher risk for gentrification
+
+## Analysis 4: 
+---
+Maps of different citites
+
+
+
+
+
