@@ -8,7 +8,6 @@
 |Daniel Lichtmannecker  | Data Cleaning, Notebook questions, group report   |
 | Tobias Demming | Data Cleaning, Notebook questions, group report   |
 | Ranjit Singh |  Data Cleaning, Notebook questions, group report  |
-|  |   |
 
 ## Final Dataset Overview
 
@@ -29,7 +28,7 @@
 
 | Feature/variable | Data type | Description | Number of Unique values | Example values |
 | :---- | :---- | :---- | :---- | :---- |
-| Price   | float64  | The final price for the booking (typically a two-night stay for two guests) in Euros (€).  | 10497  | 194.0336981  |
+| Price   | float64  | The final price for the booking (typically a two-night stay for two guests) in Euros (€).  | 10497  | 194.03 |
 | room_type      | object (String)  | The type of space offered: 'Entire home/apt', 'Private room', or 'Shared room'.  | 3  | Private room  |
 | person_capacity   | float64  | The maximum number of guests the listing can accommodate.  | 5  | 2  |
 | host_is_superhost  | bool  | True if the host has Superhost status, False otherwise.  | 2  | False  |
