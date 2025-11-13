@@ -58,7 +58,7 @@ id,color,is duplo?,size type,base shape,base dimensions,number of studs,has slop
 57,Dark Pink,False,Plate,Square,1x1,1,False,0.0,1
 58,Dark Purple,False,Brick,Rectangle,1x2,2,True,45.0,1
 59,Deep Blue,False,Brick,Rectangle,1x2,2,False,0.0,1
-60,Denim Blue,False,Plate,Rectangle,0x0,0,False,0.0,1
+60,Denim Blue,False,Plate,Rectangle,1x1,0,False,0.0,1
 61,Green,False,Brick,Rectangle,1x2,1,True,45.0,1
 62,Green,False,Brick,Rectangle,1x2,2,False,0.0,1
 63,Green,False,Brick,Rectangle,2x6,6,False,0.0,1
@@ -107,7 +107,7 @@ id,color,is duplo?,size type,base shape,base dimensions,number of studs,has slop
 106,Neon Light Yellow,False,Plate,Circle,1x1,1,False,0.0,1
 107,Neon Orange,False,Plate,Rectangle,1x2,2,False,0.0,1
 108,Neon Yellow,False,Plate,Rectangle,1x2,2,False,0.0,1
-109,Neon Yellow,False,Plate,Square,0x0,0,False,0.0,1
+109,Neon Yellow,False,Plate,Square,1x1,0,False,0.0,1
 110,Neon Yellow,False,Plate,Square,1x1,0,True,30.0,1
 111,Olive Green,False,Plate,Rectangle,1x2,2,False,0.0,1
 112,Orange,False,Brick,Circle,1x1,1,False,0.0,1
@@ -145,14 +145,14 @@ id,color,is duplo?,size type,base shape,base dimensions,number of studs,has slop
 144,Red,False,Plate,Square,2x2,4,False,0.0,1
 145,Red,True,Brick,Rectangle,2x4,8,False,0.0,3
 146,Red,True,Brick,Square,2x2,4,False,0.0,2
-147,Red Brown,False,Plate,Rectangle,0x0,0,False,0.0,1
-148,Shiny Green,False,Brick,Square,0x0,0,True,45.0,1
+147,Red Brown,False,Plate,Rectangle,1x1,0,False,0.0,1
+148,Shiny Green,False,Brick,Square,1x1,0,True,45.0,1
 149,Sky Blue,False,Brick,Rectangle,1x2,1,True,45.0,1
 150,Sky Blue,False,Brick,Square,1x1,1,False,0.0,1
 151,Sky Blue,False,Brick,Square,2x2,4,True,45.0,1
 152,Sky Blue,False,Plate,Circle,4x4,12,False,0.0,1
 153,Sky Blue,False,Plate,Square,1x1,1,False,0.0,1
-154,Transparent,False,Plate,Circle,0x0,0,False,0.0,1
+154,Transparent,False,Plate,Circle,1x1,0,False,0.0,1
 155,Transparent Orange,False,Plate,Square,1x1,0,False,0.0,1
 156,Transparent Sky Blue,False,Plate,Circle,1x1,0,False,0.0,1
 157,Transparent Yellow,False,Plate,Circle,1x1,0,False,0.0,1

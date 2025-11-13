@@ -27,19 +27,19 @@ id,color,is duplo?,size type,base shape,base dimensions,number of studs,has slop
 26,Black,False,Brick,Rectangle,1x1,1,True,45.0,1
 27,Dark Blue,False,Brick,Square,1x2,2,True,45.0,1
 28,White,False,Plate,Circle,2x2,4,False,0.0,1
-29,Red Brown,False,Plate,Rectangle,0x0,0,False,0.0,1
-30,Neon Yellow,False,Plate,Square,0x0,0,False,0.0,1
+29,Red Brown,False,Plate,Rectangle,1x1,0,False,0.0,1
+30,Neon Yellow,False,Plate,Square,1x1,0,False,0.0,1
 31,Cyan,False,Plate,Rectangle,1x2,2,False,0.0,1
-32,Denim Blue,False,Plate,Rectangle,0x0,0,False,0.0,1
+32,Denim Blue,False,Plate,Rectangle,1x1,0,False,0.0,1
 33,Ice Blue,False,Brick,Rectangle,1x4,4,False,0.0,1
 34,Capri,False,Brick,Rectangle,1x2,2,False,0.0,1
-35,Shiny Green,False,Brick,Square,0x0,0,True,45.0,1
+35,Shiny Green,False,Brick,Square,1x1,0,True,45.0,1
 36,Olive Green,False,Plate,Rectangle,1x2,2,False,0.0,1
 37,Beige,False,Plate,Trapezium,2x2,4,False,0.0,1
 38,Beige,False,Plate,Square,1x1,1,False,0.0,1
 39,Beige,False,Plate,Circle,2x4,12,False,0.0,1
 40,Bright Pink,False,Plate,Circle,1x1,1,False,0.0,1
-41,Transparent,False,Plate,Circle,0x0,0,False,0.0,1
+41,Transparent,False,Plate,Circle,1x1,0,False,0.0,1
 42,Light Green,True,Plate,Rectangle,2x4,8,False,0.0,1
 43,Light Brown,True,Plate,Rectangle,2x8,16,False,0.0,1
 44,Light Green,True,Brick,Square,2x2,4,False,0.0,1
