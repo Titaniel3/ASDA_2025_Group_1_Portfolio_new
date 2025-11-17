@@ -131,10 +131,39 @@
 | Least frequent frequency | 31          | 192                    | 1600         | 214        |
 
 ## 5. Analysis – Research question
+![alt text](image-9.png)
 
-(Write your research question, analysis steps, results, plots, and interpretation here.)
+*World Map: Countries by Income Group*
 
 ### Governance and institutional quality 
+
+![alt text](image-10.png)
+
+*Correlation Table of governance indicators*
+
+The correlation heatmap shows that all six governance indicators are very strongly and positively correlated with each other (mostly above 0.9). Countries that score well on rule of law also tend to score highly on government effectiveness, regulatory quality and control of corruption. Even the lowest correlations, involving political stability and voice and accountability, remain high. This suggests that governance quality tends to move as a single underlying dimension rather than as independent aspects.
+
+![alt text](image-12.png)
+
+*Pairplot for different governance indicators*
+
+The pairwise scatter plots confirm these strong positive relationships. For every pair of governance indicators, the points form tight upward-sloping clouds, indicating almost linear associations. When coloured by income group, clear patterns emerge:
+
+High-income countries are clustered in the upper-right corner (strong governance across all dimensions).
+
+Low-income countries cluster in the lower-left area with systematically weaker scores.
+
+The kernel density plots along the diagonal show well-separated distributions: high-income countries have much higher average governance scores, while low-income countries are heavily concentrated at the lower end.
+
+![alt text](image-14.png)
+
+*Barplots for average governance scores by income group*
+
+The bar chart compares average governance scores across income groups for all six indicators. High-income countries consistently achieve the highest values, with all indicators well above zero. The pattern is clear: governance quality declines steadily with income level, and the distance between low-income and high-income countries is seen across every measure.
+
+**Conclusion:**
+
+The results indicate that governance indicators capture a common underlying concept of institutional quality and are tightly linked to a country’s income level. Higher-income countries systematically exhibit stronger control of corruption, more effective governments, better regulatory quality, stronger rule of law, greater political stability and more voice and accountability. Lower-income countries tend to combine weaker performance across all these dimensions. This pattern suggests that economic development and institutional quality reinforce each other and that governance gaps mirror broader global income inequalities.
 
 ### Environmental sustainability 
 
