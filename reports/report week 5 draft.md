@@ -91,13 +91,14 @@
 ## 3. Data cleaning
 
 | Issue | Names of Columns affected | Description of the Issue | Action Taken |
-|-------|----------------------------|---------------------------|---------------|
-| Inconsistent column labeling |  |  |  |
-| Wrong data types |  |  |  |
-| Missing values |  |  |  |
-| Duplicates |  |  |  |
-| Inconsistent categories |  |  |  |
-| Other |  |  |  |
+| -------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Inconsistent column labeling** | `agricultural_land%`, `forest_land%`, `trade_in_services%`, etc. | Column names contain `%`, spaces, uppercase/lowercase inconsistency                           | Convert to lowercase, replace `%` with `_perc`, replace spaces with `_` |
+| **Wrong data types**             | `date`, many numeric columns                                     | Some numeric columns are stored as **object** because of special characters or missing values | Convert using `pd.to_numeric(..., errors="coerce")`                     |
+| **Missing values**               | Most indicator columns (ex: CO2, education, land data etc.)      | Missing values due to unavailable country–year data                                           | Handle using median/mode OR keep NaN depending on analysis              |
+| **Duplicates**                   | Entire rows                                                      | Your dataset **has duplicates** (because many indicators repeat in the Excel file)            | Remove using `df.drop_duplicates()`                                     |
+| **Inconsistent categories**      | `region`, `income_group`, `country`                              | Some values contain trailing spaces or inconsistent case                                      | Normalize using strip(), title()                                        |
+| **Other issues**                 | Outliers in numeric indicators                                   | Extremely high values for indicators (e.g., CO2, GDP)                                         | Use IQR filtering before analysis                                       |
+
 
 
 ---
