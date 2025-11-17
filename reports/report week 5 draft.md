@@ -121,14 +121,15 @@
 
 ### Category columns
 
-|        | Column 1 | Column 2 | Column 3 |
-|--------|----------|----------|----------|
-| Count  |          |          |          |
-| Number of unique values | | | |
-| Most frequent value | | | |
-| Most frequent value (frequency) | | | |
-| Least frequent value | | | |
-| Least frequent value (frequency) | | | |
+|                 | country     | region                | income_group | date       |
+|--------------------------|-------------|------------------------|--------------|------------|
+| Count                    | 13727       | 13727                 | 13727        | 13727      |
+| Number of unique values  | 215         | 7                      | 4            | 64         |
+| Most frequent value      | Afghanistan | Europe & Central Asia | High income  | 1990-01-01 |
+| Most frequent frequency  | 64          | 3712                   | 5504         | 215        |
+| Least frequent value     | Vietnam     | North America          | Low income   | 2023-01-01 |
+| Least frequent frequency | 31          | 192                    | 1600         | 214        |
+
 
 
 ---
