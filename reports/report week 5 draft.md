@@ -167,6 +167,30 @@ The results indicate that governance indicators capture a common underlying conc
 
 ### Environmental sustainability 
 
+![alt text](image-15.png)
+
+*CO2 per capita over time*
+
+The line chart shows that CO₂ emissions per capita are consistently highest in high-income countries and lowest in low-income countries. However, in recent years we see a slow decline for high income countries which might indicate that recent sustainability regulations in high income countries show effects.
+
+![alt text](image-18.png)
+
+*Boxplot: Electric power consumption 2014*
+
+The 2014 boxplot highlights the extreme inequality in electricity use: high-income countries consume vastly more electricity per person, with a wide range of values, whereas all lower-income groups cluster at very modest levels.
+
+![alt text](image-17.png)
+
+*Electric power consumption over time*
+
+The long-term trends reveal a large and widening gap in electricity consumption between income levels. High-income countries experience a strong and steady increase over time, while the three lower income groups remain at much lower and relatively flat consumption levels.
+
+**Conclusion:**
+
+Across all indicators, environmental resource use scales strongly with income. High-income countries consume far more electricity and generate substantially higher CO₂ emissions per capita, while lower-income countries use much less energy and emit far less carbon. Although lower-income regions contribute least to global environmental pressure, they remain the most vulnerable to environmental risks and have the least access to energy resources, highlighting persistent global disparities in environmental sustainability.
+
+
+
 ### Economic performance and poverty reduction
 
 ### Human well-being and health (Daniel)
