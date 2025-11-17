@@ -17,12 +17,12 @@
 | Item | Description |
 |------|-------------|
 | Dataset name | World Bank Development Indicators Dataset |
-| Number of rows |  |
-| Number of columns |  |
+| Number of rows | 13,728 |
+| Number of columns | 52 |
 | Format file (.csv, .txt, etc.) | .csv and .xlsx |
-| Authors of the dataset |  |
-| Source (name) |  |
-| Source (link) |  |
+| Authors of the dataset | The World Bank |
+| Source (name) | World Bank Open Data – World Development Indicators (WDI) |
+| Source (link) | https://data.worldbank.org/ |
 | Date/ Time | 17.11.2025, 17:30|
 
 
