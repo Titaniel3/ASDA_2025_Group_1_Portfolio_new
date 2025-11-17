@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-|      |              |
-|      |              |
-|      |              |
-|      |              |
+| Shreyas Krishnamurthy     |              |
+| Daniel Lichtmannecker     |              |
+|  Tobias Demming    |              |
+| Ranjit Singh     |              |
 
 
 ---
@@ -16,13 +16,14 @@
 
 | Item | Description |
 |------|-------------|
-| Dataset name |  |
+| Dataset name | World Bank Development Indicators Dataset |
 | Number of rows |  |
 | Number of columns |  |
-| Format file (.csv, .txt, etc.) |  |
+| Format file (.csv, .txt, etc.) | csv and xlsx |
 | Authors of the dataset |  |
 | Source (name) |  |
 | Source (link) |  |
+| Date/ Time | 17.11.2025, 17:30|
 
 
 ---
