@@ -135,7 +135,7 @@
 
 *World Map: Countries by Income Group*
 
-### Governance and institutional quality 
+### Governance and institutional quality (Shreyas)
 
 ![alt text](image-10.png)
 
@@ -165,7 +165,7 @@ The bar chart compares average governance scores across income groups for all si
 
 The results indicate that governance indicators capture a common underlying concept of institutional quality and are tightly linked to a country’s income level. Higher-income countries systematically exhibit stronger control of corruption, more effective governments, better regulatory quality, stronger rule of law, greater political stability and more voice and accountability. Lower-income countries tend to combine weaker performance across all these dimensions. This pattern suggests that economic development and institutional quality reinforce each other and that governance gaps mirror broader global income inequalities.
 
-### Environmental sustainability 
+### Environmental sustainability (Tobias)
 
 ![alt text](image-15.png)
 
@@ -191,11 +191,29 @@ Across all indicators, environmental resource use scales strongly with income. H
 
 
 
-### Economic performance and poverty reduction
+### Economic performance and poverty reduction (Ranjit)
+
+![alt text](image-19.png)
+
+*GDP per Capita Across Income Groups*
+
+The boxplot shows clear differences in GDP per capita across income groups. High-income countries have by far the highest levels and widest spread, while low-income countries remain clustered at very low values. 
+
+![alt text](image-20.png)
+
+The violin plots display the distribution of income inequality within each income group. Statistical tests did not show significant differences between all the groups here.
+
+![alt text](image-21.png)
+
+*Mean Health & Education Expenditure by Income Group*
+
+The grouped bar chart compares average government spending on health and education. High-income countries allocate considerably more resources to both sectors, whereas low-income countries spend only a small fraction in comparison.
+
+**Conclusion:**
+
+Economic indicators show strong and persistent disparities between income groups. High-income countries consistently outperform other groups across GDP per capita, social spending, and income equality. Upper-middle-income countries have made progress but still face higher inequality and lower investment in public services. Low-income countries remain at a structural disadvantage, with limited fiscal capacity and lo
 
 ### Human well-being and health (Daniel)
-
----
 
 **1. Life Expectancy at birth**
 
@@ -255,5 +273,5 @@ Access to electricity is strongly associated with national income levels. High-i
 
 ## 6. AI Disclaimer
 
-(Include your required disclaimer here.)
+We used AI for some code for running statistical tests like the Anova and for some complex visualizations.
 
