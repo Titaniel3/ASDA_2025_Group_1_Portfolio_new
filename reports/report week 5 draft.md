@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |              |
-| Daniel Lichtmannecker     |              |
-|  Tobias Demming    |              |
-| Ranjit Singh     |              |
+| Shreyas Krishnamurthy     |     Governance and institutional quality, descriptive dataset overview         |
+| Daniel Lichtmannecker     |   Data cleaning, Human well-being and health, final report creation         |
+|  Tobias Demming    |    Data cleaning, Environmental sustainability, final report creation            |
+| Ranjit Singh     |      Data cleaning, Economic performance and poverty reduction, final report creation         |
 
 
 ---
@@ -19,7 +19,7 @@
 | Dataset name | World Bank Development Indicators Dataset |
 | Number of rows | 13,728 |
 | Number of columns | 52 |
-| Format file (.csv, .txt, etc.) | .csv and .xlsx |
+| Format file (.csv, .txt, etc.) | .xlsx |
 | Authors of the dataset | The World Bank |
 | Source (name) | World Bank Open Data – World Development Indicators (WDI) |
 | Source (link) | https://data.worldbank.org/ |
