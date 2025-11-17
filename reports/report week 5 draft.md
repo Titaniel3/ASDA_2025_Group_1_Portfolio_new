@@ -130,10 +130,6 @@
 | Least frequent value     | Vietnam     | North America          | Low income   | 2023-01-01 |
 | Least frequent frequency | 31          | 192                    | 1600         | 214        |
 
-
-
----
-
 ## 5. Analysis – Research question
 
 (Write your research question, analysis steps, results, plots, and interpretation here.)
@@ -146,18 +142,56 @@
 
 ### Human well-being and health (Daniel)
 
-1. Life Expectancy at birth
-- Anova shows significant differences for all income groups
+---
+
+**1. Life Expectancy at birth**
+
 ![alt text](image.png)
+
+*Boxplot: Life expectancy at birth (2021)*
+
+The box plot shows life expectancy in the four global income groups for the year 2021. The graph clearly shows that life expectancy increases systematically with rising income.
+
 ![alt text](image-1.png)
+
+*Barplot with confidence intervals (2021)*
+
+The bar chart plot shows the average life expectancy per income group in 2021, supplemented by 95% confidence intervals. The differences that were visible in the box plot are statistically confirmed here.
+
 ![alt text](image-2.png)
 
+*Life expectancy 1960 - 2021*
 
-2. Access to electricity
-- Anova shows significant difference for all income groups
+This graph shows the long-term development of life expectancy over more than 60 years.
+All income groups are recording rising values, but at very different levels. The gap between the groups has persisted for decades – an indication of continuing global inequalities in health.
+
+**Conclusion:**
+
+The results clearly show that countries with higher incomes consistently perform better. As early as 2021, there is a clear gap between the groups, which is visible in both the box plots and the confidence intervals. It is particularly striking that high-income countries not only achieve higher life expectancies, but also show lower dispersion, indicating more stable living conditions and more reliable health systems. The data underscores that global health inequalities are very closely linked to a country's economic resources. The analysis clearly shows that development and health policies must focus particularly on countries that are structurally disadvantaged due to low income.
+
+**2. Access to electricity**
+
 ![alt text](image-3.png)
+
+*Boxplot: Access to electricity in 2021 by income group*
+
+The boxplot shows substantial differences in access to electricity across income groups in 2021. High-income and upper-middle-income countries have nearly universal access, with very limited variation. Low Income countries have way lower values and higher variance. Electricity access increases systematically with income level.
+
+
 ![alt text](image-4.png)
+
+*World maps: Country-level access in 2000 and 2021*
+
+The two world maps compare access to electricity in 2000 and 2021. In 2000, large parts of Sub-Saharan Africa and parts of South Asia had very low access levels, while high-income regions were already fully electrified. By 2021, many regions show substantial improvements, especially in lower-middle-income countries. However, severe gaps remain in several low-income countries, where access has improved but still lags far behind the rest of the world. The maps highlight both global progress and persistent regional inequalities.
+
 ![alt text](image-5.png)
+
+*Time series: Mean access to electricity by income group (1960–2021)*
+
+The time-series plot shows consistent long-term improvements in all income groups, but at very different levels. High-income countries reached near-universal access decades ago and remain stable. Upper-middle-income countries show steady growth and approach full coverage. Lower-middle-income countries improve gradually from low starting values. Low-income countries start from extremely low access and increase only slowly, maintaining a wide gap relative to all other groups.
+
+**Conclusion:**
+Access to electricity is strongly associated with national income levels. High-income and upper-middle-income countries have reached near-universal access, while lower-middle-income countries show improving but uneven progress. Low-income countries remain significantly behind, with large portions of the population still lacking reliable access.
 
 3. Government expenditure on education
 - Anova shows only significant difference for some income groups -> no clear pattern here!
