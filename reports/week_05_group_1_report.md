@@ -131,6 +131,13 @@
 | Least frequent frequency | 31          | 192                    | 1600         | 214        |
 
 ## 5. Analysis – Research question
+
+**Introduction:**
+
+This report examines how countries across different income groups perform in key areas of sustainable development. Using World Bank indicators, we compare four global income categories—Low, Lower-Middle, Upper-Middle and High income—across several important dimensions: governance quality, environmental sustainability, economic performance and poverty reduction, and human well-being.
+
+Understanding differences between income groups is practically relevant because these indicators shape long-term development prospects. They influence people’s living conditions, governments’ ability to provide public services, and countries’ resilience to global challenges such as climate change, economic shocks, and social instability. By comparing income groups side by side, this analysis highlights where development gaps remain, where progress has been made, and which areas may require stronger policy attention.
+
 ![alt text](../additional_material/image-9.png)
 
 *World Map: Countries by Income Group*
