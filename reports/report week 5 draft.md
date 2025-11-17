@@ -19,7 +19,7 @@
 | Dataset name | World Bank Development Indicators Dataset |
 | Number of rows |  |
 | Number of columns |  |
-| Format file (.csv, .txt, etc.) | csv and xlsx |
+| Format file (.csv, .txt, etc.) | .csv and .xlsx |
 | Authors of the dataset |  |
 | Source (name) |  |
 | Source (link) |  |
