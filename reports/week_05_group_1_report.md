@@ -20,7 +20,7 @@
 | Number of rows | 13,728 |
 | Number of columns | 52 |
 | Format file (.csv, .txt, etc.) |          .xlsx |
-| Authors of the dataset | The World Bank |
+| Authors of the dataset | Authors of the report |
 | Source (name) | Worldbank_group1 |
 | Source (link) | [here](../additional_material/worldbank_group1.xlsx) |
 | Date/ Time | 17.11.2025, 22:30|
