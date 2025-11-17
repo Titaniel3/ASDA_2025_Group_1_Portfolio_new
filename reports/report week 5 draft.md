@@ -31,10 +31,59 @@
 ## 2. Dataset Structure
 
 | Feature/variable | Data type | Description | Number of Unique values | Example values |
-|------------------|-----------|-------------|---------------------------|----------------|
-|                  |           |             |                           |                |
-|                  |           |             |                           |                |
-|                  |           |             |                           |                |
+| ----------------------------------------- | ------------- | ------------------------------------------ | ----------------- | ------------------------------- |
+| country                                   | object        | Name of the country                        | 215               | Afghanistan, Albania, Algeria   |
+| region                                    | object        | Geographical region classification         | 7                 | Middle East, North Africa       |
+| income_group                              | object        | World Bank income category                 | 4                 | Low income, Upper middle income |
+| date                                      | object        | Year of recorded data                      | 64                | 1960-01-01, 1961-01-01          |
+| agricultural_land%                        | float64       | % of land used for agriculture             | 7916              | 57.87, 57.95, 58.03             |
+| forest_land%                              | float64       | % of land covered by forest                | 5107              | 1.85, 28.78                     |
+| land_area                                 | float64       | Total land area (sq km)                    | 735               | 652230, 27400                   |
+| avg_precipitation                         | float64       | Average annual rainfall (mm)               | 179               | 327, 1485                       |
+| trade_in_services%                        | float64       | Trade in services as % of GDP              | 6959              | 5.94, 4.92                      |
+| control_of_corruption_estimate            | float64       | Governance: corruption control score       | 4558              | -1.29, -1.17                    |
+| control_of_corruption_std                 | float64       | Standard error for corruption estimate     | 2614              | 0.34, 0.32                      |
+| access_to_electricity%                    | float64       | Population with electricity access (%)     | 3172              | 4.44, 9.29                      |
+| renewvable_energy_consumption%            | float64       | Renewable energy consumption (%)           | 3926              | 23.0, 23.69                     |
+| electric_power_consumption                | float64       | Electricity use (kWh per capita)           | 5771              | 532.02, 568.40                  |
+| CO2_emisions                              | float64       | CO₂ emissions (kilotons)                   | 5690              | 2046.87, 1941.37                |
+| other_greenhouse_emisions                 | float64       | Other greenhouse gases (kt CO₂ equivalent) | 5827              | 11630.79, 11899.99              |
+| population_density                        | float64       | People per square kilometer                | 11776             | 13.47, 13.75                    |
+| inflation_annual%                         | float64       | Annual inflation rate (%)                  | 8475              | 12.68, 6.78                     |
+| real_interest_rate                        | float64       | Real interest rate (%)                     | 4333              | 10.04, -3.58                    |
+| risk_premium_on_lending                   | float64       | Lending risk premium (%)                   | 2236              | 9.69, 6.18                      |
+| research_and_development_expenditure%     | float64       | R&D expenditure (% of GDP)                 | 2198              | 0.08, 0.15                      |
+| central_goverment_debt%                   | float64       | Government debt (% of GDP)                 | 1834              | 35.75, 37.48                    |
+| tax_revenue%                              | float64       | Tax revenue (% of GDP)                     | 4262              | 6.96, 5.28                      |
+| expense%                                  | float64       | Government expenditure (% of GDP)          | 4070              | 20.57, 24.24                    |
+| goverment_effectiveness_estimate          | float64       | Governance effectiveness score             | 4457              | -2.17, -2.10                    |
+| goverment_effectiveness_std               | float64       | Standard error for effectiveness score     | 1734              | 0.18, 0.30                      |
+| human_capital_index                       | float64       | Human capital development index            | 568               | 0.389, 0.393                    |
+| doing_business                            | float64       | Ease of Doing Business rank                | 186               | 173, 82                         |
+| time_to_get_operation_license             | float64       | Days to get an operation license           | 243               | 13.8, 13.7                      |
+| statistical_performance_indicators        | float64       | Data/statistics performance index          | 1211              | 37.22, 42.57                    |
+| individuals_using_internet%               | float64       | Internet usage (% of population)           | 4608              | 0.00, 0.0047                    |
+| logistic_performance_index                | float64       | Logistics quality index                    | 522               | 1.21, 2.24                      |
+| military_expenditure%                     | float64       | Military spending (% of GDP)               | 7420              | 1.62, 1.86                      |
+| GDP_current_US                            | float64       | GDP (current US dollars)                   | 10327             | 537M, 548M                      |
+| political_stability_estimate              | float64       | Political stability score                  | 4590              | -2.41, -2.42                    |
+| political_stability_std                   | float64       | Standard error for stability               | 609               | 0.47, 0.43                      |
+| rule_of_law_estimate                      | float64       | Rule of law score                          | 4671              | -1.78, -1.73                    |
+| rule_of_law_std                           | float64       | Standard error for rule of law             | 2631              | 0.35, 0.32                      |
+| regulatory_quality_estimate               | float64       | Regulatory quality score                   | 4574              | -2.09, -2.06                    |
+| regulatory_quality_std                    | float64       | Standard error for regulatory quality      | 1625              | 0.38, 0.44                      |
+| government_expenditure_on_education%      | float64       | Govt. education spending (% of GDP)        | 4848              | 1.16, 1.11                      |
+| government_health_expenditure%            | float64       | Govt. health spending (% of GDP)           | 3866              | 0.08, 0.65                      |
+| multidimensional_poverty_headcount_ratio% | float64       | People in multidimensional poverty (%)     | 264               | 51.7, 49.4                      |
+| gini_index                                | float64       | Income inequality index                    | 369               | 27.0, 31.7                      |
+| birth_rate                                | float64       | Births per 1,000 people                    | 8745              | 50.34, 50.44                    |
+| death_rate                                | float64       | Deaths per 1,000 people                    | 7374              | 31.92, 31.34                    |
+| life_expectancy_at_birth                  | float64       | Life expectancy (years)                    | 11381             | 32.53, 33.06                    |
+| population                                | float64       | Total population                           | 13403             | 8,622,466 ; 8,790,140           |
+| rural_population                          | float64       | Rural population                           | 12750             | 7,898,093 ; 8,026,804           |
+| voice_and_accountability_estimate         | float64       | Voice and accountability score             | 4719              | -1.90, -2.03                    |
+| voice_and_accountability_std              | float64       | Standard error for voice & accountability  | 2504              | 0.26, 0.25                      |
+| intentional_homicides                     | float64       | Intentional homicide rate                  | 3816              | 4.07, 3.48                      |
 
 
 ---
