@@ -21,9 +21,9 @@
 | Number of columns | 52 |
 | Format file (.csv, .txt, etc.) |          .xlsx |
 | Authors of the dataset | The World Bank |
-| Source (name) | World Bank Open Data – World Development Indicators (WDI) |
-| Source (link) | https://data.worldbank.org/ |
-| Date/ Time | 17.11.2025, 17:30|
+| Source (name) | Worldbank_group1 |
+| Source (link) | [here](../additional_material/worldbank_group1.xlsx) |
+| Date/ Time | 17.11.2025, 22:30|
 
 
 ---
