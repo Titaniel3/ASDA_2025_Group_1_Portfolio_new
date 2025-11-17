@@ -249,11 +249,11 @@ The results clearly show that countries with higher incomes consistently perform
 The boxplot shows substantial differences in access to electricity across income groups in 2021. High-income and upper-middle-income countries have nearly universal access, with very limited variation. Low Income countries have way lower values and higher variance. Electricity access increases systematically with income level.
 
 
-![alt text](image-4.png)
+![alt text](image-22.png)
 
 *World maps: Country-level access in 2000 and 2021*
 
-The two world maps compare access to electricity in 2000 and 2021. In 2000, large parts of Sub-Saharan Africa and parts of South Asia had very low access levels, while high-income regions were already fully electrified. By 2021, many regions show substantial improvements, especially in lower-middle-income countries. However, severe gaps remain in several low-income countries, where access has improved but still lags far behind the rest of the world. The maps highlight both global progress and persistent regional inequalities.
+The world map shows access to electricity in 2021. Some parts of Sub-Saharan Africa and parts of South Asia have comparibly low access levels, while high-income regions are fully electrified. The map highlights both global progress in almost full electrification and persistent regional inequalities.
 
 ![alt text](image-5.png)
 
