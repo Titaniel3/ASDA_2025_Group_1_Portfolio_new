@@ -138,19 +138,19 @@ This report examines how countries across different income groups perform in key
 
 Understanding differences between income groups is practically relevant because these indicators shape long-term development prospects. They influence people’s living conditions, governments’ ability to provide public services, and countries’ resilience to global challenges such as climate change, economic shocks, and social instability. By comparing income groups side by side, this analysis highlights where development gaps remain, where progress has been made, and which areas may require stronger policy attention.
 
-![alt text](../additional_material/image-9.png)
+![alt text](../additional_material/Plots/week05_image-9.png)
 
 *World Map: Countries by Income Group*
 
 ### Governance and institutional quality (Shreyas)
 
-![alt text](../additional_material/image-10.png)
+![alt text](../additional_material/Plots/week05_image-10.png)
 
 *Correlation Table of governance indicators*
 
 The correlation heatmap shows that all six governance indicators are very strongly and positively correlated with each other (mostly above 0.9). Countries that score well on rule of law also tend to score highly on government effectiveness, regulatory quality and control of corruption. Even the lowest correlations, involving political stability and voice and accountability, remain high. This suggests that governance quality tends to move as a single underlying dimension rather than as independent aspects.
 
-![alt text](../additional_material/image-12.png)
+![alt text](../additional_material/Plots/week05_image-12.png)
 
 *Pairplot for different governance indicators*
 
@@ -162,7 +162,7 @@ Low-income countries cluster in the lower-left area with systematically weaker s
 
 The kernel density plots along the diagonal show well-separated distributions: high-income countries have much higher average governance scores, while low-income countries are heavily concentrated at the lower end.
 
-![alt text](../additional_material/image-14.png)
+![alt text](../additional_material/Plots/week05_image-14.png)
 
 *Barplots for average governance scores by income group*
 
@@ -174,19 +174,19 @@ The results indicate that governance indicators capture a common underlying conc
 
 ### Environmental sustainability (Tobias)
 
-![alt text](../additional_material/image-15.png)
+![alt text](../additional_material/Plots/week05_image-15.png)
 
 *CO2 per capita over time*
 
 The line chart shows that CO₂ emissions per capita are consistently highest in high-income countries and lowest in low-income countries. However, in recent years we see a slow decline for high income countries which might indicate that recent sustainability regulations in high income countries show effects.
 
-![alt text](../additional_material/image-18.png)
+![alt text](../additional_material/Plots/week05_image-18.png)
 
 *Boxplot: Electric power consumption 2014*
 
 The 2014 boxplot highlights the extreme inequality in electricity use: high-income countries consume vastly more electricity per person, with a wide range of values, whereas all lower-income groups cluster at very modest levels.
 
-![alt text](../additional_material/image-17.png)
+![alt text](../additional_material/Plots/week05_image-17.png)
 
 *Electric power consumption over time*
 
@@ -200,17 +200,17 @@ Across all indicators, environmental resource use scales strongly with income. H
 
 ### Economic performance and poverty reduction (Ranjit)
 
-![alt text](../additional_material/image-19.png)
+![alt text](../additional_material/Plots/week05_image-19.png)
 
 *GDP per Capita Across Income Groups*
 
 The boxplot shows clear differences in GDP per capita across income groups. High-income countries have by far the highest levels and widest spread, while low-income countries remain clustered at very low values. 
 
-![alt text](../additional_material/image-20.png)
+![alt text](../additional_material/Plots/week05_image-20.png)
 
 The violin plots display the distribution of income inequality within each income group. Statistical tests did not show significant differences between all the groups here.
 
-![alt text](../additional_material/image-21.png)
+![alt text](../additional_material/Plots/week05_image-21.png)
 
 *Mean Health & Education Expenditure by Income Group*
 
@@ -224,19 +224,19 @@ Economic indicators show strong and persistent disparities between income groups
 
 **1. Life Expectancy at birth**
 
-![alt text](../additional_material/image.png)
+![alt text](../additional_material/Plots/week05_image.png)
 
 *Boxplot: Life expectancy at birth (2021)*
 
 The box plot shows life expectancy in the four global income groups for the year 2021. The graph clearly shows that life expectancy increases systematically with rising income.
 
-![alt text](../additional_material/image-1.png)
+![alt text](../additional_material/Plots/week05_image-1.png)
 
 *Barplot with confidence intervals (2021)*
 
 The bar chart plot shows the average life expectancy per income group in 2021, supplemented by 95% confidence intervals. The differences that were visible in the box plot are statistically confirmed here.
 
-![alt text](../additional_material/image-2.png)
+![alt text](../additional_material/Plots/week05_image-2.png)
 
 *Life expectancy 1960 - 2021*
 
@@ -249,20 +249,20 @@ The results clearly show that countries with higher incomes consistently perform
 
 **2. Access to electricity**
 
-![alt text](../additional_material/image-3.png)
+![alt text](../additional_material/Plots/week05_image-3.png)
 
 *Boxplot: Access to electricity in 2021 by income group*
 
 The boxplot shows substantial differences in access to electricity across income groups in 2021. High-income and upper-middle-income countries have nearly universal access, with very limited variation. Low Income countries have way lower values and higher variance. Electricity access increases systematically with income level.
 
 
-![alt text](../additional_material/image-22.png)
+![alt text](../additional_material/Plots/week05_image-22.png)
 
 *World maps: Country-level access in 2000 and 2021*
 
 The world map shows access to electricity in 2021. Some parts of Sub-Saharan Africa and parts of South Asia have comparibly low access levels, while high-income regions are fully electrified. The map highlights both global progress in almost full electrification and persistent regional inequalities.
 
-![alt text](../additional_material/image-5.png)
+![alt text](../additional_material/Plots/week05_image-5.png)
 
 *Time series: Mean access to electricity by income group (1960–2021)*
 
@@ -273,9 +273,9 @@ Access to electricity is strongly associated with national income levels. High-i
 
 3. Government expenditure on education
 - Anova shows only significant difference for some income groups -> no clear pattern here!
-![alt text](../additional_material/image-6.png)
-![alt text](../additional_material/image-7.png)
-![alt text](../additional_material/image-8.png)
+![alt text](../additional_material/Plots/week05_image-6.png)
+![alt text](../additional_material/Plots/week05_image-7.png)
+![alt text](../additional_material/Plots/week05_image-8.png)
 ---
 
 ## 6. AI Disclaimer
