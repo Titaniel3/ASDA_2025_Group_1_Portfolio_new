@@ -58,11 +58,11 @@ In this chapter we will provide our results for the different categories.
 
 Hypothesis: They are all highly correlated, xxx
 
-![alt text](../additional_material\Plots\week05_image-10.png)<p>*Figure 1: Correlation Heat Map for governance and institutional quality*</p>
+![alt text](../additional_material/Plots/week05_image-10.png)<p>*Figure 1: Correlation Heat Map for governance and institutional quality*</p>
 
 Results show that they all are highly correlated, all correlations are significant
 
-![alt text](../additional_material\Plots\week05_image-12.png)<p>*Figure 2: Scatter Plot Map for governance and institutional quality*</p>
+![alt text](../additional_material/Plots/week05_image-12.png)<p>*Figure 2: Scatter Plot Map for governance and institutional quality*</p>
 
 This image shows clear pattern that high income countries are on the upper right and low income on the low left side for all the variables
 
