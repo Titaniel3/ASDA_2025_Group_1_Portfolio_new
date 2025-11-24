@@ -2,10 +2,10 @@
 
 We extend the research from last week by now looking in-depth in different variables and seeing if they are correlated with each other. For that, we cluster the dataset into four different areas: 
 
-    - Governance and institutional quality (Shreyas)
-    - Environmental sustainability (Tobias)
-    - Economic performance and poverty reduction (Ranjit)
-    - Human well-being and health (Daniel)
+- Governance and institutional quality (Shreyas)
+- Environmental sustainability (Tobias)
+- Economic performance and poverty reduction (Ranjit)
+- Human well-being and health (Daniel)
 
 **Table of Contents**:
  1. Introduction and research question
@@ -140,6 +140,6 @@ The analysis shows several clear relationships between important development ind
 Overall, these results show that many development indicators move in the same direction: stronger economies often have better infrastructure, healthier populations, and more resources for public investment. While we cannot conclude that one factor directly causes another, the correlations highlight how different aspects of development are connected and shape a country's path toward sustainability.
 
 
-
+AI-Disclaimer: We used AI for helping us with the code for more complex visualizations.
 
 
