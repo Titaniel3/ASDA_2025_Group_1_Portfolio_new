@@ -70,6 +70,7 @@ This image shows clear pattern that high income countries are on the upper right
 ### 2.2 Environmental sustainability
 
 Overview over relevant variables:
+
 ![alt text](image-1.png)<p>Figure 3: Correlation Heat Map for environmental sustainabilty</p>
 
 Hypothesis: Higher GDP per capita is correlated with higher Electric Power Consumption
