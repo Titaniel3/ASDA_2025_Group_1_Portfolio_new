@@ -48,7 +48,13 @@ We extend the research from last week by now looking in-depth in different varia
 
 ## 1. Introduction and research question
 
-xxxx (Daniel)
+Understanding global development patterns requires more than looking at individual indicators in isolation. Many social, economic, environmental, and health-related phenomena are interconnected, and exploring the relationships between them can reveal important insights into how countries progress over time. By investigating correlations across different dimensions-such as governance, sustainability, economic performance, and human well-being-we aim to uncover whether consistent patterns exist and what these patterns might imply for global development and long-term sustainability.
+
+This analysis is particularly relevant because identifying such relationships can help policymakers and organizations understand which areas reinforce each other, which variables move together, and where targeted interventions may have the greatest impact.
+
+*Research Question*:
+
+To what extent are key indicators across governance, environmental sustainability, economic performance, and human well-being correlated with each other, and what do these relationships reveal about broader global development patterns and pathways toward sustainability?
 
 ## 2. Results
 
@@ -56,44 +62,35 @@ In this chapter we will provide our results for the different categories.
 
 ### 2.1 Governance and institutional quality
 
-Hypothesis: They are all highly correlated, xxx
+**Hypothesis**: The variables in this area are all very intercorrelated.
 
 ![alt text](../additional_material/Plots/week05_image-10.png)<p>*Figure 1: Correlation Heat Map for governance and institutional quality*</p>
 
-Results show that they all are highly correlated, all correlations are significant
+The results of Spearman Correlation Tests for each variable-pair are all significant. All of these variables are positively correlated, therefore the Hypothesis can be confirmed.
 
 ![alt text](../additional_material/Plots/week05_image-12.png)<p>*Figure 2: Scatter Plot Map for governance and institutional quality*</p>
 
-This image shows clear pattern that high income countries are on the upper right and low income on the low left side for all the variables
+This image shows a clear pattern. The high income countries are on the upper right end of each plot and low income countries are all on the low left side.
 
 ### 2.2 Environmental sustainability
 
-Overview over relevant variables:
+**Overview over relevant variables:**
 
 ![alt text](image-1.png)<p>*Figure 3: Correlation Heat Map for environmental sustainabilty*</p>
 
-Hypothesis: Higher GDP per capita is correlated with higher Electric Power Consumption
+**Correlation**: GDP per capita vs. Electric Power Consumption
+
+**Hypothesis**: Higher GDP per capita is correlated with higher Electric Power Consumption
 
 ![alt text](image-2.png)<p>*Figure 4: Scatter Plot for gdp per capita vs. electric power consumption per capita*</p>
 
-**Shorten this**: (DANIEL)
+The scatter plot shows a clear positive relationship between electric power consumption and GDP per capita. The correlation is strong and statistically significant (*r = 0.69*, *p = 0.00*), indicating that countries with higher electricity use tend to have higher economic output.
 
-r = 0.69, p-value = 0.00
-
-The scatter plot suggests a **general upward trend**: countries with higher electric
-power consumption per capita tend to have higher GDP per capita. The correlation
-coefficient quantifies this relationship. A positive and statistically significant
-correlation indicates a strong direction: as electricity consumption increases, GDP
-per capita tends to increase as well.
-
-However, **correlation does NOT imply causation.** This analysis does not tell us whether
-electricity consumption causes higher GDP, whether GDP growth increases energy use,
-or whether both are influenced by other structural factors (e.g., industrialization,
-infrastructure, climate, policy, or geography).
+However, this is only a correlation. It does not show whether electricity consumption drives economic growth, whether higher GDP increases energy use, or whether both are shaped by broader factors such as industrialization or infrastructure.
 
 ### 2.3 Economic performance and poverty reduction
 
-Overview over the variables
+**Overview over the relevant variables**:
 
 ![alt text](image-4.png)<p>*Figure 5: Correlation Heat map for economic performance and poverty reduction*</p>
 
