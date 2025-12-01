@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |            |
-| Daniel Lichtmannecker     |          |
-|  Tobias Demming    |               |
-| Ranjit Singh     |               |
+| Shreyas Krishnamurthy     |    Analysis + Report       |
+| Daniel Lichtmannecker     |    Analysis + Report       |
+|  Tobias Demming    |          Analysis + Report      |
+| Ranjit Singh     |         Analysis + Report       |
 
 
 ---
@@ -58,4 +58,38 @@
 ## 4. Analysis
 
 Our research focuses on finding out, whether you can predict fish weight based on the length of a fish. 
+
 The hypothesis is: There is a linear relationship between fish length and fish weights.
+
+1. To check, we first square transformed the weight (dependent variable) to get a rather normally distribution.
+
+![alt text](image.png)
+
+2. We then checked which length to use (as there are three different ones). For that we created a correlation heatmap. 
+
+![alt text](image-1.png)
+
+The lengths are exremely highly correlated. After computing the variance inflation factor we decised to use length 2 for our model.
+
+3. We then split the data into test and training data. 127 rows (80%) were in in the training data and 32 rows (20%) in the test data. 
+Our model had as independent variables: Length, Height, Width and all Species types (which we dummy coded)
+Our model has as dependent variable: Weight of fish
+-> The independent variables of our models should try to predict the dependent variable!
+
+Our linear regression showed the following plot: 
+
+![alt text](image-2.png)
+
+4. Test values showed the following results: 
+- RMSE: 54.62
+- MAI: 34.88
+- R-squared: 97.90
+- MAPE: 11.98
+
+5. We then looked at our residuals:
+
+![alt text](image-3.png)
+
+The histogram of residuals showes that they are approximately normally distributed: 
+
+![alt text](image-4.png)
