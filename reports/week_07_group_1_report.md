@@ -79,11 +79,11 @@ The hypothesis is: There is a linear relationship between fish length and fish w
 
 1. To check, we first square transformed the weight (dependent variable) to get a rather normally distribution.
 
-![alt text](week_7image.png)
+![alt text](../additional_material/week_7image.png)
 
 2. We then checked which length to use (as there are three different ones). For that we created a correlation heatmap. 
 
-![alt text](week_7image-1.png)
+![alt text](../additional_material/week_7image-1.png)
 
 The lengths are exremely highly correlated. After computing the variance inflation factor we decised to use length 2 for our model.
 
@@ -94,7 +94,7 @@ Our model has as dependent variable: Weight of fish
 
 Our linear regression showed the following plot: 
 
-![alt text](week_7image-2.png)
+![alt text](../additional_material/week_7image-2.png)
 
 4. Test values showed the following results: 
 - RMSE: 54.62
@@ -104,11 +104,11 @@ Our linear regression showed the following plot:
 
 5. We then looked at our residuals:
 
-![alt text](week_7image-3.png)
+![alt text](../additional_material/week_7image-3.png)
 
 The histogram of residuals showes that they are approximately normally distributed: 
 
-![alt text](week_7image-4.png)
+![alt text](../additional_material/week_7image-4.png)
 
 
 6. Our results show that fish weight can be predicted very accurately using just a few simple body measurements. With an R² of 97.9% and low prediction errors, the model provides reliable estimates that are suitable for operational use.
