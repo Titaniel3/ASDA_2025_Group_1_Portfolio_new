@@ -19,10 +19,10 @@
 | Dataset name | Fish Market |
 | Number of rows | 159 |
 | Number of columns | 7 |
-| Format file (.csv, .txt, etc.) |.csv |
+| Format file (.csv, .txt, etc.) |.xlsx |
 | Authors of the dataset | Vipul L Rathod |
-| Source (name) | Fish Market  |
-| Source (link) | https://www.kaggle.com/datasets/vipullrathod/fish-market/data |
+| Source (name) | Fish_final  |
+| Source (link) | [here](../additional_material/Fish_final.xlsx) |
 | Date/ Time | 30.11.2025, 22:30|
 
 ## 2. Dataset Structure
