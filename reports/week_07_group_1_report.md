@@ -18,7 +18,7 @@
 |------|-------------|
 | Dataset name | Fish Market |
 | Number of rows | 159 |
-| Number of columns | 7 |
+| Number of columns | 14 |
 | Format file (.csv, .txt, etc.) |.xlsx |
 | Authors of the dataset | Authors of the report |
 | Source (name) | Fish_final  |
