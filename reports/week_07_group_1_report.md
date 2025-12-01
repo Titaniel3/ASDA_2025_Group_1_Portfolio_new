@@ -20,7 +20,7 @@
 | Number of rows | 159 |
 | Number of columns | 7 |
 | Format file (.csv, .txt, etc.) |.xlsx |
-| Authors of the dataset | Vipul L Rathod |
+| Authors of the dataset | Authors of the report |
 | Source (name) | Fish_final  |
 | Source (link) | [here](../additional_material/Fish_final.xlsx) |
 | Date/ Time | 30.11.2025, 22:30|
