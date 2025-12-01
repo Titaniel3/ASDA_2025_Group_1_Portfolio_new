@@ -27,13 +27,29 @@
 
 ## 2. Dataset Structure
 
-| Feature/variable | Data type | Description | Number of Unique values | Example values |
-| ---------------- | --------- | ----------- | ----------------------- | -------------- |
-|                  |           |             |                         |                |
-|                  |           |             |                         |                |
-|                  |           |             |                         |                |
+| Feature/variable  | Data type | Description                              | Number of Unique values | Example values      |
+| ----------------- | --------- | ---------------------------------------- | ----------------------- | ------------------- |
+| Weight            | float64   | Target variable, weight of fish in grams | 101                     | 242, 290, 340       |
+| Length1           | float64   | Vertical length of the fish              | 116                     | 23.2, 24.0, 23.9    |
+| Length2           | float64   | Diagonal length of the fish              | 93                      | 25.4, 26.3, 26.5    |
+| Length3           | float64   | Cross length of the fish                 | 124                     | 30.0, 31.2, 31.1    |
+| Height            | float64   | Height of the fish (scaled)              | 154                     | 11.52, 12.48, 12.38 |
+| Width             | float64   | Diagonal width of the fish (scaled)      | 152                     | 4.02, 4.31, 4.70    |
+| sqrt_weight       | float64   | Square-root transformed weight           | 101                     | 15.56, 17.03, 18.44 |
+| Species_Bream     | bool      | Dummy variable: 1 = Bream                | 2                       | True, False         |
+| Species_Parkki    | bool      | Dummy variable: 1 = Parkki               | 2                       | False, True         |
+| Species_Perch     | bool      | Dummy variable: 1 = Perch                | 2                       | False, True         |
+| Species_Pike      | bool      | Dummy variable: 1 = Pike                 | 2                       | False, True         |
+| Species_Roach     | bool      | Dummy variable: 1 = Roach                | 2                       | False, True         |
+| Species_Smelt     | bool      | Dummy variable: 1 = Smelt                | 2                       | False, True         |
+| Species_Whitefish | bool      | Dummy variable: 1 = Whitefish            | 2                       | False, True         |
 
-## 3. Descriptive statistics
+
+## 3. Data Cleaning
+
+We changed the "species" column into one different column for each of the species which we then dummy coded, f.e. "Species_Bream" or "Species_Parkki" with 1 or 0 for the answers.
+
+## 4. Descriptive statistics
 
 |             | Count | Mean   | Std    | Min  | 25%    | 50%    | 75%    | Max     |
 | ----------- | ----- | ------ | ------ | ---- | ------ | ------ | ------ | ------- |
@@ -55,7 +71,7 @@
 | **Least frequent value (frequency)** | 6         |
 
 
-## 4. Analysis
+## 5. Analysis
 
 Our research focuses on finding out, whether you can predict fish weight based on the length of a fish. 
 
@@ -93,3 +109,7 @@ Our linear regression showed the following plot:
 The histogram of residuals showes that they are approximately normally distributed: 
 
 ![alt text](image-4.png)
+
+
+6. Our results show that fish weight can be predicted very accurately using just a few simple body measurements. With an R² of 97.9% and low prediction errors, the model provides reliable estimates that are suitable for operational use.
+For BlueWave Seafoods, this means fish no longer need to be weighed individually to achieve accurate pricing, shipping, and inventory planning. The model allows faster processing at the port, reduces manual effort, and helps standardize decision-making across different fish species. Overall, this improves efficiency, consistency, and cost control in daily operations.
