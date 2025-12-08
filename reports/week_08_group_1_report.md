@@ -86,13 +86,13 @@
 | month_sin      | 45634.0 | 0.02    | 0.71    | -1.00   | -0.50   | 0.00    | 0.87    | 1.00     | 0.50         | 23.50            |
 | month_cos      | 45634.0 | -0.08   | 0.70    | -1.00   | -0.87   | 0.50    | 1.00    | 1.00     | 0.49         | -6.04            |
 
-### 5. Descriptive Plots of the variables
+### 5. Inspection of the Target Variable.
 
 Histogram of Target Volume (traffic_volume): ![alt text](image.png)
 
 ![alt text](image-1.png)
 
-We see an interesting pattern here. Obviously not normally distributed. 
+We see an interesting pattern here. The target variable is obviously not normally distributed. However, for using OLS regression, normal distribution if necessary. That is why one should not use an OLS regression but rather a GLM.
 
 ![alt text](image-3.png)
 
@@ -113,3 +113,30 @@ Cloudy weather seems to show the highest traffic volume.
 ![alt text](image-7.png)
 
 On Non-Holidays there is way more traffic than on holidays. 
+
+We decided to includ all factors in our model that could potentially impact traffic_volume. Our goal therefore is, to generate the best model possible to fit the data.
+
+
+
+### 6. Model Comparison Results
+
+#### 6.1 Poisson Model
+
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+### 6.2 Model Comparison: Poisson vs. Poisson Null Model
+
+| Criterion                          | Poisson Null Model        | Poisson Full Model        |
+|-----------------------------------|----------------------------|----------------------------|
+| AIC                               | ~52,900,000                | ~21,560,000                |
+| McFadden’s R²                     | 0 (baseline)               | ~0.59                      |
+| Residuals                         | Very large, unstructured   | Structured, increasing spread (variance underestimated) |
+| Handling Overdispersion           | Severe overdispersion      | Still strong overdispersion; Poisson assumptions violated |
+
+The comparison shows that adding predictors greatly improves the model fit compared to the null model, which has no explanatory power. The full Poisson model captures meaningful relationships between traffic volume and the predictor variables, and it explains a substantial amount of variation that the null model cannot account for.
+
+However, the Poisson model still struggles with overdispersion: the data vary much more than a Poisson distribution can accommodate, which leads to inflated residuals and unreliable standard errors. Because of this, the Poisson specification is informative but statistically insufficient on its own. A Negative Binomial model is expected to handle the variance much more appropriately and should be preferred for inference.
+
+
