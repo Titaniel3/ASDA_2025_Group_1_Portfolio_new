@@ -175,7 +175,7 @@ The Poisson model achieves lower MAE and RMSE and slightly higher correlation, m
 
 **So now which model is better?**
 
-On the one hand, the Negative Binomial model clearly dominates the Poisson model in terms of model fit and distributional assumptions: it has a much lower AIC, higher McFadden’s R² and a dispersion parameter close to one, whereas the Poisson model suffers from severe overdispersion.
+On the one hand, the **Negative Binomial model clearly dominates the Poisson model** in terms of model fit and distributional assumptions: it has a much lower AIC, higher McFadden’s R² and a dispersion parameter close to one, whereas the Poisson model suffers from severe overdispersion.
 
 On the other hand, when we focus purely on point prediction on the test set, the Poisson model achieves slightly smaller MAE and RMSE and a higher R², while the Negative Binomial performs better in terms of MAPE and relative errors at low traffic volumes.
 
