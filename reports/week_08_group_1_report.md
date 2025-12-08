@@ -88,29 +88,29 @@
 
 ## 5. Inspection of the Target Variable.
 
-Histogram of Target Volume (traffic_volume): ![alt text](image.png)
+Histogram of Target Volume (traffic_volume): ![alt text](../additional_material/Plots/w8_image.png)
 
-![alt text](image-1.png)
+![alt text](../additional_material/Plots/w8_image-1.png)
 
 We see an interesting pattern here. The target variable is obviously not normally distributed. However, for using OLS regression, normal distribution if necessary. That is why one should not use an OLS regression but rather a GLM.
 
-![alt text](image-3.png)
+![alt text](../additional_material/Plots/w8_image-3.png)
 
 The correlation heatmap of numerical variables shows that there are no large correlations between any of the  variables. Therefore, there is no redundandency in the data.
 
-![alt text](image-4.png)
+![alt text](../additional_material/Plots/w8_image-4.png)
 
 This plot shows that the highest traffic volume is on friday, on the weekend it is less.
 
-![alt text](image-5.png)
+![alt text](../additional_material/Plots/w8_image-5.png)
 
 Traffic volume seems to peak at around 16.00 o clock.
 
-![alt text](image-6.png)
+![alt text](../additional_material/Plots/w8_image-6.png)
 
 Cloudy weather seems to show the highest traffic volume. 
 
-![alt text](image-7.png)
+![alt text](../additional_material/Plots/w8_image-7.png)
 
 On Non-Holidays there is way more traffic than on holidays. 
 
@@ -122,9 +122,9 @@ We decided to includ all factors in our model that could potentially impact traf
 
 ### 6.1 Poisson Model
 
-![alt text](image-8.png)
+![alt text](../additional_material/Plots/w8_image-8.png)
 
-![alt text](image-9.png)
+![alt text](../additional_material/Plots/w8_image-9.png)
 
 ### 6.2 Model Comparison: Poisson vs. Poisson Null Model
 
@@ -141,13 +141,12 @@ However, the Poisson model still struggles with overdispersion: the data vary mu
 
 ### 6.3 Negative Binomial Model
 
-![alt text](image-10.png)
+![alt text](../additional_material/Plots/w8_image-10.png)
 
-![alt text](image-11.png)
+![alt text](../additional_material/Plots/w8_image-11.png)
 
 ### 6.4 Model Comparison: Negative Binomial Model vs. Negative Binomial Null Model
 
-### Model Comparison: Negative Binomial vs. Negative Binomial Null Model
 
 | Criterion                          | NB Null Model                | NB Full Model                                   |
 |-----------------------------------|------------------------------|-------------------------------------------------|
@@ -158,9 +157,9 @@ However, the Poisson model still struggles with overdispersion: the data vary mu
 
 ## 7. Model Comparison: Poisson vs. Negative Binomial Model
 
-![alt text](image-12.png)
+![alt text](../additional_material/Plots/w8_image-12.png)
 
-![alt text](image-13.png)
+![alt text](../additional_material/Plots/w8_image-13.png)
 
 | Metric | Poisson | NegBin |
 |--------|---------|--------|
