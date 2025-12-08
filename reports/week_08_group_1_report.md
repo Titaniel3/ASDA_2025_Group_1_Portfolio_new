@@ -139,4 +139,24 @@ The comparison shows that adding predictors greatly improves the model fit compa
 
 However, the Poisson model still struggles with overdispersion: the data vary much more than a Poisson distribution can accommodate, which leads to inflated residuals and unreliable standard errors. Because of this, the Poisson specification is informative but statistically insufficient on its own. A Negative Binomial model is expected to handle the variance much more appropriately and should be preferred for inference.
 
+### 6.3 Negative Binomial Model
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+### 6.4 Model Comparison: Negative Binomial Model vs. Negative Binomial Null Model
+
+### Model Comparison: Negative Binomial vs. Negative Binomial Null Model
+
+| Criterion                          | NB Null Model                | NB Full Model                                   |
+|-----------------------------------|------------------------------|-------------------------------------------------|
+| AIC                               | ~680,000                     | ~630,700                                        |
+| McFadden’s R²                     | 0 (baseline)                 | ~0.07                                           |
+| Residuals                         | Large, unstructured          | Clearly smaller; still some pattern but reduced |
+| Handling Overdispersion           | Strong overdispersion        | Dispersion close to 1; overdispersion largely handled |
+
+
+
+
 
