@@ -60,28 +60,28 @@
 
 ### 3. Data Cleaning
 
-| Issue                       | Names of Columns affected | Description of the Issue | Action Taken |
-|----------------------------|----------------------------|---------------------------|--------------|
-| Inconsistent column labeling |                            |                           |              |
-| Wrong data types             |                            |                           |              |
-| Time Gaps                    | date_time                  |                           |              |
-| Duplicates                   |                            |                           |              |
-| Inconsistent categories      |                            |                           |              |
-| Other                        |                            |                           |              |
+1. Encoding categorical variables: Holiday was transformed to be binary and weather_main was hot encoded.
+
+2. Temperature was converted from farenheit to celcius
+
+3. Tiime date was encoded from linear to a cyclic representation
+
+4. Outliers for rain and temperature were removed, as they did not make any sense (f.e. -273.15 degree celcius)
 
 ### 4. Descriptive Statistics
 
-Numeric columns
-
-| Statistic        | Target Variable | Predictor 1 | Predictor 2 | Predictor 3 | ... |
-|------------------|-----------------|-------------|-------------|-------------|-----|
-| Count            |                 |             |             |             |     |
-| Mean             |                 |             |             |             |     |
-| Standard deviation |              |             |             |             |     |
-| Min              |                 |             |             |             |     |
-| 25%              |                 |             |             |             |     |
-| 50% (Median)     |                 |             |             |             |     |
-| 75%              |                 |             |             |             |     |
-| Max              |                 |             |             |             |     |
-| Variance         |                 |             |             |             |     |
-| Dispersion index (= Variance / Mean) | |         |             |             |     |
+| Variable        | Count    | Mean    | Std     | Min     | 25%     | 50%     | 75%     | Max      | Variance     | Dispersion Index |
+|----------------|----------|---------|---------|---------|---------|---------|---------|----------|--------------|------------------|
+| **traffic_volume** | 45634.0 | 3263.11 | 1986.52 | 0.00    | 1194.00 | 3389.00 | 4931.75 | 7280.00  | 3946253.31   | 1209.35          |
+| rain_1h        | 45634.0 | 0.14    | 1.03    | 0.00    | 0.00    | 0.00    | 0.00    | 55.63    | 1.06         | 7.72             |
+| snow_1h        | 45634.0 | 0.00    | 0.01    | 0.00    | 0.00    | 0.00    | 0.00    | 0.51     | 0.00         | 0.30             |
+| clouds_all     | 45634.0 | 48.48   | 39.06   | 0.00    | 10.00   | 64.00   | 90.00   | 100.00   | 1525.84      | 31.47            |
+| holiday_binary | 45634.0 | 0.00    | 0.04    | 0.00    | 0.00    | 0.00    | 0.00    | 1.00     | 0.00         | 1.00             |
+| temp_c         | 45634.0 | 8.47    | 12.84   | -29.76  | -0.73   | 10.38   | 19.03   | 36.92    | 164.76       | 19.46            |
+| day_of_week    | 45634.0 | 2.98    | 2.00    | 0.00    | 1.00    | 3.00    | 5.00    | 6.00     | 4.02         | 1.35             |
+| hour_sin       | 45634.0 | 0.00    | 0.71    | -1.00   | -0.71   | 0.00    | 0.71    | 1.00     | 0.50         | 35.79            |
+| hour_cos       | 45634.0 | 0.01    | 0.71    | -1.00   | -0.71   | 0.00    | 0.71    | 1.00     | 0.50         | 62.57            |
+| day_sin        | 45634.0 | 0.00    | 0.71    | -0.97   | -0.78   | 0.00    | 0.78    | 0.97     | 0.50         | 169.36           |
+| day_cos        | 45634.0 | 0.01    | 0.71    | -0.90   | -0.22   | 0.62    | 1.00    | 1.00     | 0.50         | 92.68            |
+| month_sin      | 45634.0 | 0.02    | 0.71    | -1.00   | -0.50   | 0.00    | 0.87    | 1.00     | 0.50         | 23.50            |
+| month_cos      | 45634.0 | -0.08   | 0.70    | -1.00   | -0.87   | 0.50    | 1.00    | 1.00     | 0.49         | -6.04            |
