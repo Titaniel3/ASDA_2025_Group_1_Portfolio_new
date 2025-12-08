@@ -85,3 +85,31 @@
 | day_cos        | 45634.0 | 0.01    | 0.71    | -0.90   | -0.22   | 0.62    | 1.00    | 1.00     | 0.50         | 92.68            |
 | month_sin      | 45634.0 | 0.02    | 0.71    | -1.00   | -0.50   | 0.00    | 0.87    | 1.00     | 0.50         | 23.50            |
 | month_cos      | 45634.0 | -0.08   | 0.70    | -1.00   | -0.87   | 0.50    | 1.00    | 1.00     | 0.49         | -6.04            |
+
+### 5. Descriptive Plots of the variables
+
+Histogram of Target Volume (traffic_volume): ![alt text](image.png)
+
+![alt text](image-1.png)
+
+We see an interesting pattern here. Obviously not normally distributed. 
+
+![alt text](image-3.png)
+
+The correlation heatmap of numerical variables shows that there are no large correlations between any of the  variables. Therefore, there is no redundandency in the data.
+
+![alt text](image-4.png)
+
+This plot shows that the highest traffic volume is on friday, on the weekend it is less.
+
+![alt text](image-5.png)
+
+Traffic volume seems to peak at around 16.00 o clock.
+
+![alt text](image-6.png)
+
+Cloudy weather seems to show the highest traffic volume. 
+
+![alt text](image-7.png)
+
+On Non-Holidays there is way more traffic than on holidays. 
