@@ -9,7 +9,7 @@
 |  Tobias Demming    |   Comparing the GLMs          |
 | Ranjit Singh     |        Analysis of GLMs        |
 
-### 1. Dataset Overview
+## 1. Dataset Overview
 
 | Item                | Description |
 |---------------------|-------------|
@@ -23,7 +23,7 @@
 | Source (name)       |             |
 | Source (link)       |             |
 
-### 2. Dataset Structure
+## 2. Dataset Structure
 
 | Feature / Variable         | Data type      | Description | Number of unique values | Example values                     |
 |----------------------------|----------------|-------------|--------------------------|------------------------------------|
@@ -58,7 +58,7 @@
 
 
 
-### 3. Data Cleaning
+## 3. Data Cleaning
 
 1. Encoding categorical variables: Holiday was transformed to be binary and weather_main was hot encoded.
 
@@ -68,7 +68,7 @@
 
 4. Outliers for rain and temperature were removed, as they did not make any sense (f.e. -273.15 degree celcius)
 
-### 4. Descriptive Statistics
+## 4. Descriptive Statistics
 
 | Variable        | Count    | Mean    | Std     | Min     | 25%     | 50%     | 75%     | Max      | Variance     | Dispersion Index |
 |----------------|----------|---------|---------|---------|---------|---------|---------|----------|--------------|------------------|
@@ -86,7 +86,7 @@
 | month_sin      | 45634.0 | 0.02    | 0.71    | -1.00   | -0.50   | 0.00    | 0.87    | 1.00     | 0.50         | 23.50            |
 | month_cos      | 45634.0 | -0.08   | 0.70    | -1.00   | -0.87   | 0.50    | 1.00    | 1.00     | 0.49         | -6.04            |
 
-### 5. Inspection of the Target Variable.
+## 5. Inspection of the Target Variable.
 
 Histogram of Target Volume (traffic_volume): ![alt text](image.png)
 
@@ -118,9 +118,9 @@ We decided to includ all factors in our model that could potentially impact traf
 
 
 
-### 6. Model Comparison Results
+## 6. Model Comparison Results
 
-#### 6.1 Poisson Model
+### 6.1 Poisson Model
 
 ![alt text](image-8.png)
 
