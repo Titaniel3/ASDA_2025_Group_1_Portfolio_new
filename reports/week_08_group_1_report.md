@@ -181,3 +181,7 @@ On the other hand, when we focus purely on point prediction on the test set, the
 
 Overall, the **Negative Binomial model** is preferable for statistical inference and handling overdispersion, whereas the **Poisson model** has a small advantage in average predictive accuracy on this particular test split.
 
+## 8. AI Disclaimer
+
+We used AI to help us with difficult code that we could not figure out alone.
+
