@@ -13,8 +13,6 @@
 
 | Item                | Description |
 |---------------------|-------------|
-| Dataset name        |         traffic_final_new    |
-| Time Period         |   2013 - 2018          |
 | Number of rows      |      45635       |
 | Number of columns   |          28   |
 | Format file (.csv, .txt, etc) |  .xlsx |
@@ -64,7 +62,7 @@
 
 2. Temperature was converted from farenheit to celcius
 
-3. Tiime date was encoded from linear to a cyclic representation
+3. Time date was encoded from linear to a cyclic representation
 
 4. Outliers for rain and temperature were removed, as they did not make any sense (f.e. -273.15 degree celcius)
 
@@ -154,6 +152,9 @@ However, the Poisson model still struggles with overdispersion: the data vary mu
 | McFadden’s R²                     | 0 (baseline)                 | ~0.07                                           |
 | Residuals                         | Large, unstructured          | Clearly smaller; still some pattern but reduced |
 | Handling Overdispersion           | Strong overdispersion        | Dispersion close to 1; overdispersion largely handled |
+
+The comparison between the Negative Binomial null model and the full model shows that including all predictors substantially improves model performance. The AIC drops sharply, indicating a much better overall fit than the null model. McFadden’s R² increases from zero to a positive value, showing that the predictors explain a meaningful portion of the variation in traffic volume. The residuals become smaller and more structured, and the dispersion parameter moves close to one, which means the Negative Binomial model successfully addresses the strong overdispersion present in the Poisson framework. 
+
 
 ## 7. Model Comparison: Poisson vs. Negative Binomial Model
 
