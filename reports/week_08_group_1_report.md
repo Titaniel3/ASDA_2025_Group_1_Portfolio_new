@@ -156,7 +156,28 @@ However, the Poisson model still struggles with overdispersion: the data vary mu
 | Residuals                         | Large, unstructured          | Clearly smaller; still some pattern but reduced |
 | Handling Overdispersion           | Strong overdispersion        | Dispersion close to 1; overdispersion largely handled |
 
+## 7. Model Comparison: Poisson vs. Negative Binomial Model
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+| Metric | Poisson | NegBin |
+|--------|---------|--------|
+| MAE    | 1006.72 | 1417.63 |
+| RMSE   | 1266.66 | 1491.28 |
+| MAPE   | 72.59%  | 62.75% |
+| R²     | 0.668   | 0.742 |
+| Corr   | 0.769   | 0.748 |
+
+The Poisson model achieves lower MAE and RMSE and slightly higher correlation, meaning it performs better on average error-based prediction metrics. The Negative Binomial model, however, shows lower MAPE, indicating better relative accuracy for smaller traffic volumes. 
 
 
+**So now which model is better?**
 
+On the one hand, the Negative Binomial model clearly dominates the Poisson model in terms of model fit and distributional assumptions: it has a much lower AIC, higher McFadden’s R² and a dispersion parameter close to one, whereas the Poisson model suffers from severe overdispersion.
+
+On the other hand, when we focus purely on point prediction on the test set, the Poisson model achieves slightly smaller MAE and RMSE and a higher R², while the Negative Binomial performs better in terms of MAPE and relative errors at low traffic volumes.
+
+Overall, the **Negative Binomial model** is preferable for statistical inference and handling overdispersion, whereas the **Poisson model** has a small advantage in average predictive accuracy on this particular test split.
 
