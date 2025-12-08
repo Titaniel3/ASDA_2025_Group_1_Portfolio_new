@@ -15,13 +15,13 @@
 |---------------------|-------------|
 | Dataset name        |         traffic_final_new    |
 | Time Period         |   2013 - 2018          |
-| Sampling Frequency  |             |
 | Number of rows      |      45635       |
 | Number of columns   |          28   |
 | Format file (.csv, .txt, etc) |  .xlsx |
 | Creator of the dataset |   Same as the authors of the report      |
-| Source (name)       |             |
-| Source (link)       |             |
+| Source (name)       |    Group1_traffic         |
+| Source (link)       |      [Final Dataset: Group1_traffic.xlsx](../datasets/Group1_traffic.xlsx)
+       |
 
 ## 2. Dataset Structure
 
