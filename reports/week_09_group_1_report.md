@@ -126,7 +126,7 @@ Numbers refer to the cleaned version of the dataset used for the model.
 
 ## 5. Inspection of the Target Variable (Sales Price)
 
-![img.png](../additional_material/Plots/w9_plot1.png)
+![w9_plot1.png](../additional_material/Plots/w9_plot1.png)
 
 The distribution of `SalePrice` is right-skewed with a long upper tail and several high-priced outliers, indicating deviations from strict normality that are typical for housing market data.
 Despite this, a Gaussian GLM with an identity link was chosen to keep predictions directly interpretable in price units and to allow transparent assessment of individual feature effects. 
