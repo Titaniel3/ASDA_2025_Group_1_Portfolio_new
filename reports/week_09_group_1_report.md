@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |         |
-| Daniel Lichtmannecker     |         |
-|  Tobias Demming    |       |
-| Ranjit Singh     |        |
+| Shreyas Krishnamurthy     |  Visualizations       |
+| Daniel Lichtmannecker     |     Data pre-processing and data cleaning    |
+|  Tobias Demming    |    Writing the report   |
+| Ranjit Singh     |     Running the model, performing model reduction   |
 
 ## 1. Dataset Overview
 
@@ -397,6 +397,14 @@ Finally the year the house was built (`YearBuilt`) also played a significant rol
 
 These findings align with common real estate principles, highlighting the importance of quality, size, and modernity in determining property values.
 
-## 9. Conclusion
+## 9. What does this mean for potential house buyers in Ames?
+
+The old saying goes: "Quality has its price". This saying can be confirmed by our analysis. By far the most relevant cost driver is, not surprisingly, overall quality. However, depending on ones personal preferences, potential house buyers can save some money by beeing aware of potentially "unnessary" cost drivers.
+
+
+## 10. Conclusion
 
 The analysis of the Ames Housing Dataset using a Generalized Linear Model provided valuable insights into the factors influencing house prices in Ames. Through systematic data cleaning, variable selection, and model optimization, we developed a parsimonious model that effectively captures the key drivers of housing prices. The final model highlighted the significance of overall quality, living area size, and construction year as primary determinants of expected sales price.
+
+
+
