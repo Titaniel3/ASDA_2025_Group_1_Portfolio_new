@@ -401,6 +401,14 @@ These findings align with common real estate principles, highlighting the import
 
 The old saying goes: "Quality has its price". This saying can be confirmed by our analysis. By far the most relevant cost driver is, not surprisingly, overall quality. However, depending on ones personal preferences, potential house buyers can save some money by beeing aware of potentially "unnessary" cost drivers.
 
+One such feature for some buyers might be Garage Capacity: This variable has the 7th highest effect on Sale Price. The plot below shows that especially garages with a capacity for two or three cars lead to clearly higher Sale Prices than garages which only fit zero or one car. Therefore, buyers who only own one car should be careful to not pay an extra due to a large garage.
+
+![alt text](image-1.png)
+
+The next feature in the list is the construction year of the house. Houeses that were only recently built show a higher Sale Price than older houses. Buyers might be financially better off by buying an older house and investing some money in renovation, if needed. 
+
+
+
 
 ## 10. Conclusion
 
