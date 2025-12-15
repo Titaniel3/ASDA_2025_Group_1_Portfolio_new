@@ -372,6 +372,14 @@ On unseen test data, the model maintains good predictive accuracy:
     Root mean squared Error : 26479.23820749496
     Mean Squared Error: 18369.64155166746
     R2 Score: 0.8743246896574697
+    
+
+![alt text](image-6.png)
+
+
+The following histogram further shows, that the residuals seem to be normally distributed.
+![alt text](image-5.png)
+
 
 
 ## 8. What drives house prices in Ames?
@@ -407,8 +415,13 @@ One such feature for some buyers might be Garage Capacity: This variable has the
 
 The next feature in the list is the construction year of the house. Houeses that were only recently built show a higher Sale Price than older houses. Buyers might be financially better off by buying an older house and investing some money in renovation, if needed. 
 
+![alt text](image-2.png)
 
+Finally, houses with excellent kitchen quality or exterior quality cost way more than those with only "typical/standard" or even "good" quality of those features. Potential house buyers who want to get a great deal should aim at buying homes which do not have excellent quality in those features and rather invest some money in this later. This approach might likely be cheaper than initially buying a home with excellent quality in those features. For example, houses with an "excellent" kitchen quality cos 327.176$ on average, houses with "good" kitchen quality only 212.273$. 
 
+![alt text](image-3.png)
+
+![alt text](image-4.png)
 
 ## 10. Conclusion
 
