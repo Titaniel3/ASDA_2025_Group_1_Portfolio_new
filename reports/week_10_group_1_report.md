@@ -74,3 +74,7 @@ The global map based on the PCA clusters highlights clear regional patterns. Hig
 **Policy implications**
 
 For policymakers, these patterns suggest that sustained happiness is closely linked to long-term investments in health, social protection, and trustworthy institutions. At the same time, the presence of medium-happiness regions indicates that targeted improvements in governance, social inclusion, and opportunity can yield substantial well-being gains even without reaching the income levels of the highest-ranking countries.
+
+## 5. AI Disclaimer
+
+AI was used to help installing the PCA library which was harder than expected
