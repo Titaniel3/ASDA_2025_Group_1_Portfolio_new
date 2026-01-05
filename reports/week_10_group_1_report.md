@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |   |
-| Daniel Lichtmannecker     |    |
-|  Tobias Demming    |    |
-| Ranjit Singh     |      |
+| Shreyas Krishnamurthy     | Supporting the analysis & the report  |
+| Daniel Lichtmannecker     |  Creating the Report and interpreting the results |
+|  Tobias Demming    |  Supporting the analysis & the report  |
+| Ranjit Singh     | Performing the PCA, Creating the Visualizations     |
 
 ## 1. Dataset Overview
 
@@ -39,7 +39,7 @@ Numbers refer to the cleaned version of the dataset used for the PCA
 
 ## 3. Results of the PCA of Global Happiness Indicators
 
-![alt text](image.png)
+![alt text](../additional_material/Plots/w10.2.png)
 
 Principal Component Analysis (PCA) is a method that reduces complex datasets into a small number of underlying dimensions that summarize the main patterns in the data. In the PCA plot, each point represents a country, while the arrows indicate how strongly different happiness-related factors shape these dimensions.
 
@@ -47,27 +47,27 @@ Principal Component 1 (PC1) is primarily driven by healthy life expectancy and G
 
 Principal Component 2 (PC2) is dominated by generosity, and is closely related to freedom to make life choices and perceptions of corruption. This component reflects an “Institutional and Social Quality” dimension, capturing aspects of trust, civic culture, and individual autonomy that are not purely economic. Countries can score relatively high on PC2 even if their income levels are moderate, indicating that governance and social norms play an independent role in shaping well-being.
 
-![alt text](image-1.png)
+![alt text](../additional_material/Plots/w10.1.png)
 
 The table shows which original variables contribute most strongly to each principal component. Healthy life expectancy dominates the first component, while generosity, freedom to make life choices, perceptions of corruption, and social support are most influential in subsequent components, indicating that global happiness is shaped by both material conditions and institutional as well as social factors.
 
-![alt text](image-2.png)
+![alt text](../additional_material/Plots/w10.3.png)
 
 Taken together, the five top PCs explain almost all of the variance in the dataset. 
 
 ## 4. Further Interpretation of the Results
 
-![alt text](image-3.png)
+![alt text](../additional_material/Plots/w10.6.png)
 
 The correlation matrix shows that GDP per capita, healthy life expectancy, and social support are closely linked, meaning that wealth, health, and social security often go hand in hand. Generosity, on the other hand, is only weakly connected to these factors, suggesting that social attitudes and values capture a different aspect of happiness that is not directly driven by economic conditions.
 
 For policymakers, this means that improving income and health systems is important, but fostering trust, social values, and supportive institutions requires targeted policies that go beyond purely economic measures
 
-![alt text](image-4.png)
+![alt text](../additional_material/Plots/w10.5.png)
 
 The ranking of the top 10 happiest countries shows a strong concentration in Northern and Western Europe, with countries such as Finland, Denmark, Norway, and Switzerland consistently achieving very high happiness scores. These countries tend to combine high living standards, strong social support systems, good health outcomes, and high levels of institutional trust.
 
-![alt text](image-5.png)
+![alt text](../additional_material/Plots/w10.4.png)
 
 The global map based on the PCA clusters highlights clear regional patterns. High-happiness countries are predominantly found in Europe, North America, and Oceania, while many countries in Sub-Saharan Africa and parts of South Asia fall into the low-happiness cluster. Regions with medium happiness scores, such as Latin America and Eastern Europe, often display mixed profiles, combining moderate economic conditions with varying levels of institutional quality and social cohesion.
 
