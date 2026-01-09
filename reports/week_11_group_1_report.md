@@ -1,12 +1,12 @@
-#  Happiness Index Score  Dataset Analysis Project Report 
+#  Spotify 5000 songs Dataset Analysis Project Report 
 
 ## 0. Authors of the report
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     | Supporting the analysis & the report  |
-| Daniel Lichtmannecker     |  Creating the Report and interpreting the results |
-|  Tobias Demming    |  Supporting the analysis & the report  |
-| Ranjit Singh     | Performing the PCA, Creating the Visualizations     |
+| Shreyas Krishnamurthy     |  |
+| Daniel Lichtmannecker     |   |
+|  Tobias Demming    |    |
+| Ranjit Singh     | |
 
 ## 1. Dataset Overview
