@@ -15,10 +15,10 @@ Numbers refer to the final version of the dataset used for creating the playlist
 
 | Item                | Description                                                                                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Number of rows      | 156                                                                                                                                                                          |
-| Number of columns   | 7                                                                                                                                                                          |
+| Number of rows      | 5235                                                                                                                                                                         |
+| Number of columns   |  75                                                                                                                                                                         |
 | Format file (.csv, .txt, etc) | .csv                                                                                                                                                                        |
 | Creator of the dataset | Same as the authors of the report                                                                                                                                             |
-| Source (name)       | Group1_happiness_Score                                                                                                                                                                |
-| Source (link)       | [Final Dataset: Group1_happiness.csv](https://github.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/blob/main/datasets/happy.csv) 
-| Date/Time | 24.12.2025/ 02.03 pm                                                             
+| Source (name)       | spotify_playlist_for_class.csv                                                                                                                                                                |
+| Source (link)       | [Final Dataset](../datasets/spotify_playlists_for_class.csv) 
+| Date/Time | 12.01.2026/ 11.20 am                                                             
