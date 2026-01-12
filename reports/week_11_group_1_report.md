@@ -62,6 +62,8 @@ Even though we liked the results of the K-Means clustering, we decided to also t
 
 The DBSCAN method only got us four different clusters, with some songs ("-1") being in no cluster. 
 
+### 3.3. Hierarchical Clustering
+
 ![alt text](../additional_material/Plots/w11.11.png)
 
 This dendogram shows how the hierarchical clustering of the songs into multiple groups in different steps.
