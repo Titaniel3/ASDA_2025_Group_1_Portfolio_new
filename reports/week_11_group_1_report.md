@@ -41,3 +41,15 @@ For clusterin the songs in different playlists we used two different approaches.
 ### 3.1. K-Means Clustering
 
 With this method, we received seven different clusters, which differed for the musical variables. The differences between clusters are more striking for some variables (f.e. "energy") than for other variables (f.e. "tempo"). 
+
+![alt text](image.png)
+
+This plot shows how the different clusters are located inside a PCA space. PCA1 and PCA2 explain 54.1% of the variance.
+
+![alt text](image-2.png)
+
+Here one can see how many songs are in each cluster when using the K-Means method.
+
+![alt text](image-5.png)
+
+This plot shows how the clusters differ with regard to the musical variables.
