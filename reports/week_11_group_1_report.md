@@ -36,7 +36,8 @@ Numbers refer to the final version of the dataset used for creating the playlist
 
 ## 3. Cluster Analysis
 
-For clusterin the songs in different playlists we used two different approaches. First, we used K-Means Clustering and later a DBSCAN clustering.
+For clusterin the songs in different playlists we used 3 different approaches. First, we used K-Means Clustering, secondly a DBSCAN clustering and finally hierarchical clustering.<br/>
+**NOTE -** After applying three different clustering algorithms K-Means, DBSCAN and Hierarchical Clustering we compared the results to evaluate cluster quality and interpretability. Based on the structure of the clusters and their musical coherence, we chose the **DBSCAN** results to create the final playlists, as they produced clearly distinct groups without requiring a predefined number of clusters.
 
 ### 3.1. K-Means Clustering
 
