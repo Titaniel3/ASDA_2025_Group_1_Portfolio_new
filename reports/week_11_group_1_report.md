@@ -66,7 +66,7 @@ The DBSCAN method only got us four different clusters, with some songs ("-1") be
 
 ![alt text](../additional_material/Plots/w11.11.png)
 
-This dendogram shows how the hierarchical clustering of the songs into multiple groups in different steps.
+This dendogram shows how the hierarchical clustering of the songs into multiple groups in different steps. Songs that merge at lower distances are more similar in terms of their audio features, while merges at higher distances indicate greater dissimilarity.
 
 ![alt text](../additional_material/Plots/w11.12.png)
 
