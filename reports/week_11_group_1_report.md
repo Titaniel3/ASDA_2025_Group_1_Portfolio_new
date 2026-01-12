@@ -4,7 +4,7 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |  |
+| Shreyas Krishnamurthy     | Supporting the analysis & the report |
 | Daniel Lichtmannecker     |  Creating the Spotify playlists, creating the report |
 |  Tobias Demming    |   Performing the clustering analysis |
 | Ranjit Singh     | Performing the clustering analysis |
