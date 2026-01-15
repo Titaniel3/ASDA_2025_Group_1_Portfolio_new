@@ -1,4 +1,4 @@
-fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality,color,wine_id
+﻿fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality,color,wine_id
 5.8,0.31,0.32,4.5,0.024,28,94,0.98906,3.25,0.52,13.7,7,white,1198
 6.3,0.13,0.42,1.1,0.043,63,146,0.99066,3.13,0.72,11.2,7,white,3409
 8.2,0.3,0.44,12.4,0.043,52,154,0.99452,3.04,0.33,12,6,white,4789
