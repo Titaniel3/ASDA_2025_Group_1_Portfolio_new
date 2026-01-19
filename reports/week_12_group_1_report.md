@@ -42,7 +42,7 @@
 
 ### 2.1 Distribution of numerical columns 
 
-![alt text](image_8.png)
+![alt text](../additional_material/Plots/week_12_image-8.png)
 We analyse and found that most variables, like residual sugar and chlorides, are right-skewed with a few extreme values. In contrast, pH and density are more evenly and normally distributed. The data shows that most wines have low sugar and salt levels, and their alcohol content is mainly between 9% and 13%.
 ## 3. SVM Models
 
