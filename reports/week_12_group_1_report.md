@@ -86,12 +86,16 @@ All of the models worked really well and fitted the data properly. We now evalua
 | Metric / Parameter        | Linear SVM | RBF SVM | Polynomial SVM |
 |---------------------------|------------|---------|----------------|
 | Kernel                    | linear     | rbf     | poly           |
-| Mean CV score             | 0.9923     | 0.9939  | 0.9943         |
+| Mean CV F1-score          | 0.9923     | 0.9939  | 0.9943         |
+| Mean CV Accuracy          | 0.9943     | 0.9955  | 0.9958         |
+| Mean CV Precision         | 0.9929     | 0.9954  | 0.9960         |
+| Mean CV Recall            | 0.9917     | 0.9925  | 0.9927         |
 | C                         | 1.0        | 100.0   | 1.0            |
 | Gamma                     | –          | 0.01    | scale          |
 | Degree                    | –          | –       | 2              |
 | Coef0                     | –          | –       | 1.0            |
 | Class weight              | None       | balanced| None           |
+
 
 ### 3.6 Testing our final model against the holdout dataset
 
