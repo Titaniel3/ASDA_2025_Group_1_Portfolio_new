@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |  |
-| Daniel Lichtmannecker     |   |
-|  Tobias Demming    |    |
-| Ranjit Singh     | |
+| Shreyas Krishnamurthy     | Bonus task + Visualizations |
+| Daniel Lichtmannecker     |  Polynomial model + report |
+|  Tobias Demming    |  Linear model + report  |
+| Ranjit Singh     | RBF model + report|
 
 ## 1. Dataset Overview
 
@@ -19,7 +19,7 @@
 | Creator of the dataset | Same as the authors of the report                                                                                                                                             |
 | Source (name)       | wine_development(in).csv                                                                                                                                                                |
 | Source (link)       | [Final Dataset](../datasets/wine_development(in).csv) 
-| Date/Time | 12.01.2026/ 11.20 am   
+| Date/Time | 19.01.2026/ 10.40 pm   
 
 
 ## 2. Dataset Structure & Descriptive Statistics
@@ -128,6 +128,11 @@ The confusion matrix shows, that only five wines of the unseen dataset were misc
 We analysed and found that the model achieved a perfect ROC AUC of 1.00, showing flawless separation of the wine categories with no false positive errors.
 
 ## 4. Bonus Task
+
+![alt text](../additional_material/Plots/w12_1.png)
+
+We also used a polynomial SVM model to predict whether a wine has "excellent" quality or not. Interestingly, the model worked rather well on classifying the excellent ones correctly, but did really poor on predicting the "non-excellent" ones. We can conclude that wine quality might depend on different characteristics than the ones included in the data set provided.
+
 
 ## 5. AI Disclaimer
 
