@@ -113,6 +113,7 @@ This table shows the key figures for evaluating the performance of the polynomia
 
 
 ![alt text](image-1.png)
+
 The confusion matrix shows, that only five wines of the unseen dataset were misclasified, which is pretty decent.
 
 ## 4. Bonus Task
