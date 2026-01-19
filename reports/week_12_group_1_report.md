@@ -4,10 +4,10 @@
 
 | Name | Contribution |
 |------|--------------|
-| Shreyas Krishnamurthy     |  |
-| Daniel Lichtmannecker     |   |
-|  Tobias Demming    |    |
-| Ranjit Singh     | |
+| Shreyas Krishnamurthy     | Bonus task + Visualizations |
+| Daniel Lichtmannecker     |  Polynomial model + report |
+|  Tobias Demming    |  Linear model + report  |
+| Ranjit Singh     | RBF model + report|
 
 ## 1. Dataset Overview
 
