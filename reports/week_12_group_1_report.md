@@ -50,7 +50,7 @@ For our analysis we decided to test three different support vector machines (SVM
 
 Each model we first trained on the training data, evaluated it against a test sample and finally tested its performance against an unseen dataset.
 
-![alt text](image-3.png)
+![alt text](../additional_material/Plots/week_12_image-3.png)
 
 We performed a PCA analysis to see how well the data can be seperated. The PCA shows that with only two Principal Components there form two really visible clusters that can already be seperated quite well. We therefore already expected all three models to perform quite well. 
 
@@ -58,17 +58,17 @@ We performed a PCA analysis to see how well the data can be seperated. The PCA s
 
 The null model was simply built by always classifying with "white" for the colour, as 74% of the wines had that value. Therefore, **74% accuracy** is the base line for each model
 
-![alt text](image-4.png)
+![alt text](../additional_material/Plots/week_12_image-4.png)
 
 This plot shows the distribution of wine colour in the data set. Approximately 74% of the wines are white wines.
 
-![alt text](image.png)
+![alt text](../additional_material/Plots/week_12_image-0.png)
 
 This confusion matrix shows that the null model correctly identifies all the white wines but missclasifies all of the red wines.
 
 ### 3.2 Linear SVM
 
-![alt text](image-5.png)
+![alt text](../additional_material/Plots/week_12_image-5.png)
 
 This is the confusion matrix of the (optimized) linear SVM model.
 
@@ -76,13 +76,13 @@ This is the confusion matrix of the (optimized) linear SVM model.
 
 ### 3.3 RBF SVM
 
-![alt text](image-6.png)
+![alt text](../additional_material/Plots/week_12_image-6.png)
 
 This is the confusion matrix of the (optimized) RBF SVM model.
 
 ### 3.4 Polynomial SVM
 
- ![alt text](image-7.png)
+ ![alt text](../additional_material/Plots/week_12_image-7.png)
 
  This is the confusion matrix of the (optimized) polynomial SVM model.
 
@@ -119,9 +119,13 @@ After deciding for the polynomial SVM model, we tested it against the holdout da
 This table shows the key figures for evaluating the performance of the polynomial SVM model. 
 
 
-![alt text](image-1.png)
+![alt text](../additional_material/Plots/week_12_image-1.png)
 
 The confusion matrix shows, that only five wines of the unseen dataset were misclasified, which is pretty decent.
+
+![alt text](../additional_material/Plots/week_12_image-11.png)
+
+We analysed and found that the model achieved a perfect ROC AUC of 1.00, showing flawless separation of the wine categories with no false positive errors.
 
 ## 4. Bonus Task
 
