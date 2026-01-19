@@ -123,11 +123,12 @@ This table shows the key figures for evaluating the performance of the polynomia
 
 The confusion matrix shows, that only five wines of the unseen dataset were misclasified, which is pretty decent.
 
-![alt text](image_11.png)
-
-We analysed and found that the model achieved a perfect ROC AUC of 1.00, showing flawless separation of the wine categories with no false positive errors.
-
 ## 4. Bonus Task
+
+![alt text](image-2.png)
+
+We also used a polynomial SVM model to predict whether a wine has "excellent" quality or not. Interestingly, the model worked rather well on classifying the excellent ones correctly, but did really poor on predicting the "non-excellent" ones. We can conclude that wine quality might depend on different characteristics than the ones included in the data set provided.
+
 
 ## 5. AI Disclaimer
 
