@@ -61,13 +61,41 @@ This confusion matrix shows that the null model correctly identifies all the whi
 
 ### 3.2 Linear SVM
 
+![alt text](image-5.png)
+
+This is the confusion matrix of the (optimized) linear SVM model.
+
 
 
 ### 3.3 RBF SVM
 
+![alt text](image-6.png)
+
+This is the confusion matrix of the (optimized) RBF SVM model.
+
 ### 3.4 Polynomial SVM
 
-This showed to be the best model after evaluating the performance. Thus, we used this model to test it against the unseen holdout dataset and test its performance there as well.  
+ ![alt text](image-7.png)
+
+ This is the confusion matrix of the (optimized) polynomial SVM model.
+
+### 3.5 Evaluation of the different models
+
+All of the models worked really well and fitted the data properly. We now evaluated the different models to determine the best one. 
+
+| Metric / Parameter        | Linear SVM | RBF SVM | Polynomial SVM |
+|---------------------------|------------|---------|----------------|
+| Kernel                    | linear     | rbf     | poly           |
+| Mean CV score             | 0.9923     | 0.9939  | 0.9943         |
+| C                         | 1.0        | 100.0   | 1.0            |
+| Gamma                     | –          | 0.01    | scale          |
+| Degree                    | –          | –       | 2              |
+| Coef0                     | –          | –       | 1.0            |
+| Class weight              | None       | balanced| None           |
+
+### 3.6 Testing our final model against the holdout dataset
+
+After deciding for the polynomial SVM model, we tested it against the holdout dataset to see how it performs. 
 
 | Class | Precision | Recall | F1-score | Support |
 |-------|-----------|--------|----------|---------|
@@ -77,6 +105,7 @@ This showed to be the best model after evaluating the performance. Thus, we used
 | **Macro avg** | 1.00 | 0.99 | 0.99 | 1040 |
 | **Weighted avg** | 1.00 | 1.00 | 1.00 | 1040 |
 
+This table shows the key figures for evaluating the performance of the polynomial SVM model. 
 
 
 ![alt text](image-1.png)
