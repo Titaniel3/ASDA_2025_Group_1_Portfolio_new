@@ -40,6 +40,10 @@
 | int64 | quality | 7 | 4157 | 5.822 | 0.882 | 3 | 5 | 6 | 6 | 9 |
 | object | color | 2 |  |  |  |  |  |  |  |  |
 
+### 2.1 Distribution of numerical columns 
+
+![alt text](image_8.png)
+We analyse and found that most variables, like residual sugar and chlorides, are right-skewed with a few extreme values. In contrast, pH and density are more evenly and normally distributed. The data shows that most wines have low sugar and salt levels, and their alcohol content is mainly between 9% and 13%.
 ## 3. SVM Models
 
 For our analysis we decided to test three different support vector machines (SVM), namely a **linear SVM, a radial basis function SVM and a polynomial SVM**. 
@@ -47,6 +51,7 @@ For our analysis we decided to test three different support vector machines (SVM
 Each model we first trained on the training data, evaluated it against a test sample and finally tested its performance against an unseen dataset.
 
 ![alt text](image-3.png)
+
 We performed a PCA analysis to see how well the data can be seperated. The PCA shows that with only two Principal Components there form two really visible clusters that can already be seperated quite well. We therefore already expected all three models to perform quite well. 
 
 ### 3.1 Null Model
@@ -54,9 +59,11 @@ We performed a PCA analysis to see how well the data can be seperated. The PCA s
 The null model was simply built by always classifying with "white" for the colour, as 74% of the wines had that value. Therefore, **74% accuracy** is the base line for each model
 
 ![alt text](image-4.png)
+
 This plot shows the distribution of wine colour in the data set. Approximately 74% of the wines are white wines.
 
 ![alt text](image.png)
+
 This confusion matrix shows that the null model correctly identifies all the white wines but missclasifies all of the red wines.
 
 ### 3.2 Linear SVM
