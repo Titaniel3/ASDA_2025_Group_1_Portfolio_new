@@ -40,3 +40,40 @@
 | int64 | quality | 7 | 4157 | 5.822 | 0.882 | 3 | 5 | 6 | 6 | 9 |
 | object | color | 2 |  |  |  |  |  |  |  |  |
 
+## 3. SVM Models
+
+For our analysis we decided to test three different support vector machines (SVM), namely a **linear SVM, a radial basis function SVM and a polynomial SVM**. 
+
+Each model we first trained on the training data, evaluated it against a test sample and finally tested its performance against an unseen dataset.
+
+### 3.1 Null Model
+
+The null model was simply built by always classifying with "white" for the colour, as 74% of the wines had that value. Therefore, **74% accuracy** is the base line for each model
+
+![alt text](image.png)
+
+This confusion matrix shows that the null model correctly identifies all the white wines but missclasifies all of the red wines.
+
+### 3.2 Linear SVM
+
+
+
+### 3.3 RBF SVM
+
+### 3.4 Polynomial SVM
+
+This showed to be the best model after evaluating the performance. Thus, we used this model to test it against the unseen holdout dataset and test its performance there as well.  
+
+| Class | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| red   | 1.00      | 0.98   | 0.99     | 256     |
+| white | 0.99      | 1.00   | 1.00     | 784     |
+| **Accuracy** |        |        | 1.00 | 1040 |
+| **Macro avg** | 1.00 | 0.99 | 0.99 | 1040 |
+| **Weighted avg** | 1.00 | 1.00 | 1.00 | 1040 |
+
+
+
+![alt text](image-1.png)
+The confusion matrix shows, that only five wines of the unseen dataset were misclasified, which is pretty decent.
+
