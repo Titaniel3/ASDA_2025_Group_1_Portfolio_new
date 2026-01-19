@@ -123,6 +123,10 @@ This table shows the key figures for evaluating the performance of the polynomia
 
 The confusion matrix shows, that only five wines of the unseen dataset were misclasified, which is pretty decent.
 
+![alt text](image_11.png)
+
+We analysed and found that the model achieved a perfect ROC AUC of 1.00, showing flawless separation of the wine categories with no false positive errors.
+
 ## 4. Bonus Task
 
 ## 5. AI Disclaimer
