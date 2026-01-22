@@ -8,6 +8,27 @@ app = marimo.App(width="medium")
 def _():
     import pandas as pd 
     import marimo as mo
+    return (pd,)
+
+
+@app.cell
+def _(pd):
+    url = "https://docs.google.com/spreadsheets/d/1ecopK6oyyb4d_7-QLrCr8YlgFrCetHU7-VQfnYej7JY/export?format=xlsx"
+    dataset = pd.ExcelFile(url, engine='openpyxl')
+
+    sheets = []
+    for sheet in dataset.sheet_names:
+        df = dataset.parse(sheet)
+        df["City"] = sheet #adding a column to track from which group is the data
+        sheets.append(df)
+
+    df = pd.concat(sheets, ignore_index=True)
+    return (df,)
+
+
+@app.cell
+def _(df):
+    df
     return
 
 
