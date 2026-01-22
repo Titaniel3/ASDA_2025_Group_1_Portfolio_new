@@ -147,5 +147,93 @@ def _(figure, mo, selected_cities, selected_host_portfolio):
     return
 
 
+@app.cell
+def _(df):
+    listing_by_day = df.groupby(['City', 'days']).size().reset_index(name='count')
+    return (listing_by_day,)
+
+
+@app.cell
+def _(cities, listing_by_day, mo):
+    cities2 = sorted(listing_by_day["City"].unique())
+    day_types = sorted(listing_by_day["days"].unique())
+
+    selected_cities2 = mo.ui.multiselect(
+        options=cities,
+        value=cities,
+        label="Select Cities"
+    )
+
+    selected_days = mo.ui.multiselect(
+        options=day_types,
+        value=day_types,
+        label="Select Day Type"
+    )
+    return (selected_days,)
+
+
+@app.cell
+def _(listing_by_day, selected_cities, selected_days):
+    filtered_data = listing_by_day[
+        (listing_by_day["City"].isin(selected_cities.value)) &
+        (listing_by_day["days"].isin(selected_days.value))
+    ]
+
+    pivot_data = filtered_data.pivot(
+        index="City",
+        columns="days",
+        values="count"
+    )
+
+    return (pivot_data,)
+
+
+@app.cell
+def _(pivot_data, plt):
+    figure2, ax2 = plt.subplots(figsize=(10, 5))
+
+    pivot_data.plot(
+        kind="bar",
+        ax=ax2
+    )
+
+    ax2.set_title("Number of Listings per City by Day Type")
+    ax2.set_ylabel("Number of Listings")
+    ax2.set_xlabel("City")
+    ax2.tick_params(axis="x", rotation=45)
+    ax2.legend(title="Day Type")
+    plt.close(figure2)
+
+    # nothing returned → nothing displayed
+
+    return (figure2,)
+
+
+@app.cell
+def _(figure2, mo, selected_cities, selected_days):
+
+    mo.vstack([
+        mo.md("## Number of Listings per City by Day Type"),
+        mo.hstack([selected_cities, selected_days]),
+        figure2
+    ])
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
 if __name__ == "__main__":
     app.run()
