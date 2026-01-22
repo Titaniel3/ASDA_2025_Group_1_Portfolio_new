@@ -13,7 +13,7 @@ def _():
 
 @app.cell
 def _():
-    x=15
+    x=25
     return (x,)
 
 

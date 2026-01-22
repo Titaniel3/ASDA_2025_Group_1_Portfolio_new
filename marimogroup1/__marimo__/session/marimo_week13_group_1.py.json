@@ -12,15 +12,36 @@
     },
     {
       "id": "MJUe",
-      "code_hash": "e3678d4407dbac63f98926b125c5c981",
-      "outputs": [],
+      "code_hash": "1020b04473de7b9290648b48a3b969a8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "vblA",
       "code_hash": "102f8202794a2d47490ecf00e3a4fac4",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "29\n",
+          "mimetype": "text/plain"
+        }
+      ]
     }
   ]
 }
