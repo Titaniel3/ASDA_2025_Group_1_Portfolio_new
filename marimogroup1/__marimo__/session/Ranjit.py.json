@@ -3,5 +3,19 @@
   "metadata": {
     "marimo_version": "0.19.4"
   },
-  "cells": []
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "d833a3832fe48b1c5be25966cd201553",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
 }
