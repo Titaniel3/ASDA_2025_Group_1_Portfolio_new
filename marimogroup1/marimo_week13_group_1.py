@@ -7,6 +7,7 @@ app = marimo.App(width="medium")
 @app.cell
 def _():
     import marimo as mo
+    import pandas as pd 
     return
 
 
@@ -21,6 +22,11 @@ def _(x):
     y=4
 
     print(x+y)
+    return
+
+
+@app.cell
+def _():
     return
 
 
