@@ -7,19 +7,12 @@
     {
       "id": "Hbol",
       "code_hash": "a31fd011d5a81953f1385cb7a11ddd0e",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
       "console": []
     },
     {
       "id": "MJUe",
-      "code_hash": "9d34cdbb94fcc091b5b16cb7faeac526",
+      "code_hash": "e3678d4407dbac63f98926b125c5c981",
       "outputs": [
         {
           "type": "data",
@@ -45,7 +38,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "9\n",
+          "text": "19\n",
           "mimetype": "text/plain"
         }
       ]
