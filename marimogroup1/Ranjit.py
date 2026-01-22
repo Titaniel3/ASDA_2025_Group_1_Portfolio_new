@@ -17,7 +17,6 @@ def _(pd):
     url = "C:/Users/USER/Downloads/airbnb_cleaned.csv"
     df = pd.read_csv(url)
 
-
     return (df,)
 
 
@@ -90,7 +89,7 @@ def _(plt, room_share, selected_room_type):
     ax.set_ylabel("Share")
     ax.set_ylim(0, 1)
     ax.tick_params(axis="x", rotation=45)
-    return (fig,)
+    return ax, fig
 
 
 @app.cell
@@ -184,7 +183,6 @@ def _(listing_by_day, selected_cities, selected_days):
         columns="days",
         values="count"
     )
-
     return (pivot_data,)
 
 
@@ -205,7 +203,6 @@ def _(pivot_data, plt):
     plt.close(figure2)
 
     # nothing returned → nothing displayed
-
     return (figure2,)
 
 
@@ -221,7 +218,72 @@ def _(figure2, mo, selected_cities, selected_days):
 
 
 @app.cell
-def _():
+def _(df, mo):
+
+    # UI CONTROL
+    # ----------------------------------
+
+    max_capacity = int(df["person_capacity"].max())
+
+    capacity_slider = mo.ui.slider(
+        start=1,
+        stop=max_capacity,
+        value=max_capacity,
+        step=1,
+        label="Maximum Person Capacity"
+    )
+    return (capacity_slider,)
+
+
+@app.cell
+def _(capacity_slider, df):
+
+    # ----------------------------------
+    # DATA FILTERING
+    # ----------------------------------
+
+    filtered_df3 = df[df["person_capacity"] <= capacity_slider.value]
+
+    capacity_counts = (
+        filtered_df3["person_capacity"]
+        .value_counts()
+        .sort_index()
+    )
+    return (capacity_counts,)
+
+
+@app.cell
+def _(ax, capacity_counts, plt):
+    # ----------------------------------
+    # PLOT
+    # ----------------------------------
+
+    figure4, ax4 = plt.subplots(figsize=(10, 5))
+
+    capacity_counts.plot(
+        kind="bar",
+        ax=ax4
+    )
+
+    ax.set_title("Number of Listings by Person Capacity")
+    ax.set_xlabel("Person Capacity")
+    ax.set_ylabel("Number of Listings")
+    plt.close(figure4)
+    return (figure4,)
+
+
+@app.cell
+def _(capacity_slider, figure4, mo):
+    # ----------------------------------
+    # DASHBOARD LAYOUT
+    # ----------------------------------
+
+    mo.vstack([
+        mo.md("## Listings by Person Capacity"),
+        mo.hstack([
+            capacity_slider,
+            figure4])
+        ])
     return
 
 
