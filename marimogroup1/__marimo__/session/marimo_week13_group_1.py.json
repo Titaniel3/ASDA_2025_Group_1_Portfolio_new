@@ -12,7 +12,7 @@
     },
     {
       "id": "MJUe",
-      "code_hash": "1020b04473de7b9290648b48a3b969a8",
+      "code_hash": "e3678d4407dbac63f98926b125c5c981",
       "outputs": [
         {
           "type": "data",
@@ -38,7 +38,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "29\n",
+          "text": "19\n",
           "mimetype": "text/plain"
         }
       ]
