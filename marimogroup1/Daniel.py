@@ -7,7 +7,8 @@ app = marimo.App(width="medium")
 @app.cell
 def _():
     import marimo as mo
-    return
+    import pandas as pd
+    return (pd,)
 
 
 @app.cell
@@ -19,6 +20,17 @@ def _():
 @app.cell
 def _(x):
     x
+    return
+
+
+@app.cell
+def _(pd):
+    # Read Airbnb dataset using a relative path
+    df = pd.read_csv("../datasets/airbnb_cleaned.csv")
+
+    # Show first rows
+    df.head()
+
     return
 
 
