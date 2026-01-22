@@ -12,7 +12,7 @@
     },
     {
       "id": "MJUe",
-      "code_hash": "9d34cdbb94fcc091b5b16cb7faeac526",
+      "code_hash": "e3678d4407dbac63f98926b125c5c981",
       "outputs": [
         {
           "type": "data",
@@ -25,7 +25,7 @@
     },
     {
       "id": "vblA",
-      "code_hash": "eff7d5dba32b4da32d9a67a519434d3f",
+      "code_hash": "102f8202794a2d47490ecf00e3a4fac4",
       "outputs": [
         {
           "type": "data",
@@ -38,11 +38,10 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "9\n",
+          "text": "19\n",
           "mimetype": "text/plain"
         }
-      ],
-      "console": []
+      ]
     }
   ]
 }
