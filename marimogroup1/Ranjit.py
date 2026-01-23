@@ -14,9 +14,7 @@ def _():
 
 @app.cell
 def _(pd):
-    url = "C:/Users/USER/Downloads/airbnb_cleaned.csv"
-    df = pd.read_csv(url)
-
+    df = pd.read_csv("../datasets/airbnb_cleaned.csv")
     return (df,)
 
 
@@ -284,16 +282,6 @@ def _(capacity_slider, figure4, mo):
             capacity_slider,
             figure4])
         ])
-    return
-
-
-@app.cell
-def _():
-    return
-
-
-@app.cell
-def _():
     return
 
 
