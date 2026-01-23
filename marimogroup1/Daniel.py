@@ -13,7 +13,7 @@ def _():
 
 @app.cell
 def _():
-    x = 14
+    x = 15
     return (x,)
 
 
@@ -30,7 +30,6 @@ def _(pd):
 
     # Show first rows
     df.head()
-
     return
 
 
