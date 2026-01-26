@@ -10,8 +10,9 @@ def _():
     import pandas as pd
     import matplotlib.pyplot as plt
     import numpy as np
+    import json
     #import plotly.express as px
-    return mo, np, pd, plt
+    return json, mo, np, pd, plt
 
 
 @app.cell
@@ -807,99 +808,113 @@ def _(COL, d, pd):
         map_points = d_map.to_dict(orient="records")
 
     map_points[:2]
-
-    return (map_points,)
+    return
 
 
 @app.cell
-def _(COL, map_points, mo):
-    import json
+def _(COL, d, json, mo):
+    # --- Leaflet map (unique variable names to avoid marimo cycles) ---
+    # Assumes: d (filtered df) and COL dict already exist
 
-    if not map_points:
-        mo.md("No data for this filter combination.")
+    if d.empty:
+        map_out_v2 = mo.md("No data for this filter combination.")
     else:
-        points_json = json.dumps(map_points)
+        # --- Build a small list of dicts for JS ---
+        map_points_v2 = []
+        for _, row_v2 in d.iterrows():
+            try:
+                map_points_v2.append(
+                    {
+                        "lat": float(row_v2[COL["lat"]]),
+                        "lon": float(row_v2[COL["lon"]]),
+                        "City": str(row_v2[COL["city"]]),
+                        "room_type": str(row_v2[COL["room_type"]]),
+                        "Price": float(row_v2[COL["price"]]),
+                        "guest_satisfaction": float(row_v2[COL["guest_satisfaction"]]),
+                        "cleanliness": float(row_v2[COL["cleanliness"]]),
+                        "capacity": int(row_v2[COL["capacity"]]),
+                        "bedrooms": int(row_v2[COL["bedrooms"]]),
+                        "host_portfolio": str(row_v2[COL["host_portfolio"]]),
+                        "host_is_superhost": bool(row_v2[COL["superhost"]]),
+                    }
+                )
+            except Exception:
+                continue
 
-        center_lat = float(map_points[0][COL["lat"]])
-        center_lon = float(map_points[0][COL["lon"]])
+        if len(map_points_v2) == 0:
+            map_out_v2 = mo.md("No mappable points (missing coordinates after filtering).")
+        else:
+            # --- JSON for JS ---
+            map_points_json_v2 = json.dumps(map_points_v2)
 
-        # IMPORTANT: do NOT use an f-string here, because JS uses ${...} which conflicts with f-strings
-        html = """
-    <div id="leaflet-map" style="height: 650px; width: 100%; border-radius: 12px;"></div>
+            # --- Center of map (use mean) ---
+            center_lat_v2 = sum(p["lat"] for p in map_points_v2) / len(map_points_v2)
+            center_lon_v2 = sum(p["lon"] for p in map_points_v2) / len(map_points_v2)
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      crossorigin=""
-    />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+            # --- HTML (Leaflet assets must be local!) ---
+            leaflet_html_v2 = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8" />
+    <style>
+      #leaflet-map {{
+        height: 650px;
+        width: 100%;
+        border-radius: 12px;
+      }}
+    </style>
+
+    <link rel="stylesheet" href="./assets/leaflet/leaflet.css">
+    <script src="./assets/leaflet/leaflet.js"></script>
+    </head>
+
+    <body>
+    <div id="leaflet-map"></div>
 
     <script>
-    (function () {
-      const points = __POINTS_JSON__;
+    (function () {{
+      const points = {map_points_json_v2};
 
-      // If this cell reruns, reset container id to avoid "Map container is already initialized"
-      const container = L.DomUtil.get("leaflet-map");
-      if (container && container._leaflet_id) {
-        container._leaflet_id = null;
-      }
+      const map = L.map('leaflet-map').setView([{center_lat_v2}, {center_lon_v2}], 12);
 
-      const map = L.map("leaflet-map").setView([__CENTER_LAT__, __CENTER_LON__], 12);
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
         maxZoom: 19,
-        attribution: "&copy; OpenStreetMap contributors"
-      }).addTo(map);
+        attribution: '&copy; OpenStreetMap contributors'
+      }}).addTo(map);
 
-      function safe(v) {
+      function safe(v) {{
         return (v === undefined || v === null) ? "" : v;
-      }
+      }}
 
-      for (const p of points) {
-        const lat = Number(p["lat"]);
-        const lon = Number(p["lng"]);
-        if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
-
+      for (const p of points) {{
         const popup =
-          "<b>City:</b> " + safe(p["City"]) + "<br/>" +
-          "<b>Room type:</b> " + safe(p["room_type"]) + "<br/>" +
-          "<b>Price (two nights):</b> " + safe(p["Price"]) + " €<br/>" +
-          "<b>Guest satisfaction:</b> " + safe(p["guest_satisfaction_overall"]) + "<br/>" +
-          "<b>Cleanliness:</b> " + safe(p["cleanliness_rating"]) + "<br/>" +
-          "<b>Capacity:</b> " + safe(p["person_capacity"]) + "<br/>" +
-          "<b>Bedrooms:</b> " + safe(p["bedrooms"]) + "<br/>" +
-          "<b>Host portfolio:</b> " + safe(p["host_portfolio"]) + "<br/>" +
-          "<b>Superhost:</b> " + safe(p["host_is_superhost"]);
+          "<b>City:</b> " + safe(p.City) + "<br/>" +
+          "<b>Room type:</b> " + safe(p.room_type) + "<br/>" +
+          "<b>Price (two nights):</b> " + safe(p.Price) + " €<br/>" +
+          "<b>Guest satisfaction:</b> " + safe(p.guest_satisfaction) + "<br/>" +
+          "<b>Cleanliness:</b> " + safe(p.cleanliness) + "<br/>" +
+          "<b>Capacity:</b> " + safe(p.capacity) + "<br/>" +
+          "<b>Bedrooms:</b> " + safe(p.bedrooms) + "<br/>" +
+          "<b>Host portfolio:</b> " + safe(p.host_portfolio) + "<br/>" +
+          "<b>Superhost:</b> " + safe(p.host_is_superhost);
 
-        L.circleMarker([lat, lon], {
+        L.circleMarker([p.lat, p.lon], {{
           radius: 4,
           weight: 1,
           fillOpacity: 0.7
-        }).addTo(map).bindPopup(popup);
-      }
-    })();
+        }}).addTo(map).bindPopup(popup);
+      }}
+    }})();
     </script>
+    </body>
+    </html>
     """
 
-        # Inject data safely
-        html = html.replace("__POINTS_JSON__", points_json)
-        html = html.replace("__CENTER_LAT__", str(center_lat))
-        html = html.replace("__CENTER_LON__", str(center_lon))
+            map_out_v2 = mo.iframe(leaflet_html_v2, height=680)
 
-        mo.Html(html)
-
-    return (html,)
-
-
-@app.cell
-def _(html, mo):
-    # Render Leaflet map via iframe (JS-safe)
-    output_map = mo.iframe(
-        html,
-        height=680,
-    )
-
-    output_map
+    # --- Return output (important in marimo) ---
+    map_out_v2
 
     return
 
