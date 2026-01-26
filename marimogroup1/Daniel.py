@@ -11,7 +11,7 @@ def _():
     import matplotlib.pyplot as plt
     import numpy as np
     #import plotly.express as px
-    return mo, pd, plt
+    return mo, np, pd, plt
 
 
 @app.cell
@@ -35,7 +35,6 @@ def _(pd):
         df = pd.read_csv(StringIO(csv_text))
 
     # df is loaded
-
     return (df,)
 
 
@@ -187,6 +186,8 @@ def _(
     days_select,
     df,
     mo,
+    np,
+    pd,
     plt,
     room_type_select,
     superhost_select,
@@ -204,64 +205,105 @@ def _(
     # --- Filter for the city boxplot (no city filter, because we compare cities) ---
     df_city = df.copy()
 
-    if capacity_select.value != "All":
-        df_city = df_city[df_city["person_capacity"].astype(int) == int(capacity_select.value)]
+    # Helper: safe conversion
+    def to_str(x):
+        return "" if x is None else str(x)
 
-    if superhost_select.value != "All":
-        df_city = df_city[df_city["host_is_superhost"] == bool(superhost_select.value)]
+    def to_int(x):
+        try:
+            return int(x)
+        except Exception:
+            return None
 
-    if room_type_select.value != "All":
-        df_city = df_city[df_city["room_type"].astype(str) == str(room_type_select.value)]
+    # Apply filters (robust against weird types)
+    cap_val = to_str(capacity_select.value)
+    if cap_val != "All":
+        cap_int = to_int(cap_val)
+        if cap_int is not None:
+            df_city = df_city[df_city["person_capacity"].astype(int) == cap_int]
 
-    if days_select.value != "All":
-        df_city = df_city[df_city["days"].astype(str) == str(days_select.value)]
+    super_val = superhost_select.value
+    if to_str(super_val) != "All":
+        # In marimo dropdown, values might be True/False strings or bools; normalize
+        if isinstance(super_val, str):
+            super_bool = super_val.lower() == "true"
+        else:
+            super_bool = bool(super_val)
+        df_city = df_city[df_city["host_is_superhost"].astype(bool) == super_bool]
 
+    room_val = to_str(room_type_select.value)
+    if room_val != "All":
+        df_city = df_city[df_city["room_type"].astype(str) == room_val]
+
+    days_val = to_str(days_select.value)
+    if days_val != "All":
+        df_city = df_city[df_city["days"].astype(str) == days_val]
+
+    # Prepare cities
     cities = sorted(df_city["City"].dropna().astype(str).unique().tolist())
 
     if len(cities) == 0:
         output_city_plot = mo.md("No data available for this selection.")
     else:
-        price_data = [
-            df_city[df_city["City"].astype(str) == c]["Price"].dropna().astype(float).values
-            for c in cities
-        ]
-        city_means = [
-            df_city[df_city["City"].astype(str) == c]["Price"].mean()
-            for c in cities
-        ]
+        # Build price arrays per city; skip cities with no prices
+        price_data = []
+        cities_used = []
+        for c in cities:
+            vals = df_city[df_city["City"].astype(str) == c]["Price"].dropna().astype(float).values
+            if len(vals) > 0:
+                price_data.append(vals)
+                cities_used.append(c)
 
-        fig_city, ax_city = plt.subplots(figsize=(12, 5))
+        if len(cities_used) == 0:
+            output_city_plot = mo.md("No price data available for this selection.")
+        else:
+            # Compute means (safe)
+            city_means = []
+            for c in cities_used:
+                m = df_city[df_city["City"].astype(str) == c]["Price"].dropna().astype(float).mean()
+                city_means.append(float(m) if pd.notna(m) else float("nan"))
 
-        bp = ax_city.boxplot(
-            price_data,
-            tick_labels=cities,
-            showfliers=False
-        )
+            fig_city, ax_city = plt.subplots(figsize=(12, 5))
 
-        ax_city.set_title("Airbnb Prices by City")
-        ax_city.set_ylabel("Price (EUR, two nights)")
-        ax_city.tick_params(axis="x", rotation=45)
-
-        # --- Add mean labels next to the median (orange line) ---
-        for i, mean_val in enumerate(city_means):
-            median_line = bp["medians"][i]
-            median_y = float(median_line.get_ydata()[0])
-
-            ax_city.text(
-                i + 1.28,
-                median_y,
-                f"Ø {float(mean_val):.0f}",
-                ha="left",
-                va="center",
-                fontsize=9
+            # Use 'labels' for broad matplotlib compatibility (WASM often has older versions)
+            bp = ax_city.boxplot(
+                price_data,
+                labels=cities_used,
+                showfliers=False
             )
 
-        ax_city.set_xlim(0.5, len(cities) + 0.8)
+            ax_city.set_title("Airbnb Prices by City")
+            ax_city.set_ylabel("Price (EUR, two nights)")
+            ax_city.tick_params(axis="x", rotation=45)
 
-        output_city_plot = fig_city
+            # Add mean labels next to the median line (keep them inside the plot)
+            for i, mean_val in enumerate(city_means):
+                # Median y-position from the median line
+                median_line = bp["medians"][i]
+                median_y = float(median_line.get_ydata()[0])
+
+                # Skip NaN means (just in case)
+                if not np.isfinite(mean_val):
+                    continue
+
+                ax_city.text(
+                    i + 1.25,              # small x offset to the right of each box
+                    median_y,
+                    f"Ø {mean_val:.0f}",
+                    ha="left",
+                    va="center",
+                    fontsize=9,
+                    clip_on=True           # keep text inside axes area
+                )
+
+            # Add a bit of space on the right so labels are not cut off
+            ax_city.set_xlim(0.5, len(cities_used) + 0.9)
+
+            output_city_plot = fig_city
 
     # --- Return controls + plot ---
     mo.vstack([boxplot_controls, output_city_plot], gap=1)
+
     return cities, df_city
 
 
