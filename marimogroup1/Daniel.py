@@ -15,9 +15,21 @@ def _():
 
 
 @app.cell
-def _(pd):
-    # Read Airbnb dataset using a relative path
-    df = pd.read_csv("datasets/airbnb_cleaned.csv")
+def _(mo, pd):
+    # Load dataset (works locally AND on GitHub Pages / WASM)
+
+    DATA_URL = "datasets/airbnb_cleaned.csv"
+
+    try:
+        # Local / normal Python: read from filesystem
+        df = pd.read_csv(DATA_URL)
+    except FileNotFoundError:
+        # WASM / GitHub Pages: fetch via HTTP and read from bytes
+        resp = mo.http.get(DATA_URL)
+        df = pd.read_csv(resp.bytes_io())
+
+    # df is loaded
+
     return (df,)
 
 
