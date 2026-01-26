@@ -303,7 +303,6 @@ def _(
 
     # --- Return controls + plot ---
     mo.vstack([boxplot_controls, output_city_plot], gap=1)
-
     return cities, df_city
 
 
@@ -784,43 +783,124 @@ def _(
 
 
 @app.cell
-def _(COL, d, mo, px):
+def _(COL, d, pd):
+    # --- Prepare data for Leaflet map (JSON) ---
+
+    MAX_POINTS = 2000
+
     if d.empty:
-        mo.md("No data for this filter combination.")
+        map_points = []
     else:
-        fig_t = px.scatter_map(
-            d,
-            lat=COL["lat"],
-            lon=COL["lon"],
-            color=COL["room_type"],
-            hover_name=COL["city"],
-            hover_data={
-                COL["price"]: True,
-                COL["guest_satisfaction"]: True,
-                COL["cleanliness"]: True,
-                COL["capacity"]: True,
-                COL["bedrooms"]: True,
-                COL["host_portfolio"]: True,
-                COL["superhost"]: True,
-            },
-            zoom=11,
-            height=650,
-        )
+        d_map = d.copy()
+        d_map[COL["lat"]] = pd.to_numeric(d_map[COL["lat"]], errors="coerce")
+        d_map[COL["lon"]] = pd.to_numeric(d_map[COL["lon"]], errors="coerce")
+        d_map = d_map.dropna(subset=[COL["lat"], COL["lon"]])
 
-        # force constant dot size
-        fig_t.update_traces(marker=dict(size=8))
+        cols = [
+            COL["lat"], COL["lon"], COL["city"], COL["room_type"], COL["price"],
+            COL["guest_satisfaction"], COL["cleanliness"], COL["capacity"],
+            COL["bedrooms"], COL["host_portfolio"], COL["superhost"],
+        ]
+        cols = [c for c in cols if c in d_map.columns]
 
-        fig_t.update_layout(
-            map_style="open-street-map",
-            margin=dict(l=0, r=0, t=0, b=0),
-        )
-        fig_t
-    return (fig_t,)
+        d_map = d_map[cols].head(MAX_POINTS)
+        map_points = d_map.to_dict(orient="records")
+
+    map_points[:2]
+
+    return (map_points,)
 
 
 @app.cell
-def _(fig_t):
-    fig_t
+def _(COL, map_points, mo):
+    import json
+
+    if not map_points:
+        mo.md("No data for this filter combination.")
+    else:
+        points_json = json.dumps(map_points)
+
+        center_lat = float(map_points[0][COL["lat"]])
+        center_lon = float(map_points[0][COL["lon"]])
+
+        # IMPORTANT: do NOT use an f-string here, because JS uses ${...} which conflicts with f-strings
+        html = """
+    <div id="leaflet-map" style="height: 650px; width: 100%; border-radius: 12px;"></div>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <script>
+    (function () {
+      const points = __POINTS_JSON__;
+
+      // If this cell reruns, reset container id to avoid "Map container is already initialized"
+      const container = L.DomUtil.get("leaflet-map");
+      if (container && container._leaflet_id) {
+        container._leaflet_id = null;
+      }
+
+      const map = L.map("leaflet-map").setView([__CENTER_LAT__, __CENTER_LON__], 12);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(map);
+
+      function safe(v) {
+        return (v === undefined || v === null) ? "" : v;
+      }
+
+      for (const p of points) {
+        const lat = Number(p["lat"]);
+        const lon = Number(p["lng"]);
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+
+        const popup =
+          "<b>City:</b> " + safe(p["City"]) + "<br/>" +
+          "<b>Room type:</b> " + safe(p["room_type"]) + "<br/>" +
+          "<b>Price (two nights):</b> " + safe(p["Price"]) + " €<br/>" +
+          "<b>Guest satisfaction:</b> " + safe(p["guest_satisfaction_overall"]) + "<br/>" +
+          "<b>Cleanliness:</b> " + safe(p["cleanliness_rating"]) + "<br/>" +
+          "<b>Capacity:</b> " + safe(p["person_capacity"]) + "<br/>" +
+          "<b>Bedrooms:</b> " + safe(p["bedrooms"]) + "<br/>" +
+          "<b>Host portfolio:</b> " + safe(p["host_portfolio"]) + "<br/>" +
+          "<b>Superhost:</b> " + safe(p["host_is_superhost"]);
+
+        L.circleMarker([lat, lon], {
+          radius: 4,
+          weight: 1,
+          fillOpacity: 0.7
+        }).addTo(map).bindPopup(popup);
+      }
+    })();
+    </script>
+    """
+
+        # Inject data safely
+        html = html.replace("__POINTS_JSON__", points_json)
+        html = html.replace("__CENTER_LAT__", str(center_lat))
+        html = html.replace("__CENTER_LON__", str(center_lon))
+
+        mo.Html(html)
+
+    return (html,)
+
+
+@app.cell
+def _(html, mo):
+    # Render Leaflet map via iframe (JS-safe)
+    output_map = mo.iframe(
+        html,
+        height=680,
+    )
+
+    output_map
+
     return
 
 
