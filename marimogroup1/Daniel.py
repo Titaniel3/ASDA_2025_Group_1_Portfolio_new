@@ -17,7 +17,7 @@ def _():
 @app.cell
 def _(pd):
     # Read Airbnb dataset using a relative path
-    df = pd.read_csv("../datasets/airbnb_cleaned.csv")
+    df = pd.read_csv("datasets/airbnb_cleaned.csv")
     return (df,)
 
 
