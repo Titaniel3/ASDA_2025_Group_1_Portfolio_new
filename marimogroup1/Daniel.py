@@ -15,18 +15,23 @@ def _():
 
 
 @app.cell
-def _(mo, pd):
-    # Load dataset (works locally AND on GitHub Pages / WASM)
+def _(pd):
+    # Load dataset (works locally and in WASM/GitHub Pages)
 
     DATA_URL = "datasets/airbnb_cleaned.csv"
 
     try:
-        # Local / normal Python: read from filesystem
+        # Local: read from filesystem
         df = pd.read_csv(DATA_URL)
     except FileNotFoundError:
-        # WASM / GitHub Pages: fetch via HTTP and read from bytes
-        resp = mo.http.get(DATA_URL)
-        df = pd.read_csv(resp.bytes_io())
+        # WASM/GitHub Pages: fetch via HTTP
+        from urllib.request import urlopen  # standard library
+
+        with urlopen(DATA_URL) as f:
+            csv_text = f.read().decode("utf-8")
+
+        from io import StringIO  # standard library
+        df = pd.read_csv(StringIO(csv_text))
 
     # df is loaded
 
