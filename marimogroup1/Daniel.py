@@ -16,21 +16,22 @@ def _():
 
 @app.cell
 def _(pd):
-    # Load dataset (works locally and in WASM/GitHub Pages)
-
-    DATA_URL = "datasets/airbnb_cleaned.csv"
+    # Load dataset (works locally and on GitHub Pages / WASM)
 
     try:
         # Local: read from filesystem
-        df = pd.read_csv(DATA_URL)
+        df = pd.read_csv("../datasets/airbnb_cleaned.csv")
     except FileNotFoundError:
-        # WASM/GitHub Pages: fetch via HTTP
+        # WASM/GitHub Pages: fetch from the deployed URL
         from urllib.request import urlopen  # standard library
+        from io import StringIO  # standard library
 
-        with urlopen(DATA_URL) as f:
+        BASE_URL = "https://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/"
+        CSV_URL = BASE_URL + "datasets/airbnb_cleaned.csv"
+
+        with urlopen(CSV_URL) as f:
             csv_text = f.read().decode("utf-8")
 
-        from io import StringIO  # standard library
         df = pd.read_csv(StringIO(csv_text))
 
     # df is loaded
