@@ -18,7 +18,6 @@ def _(pd):
     # Read Airbnb dataset using a relative path
     df = pd.read_csv("../datasets/airbnb_cleaned.csv")
 
-
     return (df,)
 
 
@@ -67,7 +66,6 @@ def _(df, mo):
         ],
         gap=1
     )
-
     return (
         bins_slider,
         capacity_select,
@@ -153,7 +151,6 @@ def _(
         ],
         gap=1
     )
-
     return
 
 
@@ -238,7 +235,6 @@ def _(
 
     # --- Return controls + plot ---
     mo.vstack([boxplot_controls, output_city_plot], gap=1)
-
     return (df_city,)
 
 
@@ -275,7 +271,6 @@ def _(df_city, mo):
         )
 
     output_cheapest_ui
-
     return cheapest_city_select, cheapest_per_city
 
 
@@ -310,7 +305,6 @@ def _(cheapest_city_select, cheapest_per_city, mo):
 
     # IMPORTANT: return the output
     details_out
-
     return
 
 
