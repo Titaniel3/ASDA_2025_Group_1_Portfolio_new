@@ -10,8 +10,8 @@ def _():
     import pandas as pd
     import matplotlib.pyplot as plt
     import numpy as np
-    import plotly.express as px
-    return mo, pd, plt, px
+    #import plotly.express as px
+    return mo, pd, plt
 
 
 @app.cell
