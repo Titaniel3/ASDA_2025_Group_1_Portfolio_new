@@ -178,7 +178,7 @@ def _(
         ],
         gap=1
     )
-    return (fig,)
+    return
 
 
 @app.cell
@@ -454,15 +454,15 @@ def _(plt, room_share, selected_room_type):
     ax_ranjit.set_ylabel("Share")
     ax_ranjit.set_ylim(0, 1)
     ax_ranjit.tick_params(axis="x", rotation=45)
-    return
+    return (fig_ranjit,)
 
 
 @app.cell
-def _(fig, mo, selected_cities, selected_room_type):
+def _(fig_ranjit, mo, selected_cities, selected_room_type):
     mo.vstack([
         mo.md("## Room Type Share by City"),
         mo.hstack([selected_cities, selected_room_type]),
-        fig
+        fig_ranjit
     ])
     return
 
@@ -518,13 +518,13 @@ def _(df):
 
 
 @app.cell
-def _(cities, listing_by_day, mo):
+def _(listing_by_day, mo):
     cities2 = sorted(listing_by_day["City"].unique())
     day_types = sorted(listing_by_day["days"].unique())
 
     selected_cities2 = mo.ui.multiselect(
-        options=cities,
-        value=cities,
+        options=cities2,
+        value=cities2,
         label="Select Cities"
     )
 
@@ -533,13 +533,13 @@ def _(cities, listing_by_day, mo):
         value=day_types,
         label="Select Day Type"
     )
-    return (selected_days,)
+    return selected_cities2, selected_days
 
 
 @app.cell
-def _(listing_by_day, selected_cities, selected_days):
+def _(listing_by_day, selected_cities2, selected_days):
     filtered_data = listing_by_day[
-        (listing_by_day["City"].isin(selected_cities.value)) &
+        (listing_by_day["City"].isin(selected_cities2.value)) &
         (listing_by_day["days"].isin(selected_days.value))
     ]
 
@@ -572,11 +572,11 @@ def _(pivot_data, plt):
 
 
 @app.cell
-def _(figure2, mo, selected_cities, selected_days):
+def _(figure2, mo, selected_cities2, selected_days):
 
     mo.vstack([
         mo.md("## Number of Listings per City by Day Type"),
-        mo.hstack([selected_cities, selected_days]),
+        mo.hstack([selected_cities2, selected_days]),
         figure2
     ])
     return
@@ -915,7 +915,6 @@ def _(COL, d, json, mo):
 
     # --- Return output (important in marimo) ---
     map_out_v2
-
     return
 
 
