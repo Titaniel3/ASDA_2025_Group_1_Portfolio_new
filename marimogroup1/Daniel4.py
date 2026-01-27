@@ -591,7 +591,7 @@ def _(mo):
 
 
 @app.cell
-def _(cities, df, price_min):
+def _(cities, df, pd, price_min):
     COL = {
         "city": "City",
         "lat": "lat",
@@ -608,8 +608,9 @@ def _(cities, df, price_min):
 
     cities_t = sorted(df[COL["city"]].dropna().unique().tolist())
     room_types_t = sorted(df[COL["room_type"]].dropna().unique().tolist())
-    bedrooms_vals = sorted(df[COL["bedrooms"]].dropna().unique().tolist())
-    capacity_vals = sorted(df[COL["capacity"]].dropna().unique().tolist())
+    bedrooms_vals = sorted(pd.to_numeric(df[COL["bedrooms"]], errors="coerce").dropna().astype(int).unique())
+    capacity_vals = sorted(pd.to_numeric(df[COL["capacity"]], errors="coerce").dropna().astype(int).unique())
+
     host_portfolios = sorted(df[COL["host_portfolio"]].dropna().unique().tolist())
 
     price_min_t = float(df[COL["price"]].min())
