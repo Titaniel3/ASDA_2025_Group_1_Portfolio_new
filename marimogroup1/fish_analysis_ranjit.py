@@ -97,17 +97,27 @@ def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
 @app.cell
 def _(mo):
 
-    length = mo.ui.slider(20, 50, label="Length3")
-    height = mo.ui.slider(5, 20, label="Height")
-    width = mo.ui.slider(2, 10, label="Width")
+    length_input = mo.ui.number(label="Length2 (cm)")
+    height_input = mo.ui.number(label="Height (cm)")
+    width_input  = mo.ui.number(label="Width (cm)")
 
-    length, height, width
+    length_input, height_input, width_input
 
-    return height, length, width
+    return height_input, length_input, width_input
 
 
 @app.cell
-def _(height, length, mo, model, pd, width):
+def _(height_input, length_input, mo, model, pd, width_input):
+    # Map species → image path (put your real paths)
+    fish_images = {
+        "Bream": "images/bream.jpg",
+        "Perch": "images/perch.jpg",
+        "Pike": "images/pike.jpg",
+        "Roach": "images/roach.jpg",
+        "Smelt": "images/smelt.jpg",
+        "Parkki": "images/parkki.jpg",
+        "Whitefish": "images/whitefish.jpg"
+    }
 
     def predict_species(l, h, w):
         sample = pd.DataFrame([{
@@ -117,7 +127,17 @@ def _(height, length, mo, model, pd, width):
         }])
         return model.predict(sample)[0]
 
-    mo.md(f"## 🐟 Predicted Fish Species: **{predict_species(length.value, height.value, width.value)}**")
+    # Only predict if user entered values
+    if length_input.value and height_input.value and width_input.value:
+        species = predict_species(length_input.value, height_input.value, width_input.value)
+        img_path = fish_images.get(species, "")
+
+        mo.vstack([
+            mo.md(f"## 🐟 Predicted Species: **{species}**"),
+            mo.image(img_path)
+        ])
+    else:
+        mo.md("⬆️ Enter measurements to predict fish species")
 
     return
 
