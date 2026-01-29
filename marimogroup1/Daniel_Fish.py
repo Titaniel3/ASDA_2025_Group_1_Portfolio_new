@@ -25,7 +25,17 @@ def _():
     from sklearn.linear_model import LinearRegression, LogisticRegression  # Baseline models
     from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier  # Stronger models
 
-    return mo, pd, plt
+    return (
+        LogisticRegression,
+        Pipeline,
+        StandardScaler,
+        accuracy_score,
+        mo,
+        np,
+        pd,
+        plt,
+        train_test_split,
+    )
 
 
 @app.cell
@@ -208,71 +218,291 @@ def _(
 
 @app.cell
 def _(df_filtered, mo, plt):
-    # --- Visualization 2: Boxplot Weight by Species + Composition KPI (filtered) ---
+    # --- Visualization 2: Boxplot Weight by Species (filtered) ---
 
-    fig_box, ax_box = plt.subplots()
+    fig_box_only, ax_box_only = plt.subplots()
 
-    # Build boxplot data
-    species_in_box = sorted(df_filtered["Species"].dropna().unique().tolist())
+    species_in_box_only = sorted(df_filtered["Species"].dropna().unique().tolist())
 
-    box_data = []
-    box_labels = []
+    box_data_only = []
+    box_labels_only = []
 
-    for species_name_box in species_in_box:
-        weights_values_box = (
-            df_filtered.loc[df_filtered["Species"] == species_name_box, "Weight"]
+    for species_name_only in species_in_box_only:
+        weights_values_only = (
+            df_filtered.loc[df_filtered["Species"] == species_name_only, "Weight"]
             .dropna()
             .values
         )
-        if len(weights_values_box) > 0:
-            box_data.append(weights_values_box)
-            box_labels.append(species_name_box)
+        if len(weights_values_only) > 0:
+            box_data_only.append(weights_values_only)
+            box_labels_only.append(species_name_only)
 
-    # --- KPI: total + counts by species (only > 0) ---
-    n_total_fish = len(df_filtered)
-
-    counts_series = (
-        df_filtered["Species"]
-        .value_counts()
-        .sort_index()
-    )
-
-    # Create a small markdown list for the sidebar box
-    lines = [f"**Total:** {n_total_fish}", "", "**By species:**"]
-    for species_name_count, count_val in counts_series.items():
-        if count_val > 0:
-            lines.append(f"- {species_name_count}: **{int(count_val)}**")
-
-    kpi_comp_box = mo.md("\n".join(lines))
-
-    # --- Output ---
-    if len(box_data) == 0:
-        out_boxplot = mo.md("No data available for the boxplot with the current filters.")
+    if len(box_data_only) == 0:
+        out_box_only = mo.md("No data available for the boxplot with the current filters.")
     else:
-        ax_box.boxplot(box_data, tick_labels=box_labels)
+        ax_box_only.boxplot(box_data_only, tick_labels=box_labels_only)
 
-        ax_box.set_title("Weight distribution by Species (filtered)")
-        ax_box.set_xlabel("Species")
-        ax_box.set_ylabel("Weight")
-        ax_box.grid(True, axis="y")
+        ax_box_only.set_title("Weight distribution by Species (filtered)")
+        ax_box_only.set_xlabel("Species")
+        ax_box_only.set_ylabel("Weight")
+        ax_box_only.grid(True, axis="y")
 
-        plt.setp(ax_box.get_xticklabels(), rotation=30, ha="right")
+        plt.setp(ax_box_only.get_xticklabels(), rotation=30, ha="right")
 
-        out_boxplot = mo.hstack(
+        out_box_only = mo.vstack(
             [
-                fig_box,
-                mo.vstack(
-                    [
-                        mo.md("### Number of fish"),
-                        kpi_comp_box,
-                    ],
-                    gap=0.5
-                ),
+                mo.md("### Boxplot: Weight by Species"),
+                fig_box_only,
             ],
-            widths=[3, 1]
+            gap=1
         )
 
-    out_boxplot
+    out_box_only
+
+    return
+
+
+@app.cell
+def _(df_filtered, mo, np):
+    # --- KPI tiles (based on df_filtered) ---
+
+    # Compute KPIs
+    kpi_total_n = int(len(df_filtered))
+
+    kpi_mean_weight = float(df_filtered["Weight"].mean()) if kpi_total_n > 0 else np.nan
+    kpi_mean_length2 = float(df_filtered["Length2"].mean()) if kpi_total_n > 0 else np.nan
+
+    # Species composition (only > 0 automatically, because value_counts only returns present categories)
+    kpi_species_counts = (
+        df_filtered["Species"]
+        .value_counts()
+        .sort_values(ascending=False)
+    )
+
+    # Build a small markdown "table" for counts
+    species_lines = ["**Species composition**"]
+    for species_name_kpi, count_kpi in kpi_species_counts.items():
+        species_lines.append(f"- {species_name_kpi}: **{int(count_kpi)}**")
+
+    species_breakdown_md = "\n".join(species_lines)
+
+    # Helper: HTML tile (emoji icons are easiest and reliable)
+    def _kpi_tile(title, value, icon, subtitle=""):
+        # Simple HTML tile; works well in marimo markdown
+        return mo.md(
+            f"""
+    <div style="
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.9);
+    ">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="font-size: 14px; opacity: 0.8;">{title}</div>
+        <div style="font-size: 20px;">{icon}</div>
+      </div>
+      <div style="font-size: 30px; font-weight: 700; margin-top: 6px;">{value}</div>
+      <div style="font-size: 12px; opacity: 0.75; margin-top: 4px;">{subtitle}</div>
+    </div>
+    """
+        )
+
+    tile_total = _kpi_tile(
+        title="Number of fish",
+        value=f"{kpi_total_n}",
+        icon="🐟",
+        subtitle="After applying all meta-filters"
+    )
+
+    tile_mean_weight = _kpi_tile(
+        title="Average weight",
+        value="-" if np.isnan(kpi_mean_weight) else f"{kpi_mean_weight:.1f}",
+        icon="⚖️",
+        subtitle="Mean of Weight"
+    )
+
+    tile_mean_length2 = _kpi_tile(
+        title="Average Length2",
+        value="-" if np.isnan(kpi_mean_length2) else f"{kpi_mean_length2:.1f}",
+        icon="📏",
+        subtitle="Mean of Length2"
+    )
+
+    # A larger tile for species breakdown (acts like a KPI panel)
+    tile_species = mo.md(
+        f"""
+    <div style="
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.9);
+    ">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="font-size: 14px; opacity: 0.8;">Species breakdown</div>
+        <div style="font-size: 20px;">🧾</div>
+      </div>
+      <div style="margin-top: 10px;">
+        {species_breakdown_md.replace("\n", "<br>")}
+      </div>
+    </div>
+    """
+    )
+
+    # Layout: 3 small tiles on top, then breakdown tile
+    mo.vstack(
+        [
+            mo.md("## KPI Tiles"),
+            mo.hstack([tile_total, tile_mean_weight, tile_mean_length2], widths=[1, 1, 1]),
+            tile_species,
+        ],
+        gap=1
+    )
+
+    return
+
+
+@app.cell
+def _(
+    LogisticRegression,
+    Pipeline,
+    StandardScaler,
+    accuracy_score,
+    df_base,
+    mo,
+    train_test_split,
+):
+    # --- Model: Predict Species from fish measurements ---
+
+    # Features and target
+    feature_cols_cls = ["Weight", "Length2", "Height", "Width"]
+
+    # Remove rows with missing values in features/target
+    train_df_cls = df_base.dropna(subset=feature_cols_cls + ["Species"]).copy()
+
+    X_cls = train_df_cls[feature_cols_cls]
+    y_cls = train_df_cls["Species"]
+
+    # Split
+    X_train_cls, X_test_cls, y_train_cls, y_test_cls = train_test_split(
+        X_cls, y_cls, test_size=0.2, random_state=42, stratify=y_cls
+    )
+
+    # Pipeline: scaling + classifier
+    species_model = Pipeline(
+        steps=[
+            ("scaler", StandardScaler()),
+            ("clf", LogisticRegression(max_iter=2000))
+        ]
+    )
+
+    # Train
+    species_model.fit(X_train_cls, y_train_cls)
+
+    # Quick evaluation
+    y_pred_cls = species_model.predict(X_test_cls)
+    acc_cls = accuracy_score(y_test_cls, y_pred_cls)
+
+    mo.md(f"### Model trained ✅\nAccuracy on test set: **{acc_cls:.3f}**")
+
+    return (species_model,)
+
+
+@app.cell
+def _(df_base, mo):
+    # --- Angler Tool: create UI elements (NO .value access here) ---
+
+    angler_get_state, angler_set_state = mo.state(None)
+
+    angler_weight_inp = mo.ui.number(label="Weight", value=float(df_base["Weight"].median()))
+    angler_length2_inp = mo.ui.number(label="Length2", value=float(df_base["Length2"].median()))
+    angler_height_inp = mo.ui.number(label="Height", value=float(df_base["Height"].median()))
+    angler_width_inp = mo.ui.number(label="Width", value=float(df_base["Width"].median()))
+
+    angler_submit_btn = mo.ui.button(label="🎣 Predict species")
+
+    mo.vstack(
+        [
+            mo.md("## 🎣 Angler Tool"),
+            mo.md("Enter the measurements and click **Predict species**."),
+            angler_weight_inp,
+            angler_length2_inp,
+            angler_height_inp,
+            angler_width_inp,
+            angler_submit_btn,
+        ],
+        gap=0.5
+    )
+
+    return (
+        angler_get_state,
+        angler_height_inp,
+        angler_length2_inp,
+        angler_set_state,
+        angler_submit_btn,
+        angler_weight_inp,
+        angler_width_inp,
+    )
+
+
+@app.cell
+def _(
+    angler_height_inp,
+    angler_length2_inp,
+    angler_set_state,
+    angler_submit_btn,
+    angler_weight_inp,
+    angler_width_inp,
+    mo,
+):
+    # --- Angler Tool: submit handler (reads .value in a separate cell) ---
+
+    if angler_submit_btn.value:
+        angler_set_state(
+            {
+                "Weight": float(angler_weight_inp.value),
+                "Length2": float(angler_length2_inp.value),
+                "Height": float(angler_height_inp.value),
+                "Width": float(angler_width_inp.value),
+            }
+        )
+
+    mo.md("✅ Ready to predict. Click the button above.")
+
+    return
+
+
+@app.cell
+def _(angler_get_state, mo, pd, species_model):
+    # --- Angler Tool: prediction output (from state) ---
+
+    submitted_vals_tool = angler_get_state()
+
+    if submitted_vals_tool is None:
+        out_pred_tool = mo.md("Click **Predict species** to see the result.")
+    else:
+        user_df_tool = pd.DataFrame([submitted_vals_tool])
+
+        pred_species_tool = species_model.predict(user_df_tool)[0]
+
+        if hasattr(species_model, "predict_proba"):
+            proba_vals_tool = species_model.predict_proba(user_df_tool)[0]
+            class_names_tool = species_model.named_steps["clf"].classes_
+
+            top_df_tool = (
+                pd.DataFrame({"Species": class_names_tool, "Probability": proba_vals_tool})
+                .sort_values("Probability", ascending=False)
+                .head(3)
+            )
+
+            lines_tool = [f"## ✅ Prediction: **{pred_species_tool}**", "", "**Top 3 probabilities:**"]
+            for _, row_tool in top_df_tool.iterrows():
+                lines_tool.append(f"- {row_tool['Species']}: **{row_tool['Probability']:.1%}**")
+
+            out_pred_tool = mo.md("\n".join(lines_tool))
+        else:
+            out_pred_tool = mo.md(f"## ✅ Prediction: **{pred_species_tool}**")
+
+    out_pred_tool
 
     return
 
