@@ -1,0 +1,54 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.19.4"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "98bb7956ea92ac540f99e9e901c6777c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "85bcc5036df85bcc76e0afe7b62c8ff3",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "[Errno 2] No such file or directory: '../datasets/Fish_final.xlsx'",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\marimo\\_runtime\\executor.py&quot;</span>, line <span class=\"m\">138</span>, in <span class=\"n\">execute_cell</span>\n<span class=\"w\">    </span><span class=\"n\">exec</span><span class=\"p\">(</span><span class=\"n\">cell</span><span class=\"o\">.</span><span class=\"n\">body</span><span class=\"p\">,</span> <span class=\"n\">glbls</span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\AppData\\Local\\Temp\\marimo_7868\\__marimo__cell_MJUe_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">df</span> <span class=\"o\">=</span> <span class=\"n\">pd</span><span class=\"o\">.</span><span class=\"n\">read_excel</span><span class=\"p\">(</span><span class=\"s2\">&quot;../datasets/Fish_final.xlsx&quot;</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\excel\\_base.py&quot;</span>, line <span class=\"m\">481</span>, in <span class=\"n\">read_excel</span>\n<span class=\"w\">    </span><span class=\"n\">io</span> <span class=\"o\">=</span> <span class=\"n\">ExcelFile</span><span class=\"p\">(</span>\n<span class=\"w\">    </span>    <span class=\"n\">io</span><span class=\"p\">,</span>\n<span class=\"w\">    </span><span class=\"o\">...&lt;</span><span class=\"mi\">2</span> <span class=\"n\">lines</span><span class=\"o\">&gt;...</span>\n<span class=\"w\">    </span>    <span class=\"n\">engine_kwargs</span><span class=\"o\">=</span><span class=\"n\">engine_kwargs</span><span class=\"p\">,</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\excel\\_base.py&quot;</span>, line <span class=\"m\">1604</span>, in <span class=\"n\">__init__</span>\n<span class=\"w\">    </span><span class=\"n\">ext</span> <span class=\"o\">=</span> <span class=\"n\">inspect_excel_format</span><span class=\"p\">(</span>\n<span class=\"w\">    </span>    <span class=\"n\">content_or_path</span><span class=\"o\">=</span><span class=\"n\">path_or_buffer</span><span class=\"p\">,</span> <span class=\"n\">storage_options</span><span class=\"o\">=</span><span class=\"n\">storage_options</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\excel\\_base.py&quot;</span>, line <span class=\"m\">1452</span>, in <span class=\"n\">inspect_excel_format</span>\n<span class=\"w\">    </span><span class=\"k\">with</span> <span class=\"n\">get_handle</span><span class=\"p\">(</span>\n<span class=\"w\">         </span><span class=\"pm\">~~~~~~~~~~^</span>\n<span class=\"w\">    </span>    <span class=\"n\">content_or_path</span><span class=\"p\">,</span> <span class=\"s2\">&quot;rb&quot;</span><span class=\"p\">,</span> <span class=\"n\">storage_options</span><span class=\"o\">=</span><span class=\"n\">storage_options</span><span class=\"p\">,</span> <span class=\"n\">is_text</span><span class=\"o\">=</span><span class=\"kc\">False</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"w\">    </span><span class=\"p\">)</span> <span class=\"k\">as</span> <span class=\"n\">handle</span><span class=\"p\">:</span>\n<span class=\"w\">    </span><span class=\"pm\">^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\common.py&quot;</span>, line <span class=\"m\">935</span>, in <span class=\"n\">get_handle</span>\n<span class=\"w\">    </span><span class=\"n\">handle</span> <span class=\"o\">=</span> <span class=\"nb\">open</span><span class=\"p\">(</span><span class=\"n\">handle</span><span class=\"p\">,</span> <span class=\"n\">ioargs</span><span class=\"o\">.</span><span class=\"n\">mode</span><span class=\"p\">)</span>\n<span class=\"gr\">FileNotFoundError</span>: <span class=\"n\">[Errno 2] No such file or directory: &#39;../datasets/Fish_final.xlsx&#39;</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "vblA",
+      "code_hash": "eff7d5dba32b4da32d9a67a519434d3f",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
+          "traceback": []
+        }
+      ],
+      "console": []
+    }
+  ]
+}
