@@ -6,7 +6,7 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "e1e6fabc04b1e38553b2cf8ae3260b55",
+      "code_hash": "f1a76f6b18c8b9e713bb71186b328186",
       "outputs": [
         {
           "type": "data",
@@ -18,34 +18,34 @@
       "console": []
     },
     {
-      "id": "vqRK",
-      "code_hash": "5cb96476cdfabac53798b83bde64804d",
+      "id": "MJUe",
+      "code_hash": "a4570725a50694f7101ceac623588a93",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='vqRK-0' random-id='01efc3d9-e5d9-28ac-656e-dc6bd183b8f4'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Weight&#92;&quot;:242.0,&#92;&quot;Length1&#92;&quot;:23.2,&#92;&quot;Length2&#92;&quot;:25.4,&#92;&quot;Length3&#92;&quot;:30.0,&#92;&quot;Height&#92;&quot;:11.52,&#92;&quot;Width&#92;&quot;:4.02,&#92;&quot;sqrt_weight&#92;&quot;:15.55634918610405,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:290.0,&#92;&quot;Length1&#92;&quot;:24.0,&#92;&quot;Length2&#92;&quot;:26.3,&#92;&quot;Length3&#92;&quot;:31.2,&#92;&quot;Height&#92;&quot;:12.48,&#92;&quot;Width&#92;&quot;:4.3056,&#92;&quot;sqrt_weight&#92;&quot;:17.0293863659264,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:340.0,&#92;&quot;Length1&#92;&quot;:23.9,&#92;&quot;Length2&#92;&quot;:26.5,&#92;&quot;Length3&#92;&quot;:31.1,&#92;&quot;Height&#92;&quot;:12.3778,&#92;&quot;Width&#92;&quot;:4.6961,&#92;&quot;sqrt_weight&#92;&quot;:18.43908891458577,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:363.0,&#92;&quot;Length1&#92;&quot;:26.3,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:33.5,&#92;&quot;Height&#92;&quot;:12.73,&#92;&quot;Width&#92;&quot;:4.4555,&#92;&quot;sqrt_weight&#92;&quot;:19.05255888325765,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:430.0,&#92;&quot;Length1&#92;&quot;:26.5,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:34.0,&#92;&quot;Height&#92;&quot;:12.444,&#92;&quot;Width&#92;&quot;:5.134,&#92;&quot;sqrt_weight&#92;&quot;:20.73644135332772,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false}]&quot;' data-total-rows='5' data-total-columns='14' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length1&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length2&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length3&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Height&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Width&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;sqrt_weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Species_Bream&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Parkki&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Perch&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Pike&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Roach&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Smelt&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Whitefish&quot;,[&quot;boolean&quot;,&quot;bool&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='MJUe-0' random-id='36442790-734f-2bdc-448f-cf6764396dbc'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Weight&#92;&quot;:242.0,&#92;&quot;Length1&#92;&quot;:23.2,&#92;&quot;Length2&#92;&quot;:25.4,&#92;&quot;Length3&#92;&quot;:30.0,&#92;&quot;Height&#92;&quot;:11.52,&#92;&quot;Width&#92;&quot;:4.02,&#92;&quot;sqrt_weight&#92;&quot;:15.55634918610405,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:290.0,&#92;&quot;Length1&#92;&quot;:24.0,&#92;&quot;Length2&#92;&quot;:26.3,&#92;&quot;Length3&#92;&quot;:31.2,&#92;&quot;Height&#92;&quot;:12.48,&#92;&quot;Width&#92;&quot;:4.3056,&#92;&quot;sqrt_weight&#92;&quot;:17.0293863659264,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:340.0,&#92;&quot;Length1&#92;&quot;:23.9,&#92;&quot;Length2&#92;&quot;:26.5,&#92;&quot;Length3&#92;&quot;:31.1,&#92;&quot;Height&#92;&quot;:12.3778,&#92;&quot;Width&#92;&quot;:4.6961,&#92;&quot;sqrt_weight&#92;&quot;:18.43908891458577,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:363.0,&#92;&quot;Length1&#92;&quot;:26.3,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:33.5,&#92;&quot;Height&#92;&quot;:12.73,&#92;&quot;Width&#92;&quot;:4.4555,&#92;&quot;sqrt_weight&#92;&quot;:19.05255888325765,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:430.0,&#92;&quot;Length1&#92;&quot;:26.5,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:34.0,&#92;&quot;Height&#92;&quot;:12.444,&#92;&quot;Width&#92;&quot;:5.134,&#92;&quot;sqrt_weight&#92;&quot;:20.73644135332772,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false}]&quot;' data-total-rows='5' data-total-columns='14' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length1&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length2&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length3&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Height&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Width&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;sqrt_weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Species_Bream&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Parkki&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Perch&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Pike&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Roach&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Smelt&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Whitefish&quot;,[&quot;boolean&quot;,&quot;bool&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "gwbj",
-      "code_hash": "e8a7639671164710566bf917d6a29975",
+      "id": "vblA",
+      "code_hash": "8d28894ddb00e7b5d82e7cdd0f2796ef",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-sidebar ><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.25rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"meta-filter\">Meta-Filter</h2></span><marimo-ui-element object-id='gwbj-0' random-id='822e7e96-fc8c-3fd4-63b8-ff7d228fa7a8'><marimo-multiselect data-initial-value='[&quot;Bream&quot;,&quot;Parkki&quot;,&quot;Perch&quot;,&quot;Pike&quot;,&quot;Roach&quot;,&quot;Smelt&quot;,&quot;Whitefish&quot;]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Species&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;Bream&quot;,&quot;Parkki&quot;,&quot;Perch&quot;,&quot;Pike&quot;,&quot;Roach&quot;,&quot;Smelt&quot;,&quot;Whitefish&quot;]' data-full-width='false'></marimo-multiselect></marimo-ui-element><marimo-ui-element object-id='gwbj-1' random-id='ff0fcc3a-9c79-366a-a11d-a49b158d1fe5'><marimo-range-slider data-initial-value='[0.0,1650.0]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Weight (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.0' data-stop='1650.0' data-step='8.25' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element><marimo-ui-element object-id='gwbj-2' random-id='6109fbe0-414a-e348-cc21-75d4e9137fe3'><marimo-range-slider data-initial-value='[8.4,63.4]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Length2 (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='8.4' data-stop='63.4' data-step='0.275' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element><marimo-ui-element object-id='gwbj-3' random-id='4307484c-cc98-99a6-4085-27c834030c3e'><marimo-range-slider data-initial-value='[1.7284,18.957]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Height (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1.7284' data-stop='18.957' data-step='0.1' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element><marimo-ui-element object-id='gwbj-4' random-id='97e1eb8c-6dc5-dbbf-6685-5afd22717afc'><marimo-range-slider data-initial-value='[1.0476,8.142]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Width (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1.0476' data-stop='8.142' data-step='0.035472' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element></div></marimo-sidebar>"
+            "text/html": "<marimo-sidebar ><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.25rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"meta-filter\">Meta-Filter</h2></span><marimo-ui-element object-id='vblA-0' random-id='b5b575a0-b3da-d404-5fae-44262923d4fd'><marimo-multiselect data-initial-value='[&quot;Bream&quot;,&quot;Parkki&quot;,&quot;Perch&quot;,&quot;Pike&quot;,&quot;Roach&quot;,&quot;Smelt&quot;,&quot;Whitefish&quot;]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Species&lt;/span&gt;&lt;/span&gt;&quot;' data-options='[&quot;Bream&quot;,&quot;Parkki&quot;,&quot;Perch&quot;,&quot;Pike&quot;,&quot;Roach&quot;,&quot;Smelt&quot;,&quot;Whitefish&quot;]' data-full-width='false'></marimo-multiselect></marimo-ui-element><marimo-ui-element object-id='vblA-1' random-id='ff2a1f55-72de-374b-ac4a-f689f6c25dff'><marimo-range-slider data-initial-value='[0.0,1650.0]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Weight (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0.0' data-stop='1650.0' data-step='8.25' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element><marimo-ui-element object-id='vblA-2' random-id='5a600252-7761-a393-8d76-ad3301ed5303'><marimo-range-slider data-initial-value='[8.4,63.4]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Length2 (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='8.4' data-stop='63.4' data-step='0.275' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element><marimo-ui-element object-id='vblA-3' random-id='d2ec2f57-9222-aad1-3ee0-0d42e5f4f520'><marimo-range-slider data-initial-value='[1.7284,18.957]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Height (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1.7284' data-stop='18.957' data-step='0.1' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element><marimo-ui-element object-id='vblA-4' random-id='b1a43115-122a-ec9d-8053-0a94054ccd13'><marimo-range-slider data-initial-value='[1.0476,8.142]' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Width (range)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1.0476' data-stop='8.142' data-step='0.035472' data-steps='[]' data-debounce='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-full-width='false' data-disabled='false'></marimo-range-slider></marimo-ui-element></div></marimo-sidebar>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ZwMx",
-      "code_hash": "dc005848b8d833d9797807717256b0fa",
+      "id": "bkHC",
+      "code_hash": "b84175f3267c4d8b0bcf928db2898b8a",
       "outputs": [
         {
           "type": "data",
@@ -57,8 +57,8 @@
       "console": []
     },
     {
-      "id": "lpIc",
-      "code_hash": "fdc4551359ccc3691cf650628ef97f52",
+      "id": "lEQa",
+      "code_hash": "2ed069a8989a1b815e1af8e4574fdfc6",
       "outputs": [
         {
           "type": "data",
@@ -70,8 +70,8 @@
       "console": []
     },
     {
-      "id": "RgUh",
-      "code_hash": "53b68026592518f7f24f050f9dc0623c",
+      "id": "PKri",
+      "code_hash": "a68be55e3d32b8dd59a65b85a326d6b5",
       "outputs": [
         {
           "type": "data",
@@ -83,8 +83,8 @@
       "console": []
     },
     {
-      "id": "Yghy",
-      "code_hash": "391aff4aaa0f2e5ae0312f6560c4692d",
+      "id": "Xref",
+      "code_hash": "8217fb8137b480863ac5bddd3cff95f4",
       "outputs": [
         {
           "type": "data",
@@ -96,21 +96,21 @@
       "console": []
     },
     {
-      "id": "wacm",
-      "code_hash": "d197c766e4f6ca0004faac4e1cde39fd",
+      "id": "SFPL",
+      "code_hash": "916db567622ae1af8254256f384044c5",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"angler-tool\">\ud83c\udfa3 Angler Tool</h2></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Enter the measurements and click <strong>Predict species</strong>.</span></span><marimo-ui-element object-id='wacm-0' random-id='07b0e305-01e0-d1a6-1979-4729babff7c6'><marimo-number data-initial-value='273.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Weight&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='wacm-1' random-id='91dda765-e0ab-f746-96cd-9d034e00f0a4'><marimo-number data-initial-value='27.3' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Length2&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='wacm-2' random-id='84ac4894-0b15-16e4-aaca-cadd11231fb8'><marimo-number data-initial-value='7.786' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Height&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='wacm-3' random-id='be9a002a-0a0b-10e9-6bef-25d9bac7630d'><marimo-number data-initial-value='4.2485' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Width&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='wacm-4' random-id='08725bdb-7c06-114d-f91e-12d0c0cf8359'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;\ud83c\udfa3 Predict species&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;neutral&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"angler-tool\">\ud83c\udfa3 Angler Tool</h2></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Enter the measurements and click <strong>Predict species</strong>.</span></span><marimo-ui-element object-id='SFPL-0' random-id='8fe1fee4-e409-c005-76cd-65cfd6ad5c73'><marimo-number data-initial-value='273.0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Weight&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-1' random-id='02e2ce83-1b5c-bb21-eee1-940e8c399d88'><marimo-number data-initial-value='27.3' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Length2&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-2' random-id='d23abd7a-ae8a-18a1-d8b7-0d9872457526'><marimo-number data-initial-value='7.786' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Height&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-3' random-id='71f3d087-cec4-f9ce-1080-4f00c96252fc'><marimo-number data-initial-value='4.2485' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Width&lt;/span&gt;&lt;/span&gt;&quot;' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='SFPL-4' random-id='7e1b6600-a745-1261-c7b7-67c8a5f78806'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;\ud83c\udfa3 Predict species&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;neutral&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "IvWn",
-      "code_hash": "7f8cdb23981a42d3f51ea42905f46c20",
+      "id": "BYtC",
+      "code_hash": "4471db1921ac7c1919d775ca646dd91b",
       "outputs": [
         {
           "type": "data",
@@ -122,8 +122,8 @@
       "console": []
     },
     {
-      "id": "IJJE",
-      "code_hash": "34fabbd21569cc0f3c110202ed2dc092",
+      "id": "RGSE",
+      "code_hash": "2ad04976b446fa645fef3610ef7d68f5",
       "outputs": [
         {
           "type": "data",

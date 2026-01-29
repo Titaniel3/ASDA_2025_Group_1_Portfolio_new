@@ -70,47 +70,60 @@ def _(X_test, X_train, y_test, y_train):
     from sklearn.metrics import accuracy_score, classification_report
 
 
-    model = LogisticRegression(max_iter=1000)
+    model = LogisticRegression(max_iter=1000,class_weight="balanced")
     model.fit(X_train, y_train)
 
     pred = model.predict(X_test)
 
     print("Accuracy:", accuracy_score(y_test, pred))
     print(classification_report(y_test, pred))
-
-    return (accuracy_score,)
+    return accuracy_score, classification_report, model
 
 
 @app.cell
-def _(X_test, X_train, accuracy_score, y_test, y_train):
+def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
     from sklearn.ensemble import RandomForestClassifier
 
-    rf = RandomForestClassifier(n_estimators=200, random_state=42)
+    rf = RandomForestClassifier(n_estimators=200,random_state=42)
     rf.fit(X_train, y_train)
 
     pred_rf = rf.predict(X_test)
 
     print("Accuracy:", accuracy_score(y_test, pred_rf))
-
-    return (rf,)
+    print(classification_report(y_test, pred_rf,zero_division=0))
+    return
 
 
 @app.cell
-def _(mo, pd, rf):
-    length = mo.ui.slider(20, 50, label="Length2")
+def _(mo):
+
+    length = mo.ui.slider(20, 50, label="Length3")
     height = mo.ui.slider(5, 20, label="Height")
     width = mo.ui.slider(2, 10, label="Width")
 
-    def predict_species():
+    length, height, width
+
+    return height, length, width
+
+
+@app.cell
+def _(height, length, mo, model, pd, width):
+
+    def predict_species(l, h, w):
         sample = pd.DataFrame([{
-            "Length2": length.value,
-            "Height": height.value,
-            "Width": width.value
+            "Length2": l,
+            "Height": h,
+            "Width": w
         }])
-        return rf.predict(sample)[0]   # or model.predict()
+        return model.predict(sample)[0]
+
+    mo.md(f"## 🐟 Predicted Fish Species: **{predict_species(length.value, height.value, width.value)}**")
+
+    return
 
 
-
+@app.cell
+def _():
     return
 
 
