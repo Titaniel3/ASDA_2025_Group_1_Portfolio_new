@@ -10,6 +10,7 @@ def _():
     import numpy as np
     import seaborn as sns
     import matplotlib.pyplot as plt
+    import marimo as mo
 
     import scipy.stats as stats
 
@@ -18,8 +19,6 @@ def _():
 
     from sklearn.model_selection import train_test_split
 
-    from sklearn.linear_model import LinearRegression
-
     from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 
@@ -27,7 +26,7 @@ def _():
     import statsmodels.api as sm
 
     from sklearn.model_selection import train_test_split
-    return LinearRegression, pd, train_test_split
+    return mo, pd, train_test_split
 
 
 @app.cell
@@ -45,14 +44,13 @@ def _(df):
 @app.cell
 def _(df):
     df1 = df.drop(["Length1", "Length3"], axis=1)
-
     return (df1,)
 
 
 @app.cell
 def _(df1, train_test_split):
-    y = df1[["Species_Bream", "Species_Parkki", "Species_Perch","Species_Pike", "Species_Roach", "Species_Smelt", "Species_Whitefish"]]
-    X = df1[["Length2", "Height", "Width","sqrt_weight"]]   # example clean feature set
+    y = df1["Species"]
+    X = df1[["Length2", "Height", "Width"]]   # example clean feature set
 
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
@@ -63,49 +61,56 @@ def _(df1, train_test_split):
 
     print("Train rows:", len(X_train))
     print("Test rows:", len(X_test))
-    return X_test, X_train, y_train
+    return X_test, X_train, y_test, y_train
 
 
 @app.cell
-def _(df):
-    species_cols = [col for col in df.columns if col.startswith("Species_")]
-
-    df["Species"] = df[species_cols].idxmax(axis=1).str.replace("Species_", "")
-
-    return
+def _(X_test, X_train, y_test, y_train):
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import accuracy_score, classification_report
 
 
-@app.cell
-def _(LinearRegression, X_train, y_train):
-    # Train linear regression model on training data
-
-    # Create the model
-    model = LinearRegression()
-
-    # Train (fit) the model on the training data
+    model = LogisticRegression(max_iter=1000)
     model.fit(X_train, y_train)
-    return (model,)
+
+    pred = model.predict(X_test)
+
+    print("Accuracy:", accuracy_score(y_test, pred))
+    print(classification_report(y_test, pred))
+
+    return (accuracy_score,)
 
 
 @app.cell
-def _(X_test, model):
-    y_pred = model.predict(X_test)
-    return (y_pred,)
+def _(X_test, X_train, accuracy_score, y_test, y_train):
+    from sklearn.ensemble import RandomForestClassifier
+
+    rf = RandomForestClassifier(n_estimators=200, random_state=42)
+    rf.fit(X_train, y_train)
+
+    pred_rf = rf.predict(X_test)
+
+    print("Accuracy:", accuracy_score(y_test, pred_rf))
+
+    return (rf,)
 
 
 @app.cell
-def _(y_pred):
-    y_pred
-    return
+def _(mo, pd, rf):
+    length = mo.ui.slider(20, 50, label="Length2")
+    height = mo.ui.slider(5, 20, label="Height")
+    width = mo.ui.slider(2, 10, label="Width")
+
+    def predict_species():
+        sample = pd.DataFrame([{
+            "Length2": length.value,
+            "Height": height.value,
+            "Width": width.value
+        }])
+        return rf.predict(sample)[0]   # or model.predict()
 
 
-@app.cell
-def _():
-    return
 
-
-@app.cell
-def _():
     return
 
 

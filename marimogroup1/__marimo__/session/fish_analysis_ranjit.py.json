@@ -6,7 +6,7 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "98bb7956ea92ac540f99e9e901c6777c",
+      "code_hash": "0961028ae7291ab5d472b552d638d04b",
       "outputs": [
         {
           "type": "data",
@@ -22,56 +22,49 @@
       "code_hash": "81702caf551f268c3a9e0e7014087805",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "[Errno 2] No such file or directory: '../datasets/Fish.csv'",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stderr",
-          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\marimo\\_runtime\\executor.py&quot;</span>, line <span class=\"m\">138</span>, in <span class=\"n\">execute_cell</span>\n<span class=\"w\">    </span><span class=\"n\">exec</span><span class=\"p\">(</span><span class=\"n\">cell</span><span class=\"o\">.</span><span class=\"n\">body</span><span class=\"p\">,</span> <span class=\"n\">glbls</span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\AppData\\Local\\Temp\\marimo_7868\\__marimo__cell_MJUe_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">df</span> <span class=\"o\">=</span> <span class=\"n\">pd</span><span class=\"o\">.</span><span class=\"n\">read_csv</span><span class=\"p\">(</span><span class=\"s2\">&quot;../datasets/Fish.csv&quot;</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py&quot;</span>, line <span class=\"m\">873</span>, in <span class=\"n\">read_csv</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">_read</span><span class=\"p\">(</span><span class=\"n\">filepath_or_buffer</span><span class=\"p\">,</span> <span class=\"n\">kwds</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py&quot;</span>, line <span class=\"m\">300</span>, in <span class=\"n\">_read</span>\n<span class=\"w\">    </span><span class=\"n\">parser</span> <span class=\"o\">=</span> <span class=\"n\">TextFileReader</span><span class=\"p\">(</span><span class=\"n\">filepath_or_buffer</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwds</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py&quot;</span>, line <span class=\"m\">1645</span>, in <span class=\"n\">__init__</span>\n<span class=\"w\">    </span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_engine</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_make_engine</span><span class=\"p\">(</span><span class=\"n\">f</span><span class=\"p\">,</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">engine</span><span class=\"p\">)</span>\n<span class=\"w\">                   </span><span class=\"pm\">~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py&quot;</span>, line <span class=\"m\">1904</span>, in <span class=\"n\">_make_engine</span>\n<span class=\"w\">    </span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">handles</span> <span class=\"o\">=</span> <span class=\"n\">get_handle</span><span class=\"p\">(</span>\n<span class=\"w\">                   </span><span class=\"pm\">~~~~~~~~~~^</span>\n<span class=\"w\">    </span>    <span class=\"n\">f</span><span class=\"p\">,</span>\n<span class=\"w\">        </span><span class=\"pm\">^^</span>\n<span class=\"w\">    </span><span class=\"o\">...&lt;</span><span class=\"mi\">6</span> <span class=\"n\">lines</span><span class=\"o\">&gt;...</span>\n<span class=\"w\">    </span>    <span class=\"n\">storage_options</span><span class=\"o\">=</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">options</span><span class=\"o\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;storage_options&quot;</span><span class=\"p\">,</span> <span class=\"kc\">None</span><span class=\"p\">),</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\pandas\\io\\common.py&quot;</span>, line <span class=\"m\">926</span>, in <span class=\"n\">get_handle</span>\n<span class=\"w\">    </span><span class=\"n\">handle</span> <span class=\"o\">=</span> <span class=\"nb\">open</span><span class=\"p\">(</span>\n<span class=\"w\">    </span>    <span class=\"n\">handle</span><span class=\"p\">,</span>\n<span class=\"w\">    </span><span class=\"o\">...&lt;</span><span class=\"mi\">3</span> <span class=\"n\">lines</span><span class=\"o\">&gt;...</span>\n<span class=\"w\">    </span>    <span class=\"n\">newline</span><span class=\"o\">=</span><span class=\"s2\">&quot;&quot;</span><span class=\"p\">,</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n<span class=\"gr\">FileNotFoundError</span>: <span class=\"n\">[Errno 2] No such file or directory: &#39;../datasets/Fish.csv&#39;</span>\n</pre></div>\n</span>",
-          "mimetype": "application/vnd.marimo+traceback"
-        }
-      ]
+      "console": []
     },
     {
-      "id": "CqcU",
+      "id": "vblA",
       "code_hash": "eff7d5dba32b4da32d9a67a519434d3f",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='vblA-0' random-id='f554faba-9ec1-59da-81a3-854ba7d27f4d'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:242.0,&#92;&quot;Length1&#92;&quot;:23.2,&#92;&quot;Length2&#92;&quot;:25.4,&#92;&quot;Length3&#92;&quot;:30.0,&#92;&quot;Height&#92;&quot;:11.52,&#92;&quot;Width&#92;&quot;:4.02},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:290.0,&#92;&quot;Length1&#92;&quot;:24.0,&#92;&quot;Length2&#92;&quot;:26.3,&#92;&quot;Length3&#92;&quot;:31.2,&#92;&quot;Height&#92;&quot;:12.48,&#92;&quot;Width&#92;&quot;:4.3056},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:340.0,&#92;&quot;Length1&#92;&quot;:23.9,&#92;&quot;Length2&#92;&quot;:26.5,&#92;&quot;Length3&#92;&quot;:31.1,&#92;&quot;Height&#92;&quot;:12.3778,&#92;&quot;Width&#92;&quot;:4.6961},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:363.0,&#92;&quot;Length1&#92;&quot;:26.3,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:33.5,&#92;&quot;Height&#92;&quot;:12.73,&#92;&quot;Width&#92;&quot;:4.4555},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:430.0,&#92;&quot;Length1&#92;&quot;:26.5,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:34.0,&#92;&quot;Height&#92;&quot;:12.444,&#92;&quot;Width&#92;&quot;:5.134},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:450.0,&#92;&quot;Length1&#92;&quot;:26.8,&#92;&quot;Length2&#92;&quot;:29.7,&#92;&quot;Length3&#92;&quot;:34.7,&#92;&quot;Height&#92;&quot;:13.6024,&#92;&quot;Width&#92;&quot;:4.9274},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:500.0,&#92;&quot;Length1&#92;&quot;:26.8,&#92;&quot;Length2&#92;&quot;:29.7,&#92;&quot;Length3&#92;&quot;:34.5,&#92;&quot;Height&#92;&quot;:14.1795,&#92;&quot;Width&#92;&quot;:5.2785},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:390.0,&#92;&quot;Length1&#92;&quot;:27.6,&#92;&quot;Length2&#92;&quot;:30.0,&#92;&quot;Length3&#92;&quot;:35.0,&#92;&quot;Height&#92;&quot;:12.67,&#92;&quot;Width&#92;&quot;:4.69},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:450.0,&#92;&quot;Length1&#92;&quot;:27.6,&#92;&quot;Length2&#92;&quot;:30.0,&#92;&quot;Length3&#92;&quot;:35.1,&#92;&quot;Height&#92;&quot;:14.0049,&#92;&quot;Width&#92;&quot;:4.8438},{&#92;&quot;Species&#92;&quot;:&#92;&quot;Bream&#92;&quot;,&#92;&quot;Weight&#92;&quot;:500.0,&#92;&quot;Length1&#92;&quot;:28.5,&#92;&quot;Length2&#92;&quot;:30.7,&#92;&quot;Length3&#92;&quot;:36.2,&#92;&quot;Height&#92;&quot;:14.2266,&#92;&quot;Width&#92;&quot;:4.9594}]&quot;' data-total-rows='159' data-total-columns='7' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Species&quot;,[&quot;unknown&quot;,&quot;str&quot;]],[&quot;Weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length1&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length2&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length3&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Height&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Width&quot;,[&quot;number&quot;,&quot;float64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
         }
       ],
       "console": []
     },
     {
       "id": "bkHC",
-      "code_hash": "4330aec8ebf63d2b3a2dfafadbddff98",
+      "code_hash": "4845e396f1ae99f4e15685cbd21e5bc7",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": []
     },
     {
       "id": "lEQa",
-      "code_hash": "40c31a194da4a7c08b7a0b1cace9bec5",
+      "code_hash": "47f0171a4ea30c9caeb1427b815d69ee",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": [
@@ -84,67 +77,68 @@
       ]
     },
     {
-      "id": "WrgY",
-      "code_hash": "b39d49d2810e6b61450a4cafbbe729ae",
+      "id": "Xref",
+      "code_hash": "7bd22ad49dba3c318414f9ef89028615",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": []
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Accuracy: 0.84375\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "C:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.\n  _warn_prf(average, modifier, f\"{metric.capitalize()} is\", result.shape[0])\nC:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.\n  _warn_prf(average, modifier, f\"{metric.capitalize()} is\", result.shape[0])\nC:\\Users\\USER\\Applied-Statistical-Data-Analysis-class_exercises\\ASDA_2025_Group_1_Portfolio_new\\marimogroup1\\.venv\\Lib\\site-packages\\sklearn\\metrics\\_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.\n  _warn_prf(average, modifier, f\"{metric.capitalize()} is\", result.shape[0])\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "              precision    recall  f1-score   support\n\n       Bream       1.00      1.00      1.00        10\n      Parkki       1.00      1.00      1.00         1\n       Perch       0.73      0.89      0.80         9\n        Pike       1.00      1.00      1.00         3\n       Roach       0.00      0.00      0.00         1\n       Smelt       1.00      1.00      1.00         5\n   Whitefish       0.00      0.00      0.00         3\n\n    accuracy                           0.84        32\n   macro avg       0.68      0.70      0.69        32\nweighted avg       0.80      0.84      0.82        32\n\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
-      "id": "PKri",
-      "code_hash": "892c10d47aba120ea8d1780e5305e192",
+      "id": "SFPL",
+      "code_hash": "6ae917a451b939a0168093c0544e95ad",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": []
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Accuracy: 0.875\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
-      "id": "KXHf",
-      "code_hash": "835bc8880c4badc2d06fcafdda30243a",
+      "id": "RGSE",
+      "code_hash": "5abad63f4db8e668c88dc9c0a65f1583",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": []
-    },
-    {
-      "id": "RDRE",
-      "code_hash": "59f8097212f8ee292f7eb4eb1637ab8b",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (FileNotFoundError): ",
-          "traceback": []
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "bFQz",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "hCWw",
-      "code_hash": null,
-      "outputs": [],
       "console": []
     }
   ]
