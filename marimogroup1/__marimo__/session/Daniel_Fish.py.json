@@ -6,12 +6,25 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "448b59e39f2ba29b6a43e9395d672c38",
+      "code_hash": "e1e6fabc04b1e38553b2cf8ae3260b55",
       "outputs": [
         {
           "type": "data",
           "data": {
             "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vqRK",
+      "code_hash": "5cb96476cdfabac53798b83bde64804d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='vqRK-0' random-id='01efc3d9-e5d9-28ac-656e-dc6bd183b8f4'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Weight&#92;&quot;:242.0,&#92;&quot;Length1&#92;&quot;:23.2,&#92;&quot;Length2&#92;&quot;:25.4,&#92;&quot;Length3&#92;&quot;:30.0,&#92;&quot;Height&#92;&quot;:11.52,&#92;&quot;Width&#92;&quot;:4.02,&#92;&quot;sqrt_weight&#92;&quot;:15.55634918610405,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:290.0,&#92;&quot;Length1&#92;&quot;:24.0,&#92;&quot;Length2&#92;&quot;:26.3,&#92;&quot;Length3&#92;&quot;:31.2,&#92;&quot;Height&#92;&quot;:12.48,&#92;&quot;Width&#92;&quot;:4.3056,&#92;&quot;sqrt_weight&#92;&quot;:17.0293863659264,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:340.0,&#92;&quot;Length1&#92;&quot;:23.9,&#92;&quot;Length2&#92;&quot;:26.5,&#92;&quot;Length3&#92;&quot;:31.1,&#92;&quot;Height&#92;&quot;:12.3778,&#92;&quot;Width&#92;&quot;:4.6961,&#92;&quot;sqrt_weight&#92;&quot;:18.43908891458577,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:363.0,&#92;&quot;Length1&#92;&quot;:26.3,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:33.5,&#92;&quot;Height&#92;&quot;:12.73,&#92;&quot;Width&#92;&quot;:4.4555,&#92;&quot;sqrt_weight&#92;&quot;:19.05255888325765,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false},{&#92;&quot;Weight&#92;&quot;:430.0,&#92;&quot;Length1&#92;&quot;:26.5,&#92;&quot;Length2&#92;&quot;:29.0,&#92;&quot;Length3&#92;&quot;:34.0,&#92;&quot;Height&#92;&quot;:12.444,&#92;&quot;Width&#92;&quot;:5.134,&#92;&quot;sqrt_weight&#92;&quot;:20.73644135332772,&#92;&quot;Species_Bream&#92;&quot;:true,&#92;&quot;Species_Parkki&#92;&quot;:false,&#92;&quot;Species_Perch&#92;&quot;:false,&#92;&quot;Species_Pike&#92;&quot;:false,&#92;&quot;Species_Roach&#92;&quot;:false,&#92;&quot;Species_Smelt&#92;&quot;:false,&#92;&quot;Species_Whitefish&#92;&quot;:false}]&quot;' data-total-rows='5' data-total-columns='14' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length1&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length2&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Length3&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Height&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Width&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;sqrt_weight&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Species_Bream&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Parkki&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Perch&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Pike&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Roach&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Smelt&quot;,[&quot;boolean&quot;,&quot;bool&quot;]],[&quot;Species_Whitefish&quot;,[&quot;boolean&quot;,&quot;bool&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
           }
         }
       ],
