@@ -203,6 +203,77 @@ def _(
         gap=1
     )
 
+    return (df_filtered,)
+
+
+@app.cell
+def _(df_filtered, mo, plt):
+    # --- Visualization 2: Boxplot Weight by Species + Composition KPI (filtered) ---
+
+    fig_box, ax_box = plt.subplots()
+
+    # Build boxplot data
+    species_in_box = sorted(df_filtered["Species"].dropna().unique().tolist())
+
+    box_data = []
+    box_labels = []
+
+    for species_name_box in species_in_box:
+        weights_values_box = (
+            df_filtered.loc[df_filtered["Species"] == species_name_box, "Weight"]
+            .dropna()
+            .values
+        )
+        if len(weights_values_box) > 0:
+            box_data.append(weights_values_box)
+            box_labels.append(species_name_box)
+
+    # --- KPI: total + counts by species (only > 0) ---
+    n_total_fish = len(df_filtered)
+
+    counts_series = (
+        df_filtered["Species"]
+        .value_counts()
+        .sort_index()
+    )
+
+    # Create a small markdown list for the sidebar box
+    lines = [f"**Total:** {n_total_fish}", "", "**By species:**"]
+    for species_name_count, count_val in counts_series.items():
+        if count_val > 0:
+            lines.append(f"- {species_name_count}: **{int(count_val)}**")
+
+    kpi_comp_box = mo.md("\n".join(lines))
+
+    # --- Output ---
+    if len(box_data) == 0:
+        out_boxplot = mo.md("No data available for the boxplot with the current filters.")
+    else:
+        ax_box.boxplot(box_data, tick_labels=box_labels)
+
+        ax_box.set_title("Weight distribution by Species (filtered)")
+        ax_box.set_xlabel("Species")
+        ax_box.set_ylabel("Weight")
+        ax_box.grid(True, axis="y")
+
+        plt.setp(ax_box.get_xticklabels(), rotation=30, ha="right")
+
+        out_boxplot = mo.hstack(
+            [
+                fig_box,
+                mo.vstack(
+                    [
+                        mo.md("### Number of fish"),
+                        kpi_comp_box,
+                    ],
+                    gap=0.5
+                ),
+            ],
+            widths=[3, 1]
+        )
+
+    out_boxplot
+
     return
 
 
