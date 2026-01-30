@@ -50,7 +50,7 @@ def _(df):
 @app.cell
 def _(df1, train_test_split):
     y = df1["Species"]
-    X = df1[["Length2", "Height", "Width"]]   # example clean feature set
+    X = df1[["Length2", "Height", "Width","Weight"]]   # example clean feature set
 
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
@@ -77,7 +77,7 @@ def _(X_test, X_train, y_test, y_train):
 
     print("Accuracy:", accuracy_score(y_test, pred))
     print(classification_report(y_test, pred))
-    return accuracy_score, classification_report, model
+    return accuracy_score, classification_report
 
 
 @app.cell
@@ -91,62 +91,97 @@ def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
 
     print("Accuracy:", accuracy_score(y_test, pred_rf))
     print(classification_report(y_test, pred_rf,zero_division=0))
-    return
+    return (rf,)
 
 
 @app.cell
 def _(mo):
-    length_input = mo.ui.number(label="Length2 (cm)")
-    height_input = mo.ui.number(label="Height (cm)")
-    width_input  = mo.ui.number(label="Width (cm)")
+    # Header and Instructions
+    header = mo.md("""
+        # 🐟 Fish Species Predictor
+        *Enter measurements within the normal range of our database.*
+    """)
 
-    predict_btn = mo.ui.button(label="🔮 Predict Fish")
+    # We set 'stop' limits based on your training data (e.g., max weight was 1650)
+    weight_in = mo.ui.number(label="Weight (g)", start=0, stop=1700, value=0, step=1)
+    len2_in = mo.ui.number(label="Length (cm)", start=0, stop=68, value=0, step=0.1)
+    height_in = mo.ui.number(label="Height (cm)", start=0, stop=20, value=0, step=0.1)
+    width_in = mo.ui.number(label="Width (cm)", start=0, stop=10, value=0, step=0.1)
 
-    mo.vstack([length_input, height_input, width_input, predict_btn])
-    return height_input, length_input, predict_btn, width_input
+    predict_btn = mo.ui.run_button(label="🔮 Predict Species")
+
+    # Layout the form
+    form = mo.vstack([
+        header,
+        mo.hstack([weight_in, len2_in], justify="start"),
+        mo.hstack([height_in, width_in], justify="start"),
+        predict_btn
+    ])
+
+    form
+    return height_in, len2_in, predict_btn, weight_in, width_in
 
 
 @app.cell
-def _(height_input, length_input, mo, model, pd, predict_btn, width_input):
+def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
+    # Stop execution until the button is clicked
+    mo.stop(not predict_btn.value, mo.md("### Standing by... \n Fill the form and click **Predict**."))
 
-    fish_images = {
-        "Bream": "images/Bream.jpg",
-        "Perch": "images/perch-fish.jpg",
-        "Pike": "images/pike-fish-species.jpg",
-        "Roach": "images/roach.gif",
-        "Smelt": "images/smelt.jpg",
-        "Parkki": "images/parrki.jpg",
-        "Whitefish": "images/Lake_whitefish.jpg"
+    # 1. Define "Reasonable" limits based on your training data
+    # Max Weight was 1650, Max Height ~19, Max Width ~8
+    limits = {
+        "Weight": 1700,
+        "Height": 22,
+        "Width": 12,
+        "Length2": 68
     }
 
-    output = mo.md("Enter values and click Predict")
+    # 2. Validation Check
+    # We check if any input is significantly higher than our training data
+    too_large = [k for k, v in {
+        "Weight": weight_in.value, 
+        "Height": height_in.value, 
+        "Width": width_in.value, 
+        "Length2": len2_in.value
+    }.items() if v > limits.get(k, 100)]
 
-    if predict_btn.value:
-
-        if None not in (length_input.value, height_input.value, width_input.value):
-            sample = pd.DataFrame([{
-                "Length2": length_input.value,
-                "Height": height_input.value,
-                "Width": width_input.value
+    if too_large:
+        result_display = mo.md(f"🛑 **Unreasonable Value!** The input for **{', '.join(too_large)}** is much larger than any fish in our records. Please enter a realistic measurement.")
+    elif any(v <= 0 for v in [weight_in.value, height_in.value, width_in.value, len2_in.value]):
+        result_display = mo.md("⚠️ **Missing Data:** Please ensure all measurements are greater than 0.")
+    else:
+        # 3. Data is valid -> Proceed to Prediction
+        try:
+            # Create the data row (Ensure column order matches your model.fit order)
+            input_data = pd.DataFrame([{
+                "Length2": len2_in.value,
+                "Height": height_in.value,
+                "Width": width_in.value,
+                "Weight": weight_in.value
             }])
 
-            species = model.predict(sample)[0]
-            img_path = fish_images.get(species, "")
+            prediction = rf.predict(input_data)[0]
+        
+            # 4. Setup images
+            fish_images = {
+                "Bream": "images/Bream.jpg", "Roach": "images/roach.jpg",
+                "Whitefish": "images/Lake_whitefish.jpg", "Parkki": "images/parrki.jpg",
+                "Perch": "images/perch-fish.jpg", "Pike": "images/pike-fish-species.jpg", 
+                "Smelt": "images/smelt.jpg"
+            }
+        
+            img_path = fish_images.get(prediction, "")
 
-            output = mo.vstack([
-                mo.md(f"## 🐟 Predicted Species: **{species}**"),
-                mo.image(img_path)
+            # 5. Show Result
+            result_display = mo.vstack([
+                mo.md(f"## 🎉 Result: This is a **{prediction}**!"),
+                mo.image(img_path) if img_path else mo.md("_Image not available_")
             ])
-        else:
-            output = mo.md("⚠️ Please enter all measurements.")
+        
+        except Exception as e:
+            result_display = mo.md(f"⚠️ **Error during prediction:** {e}")
 
-    output
-
-    return
-
-
-@app.cell
-def _():
+    result_display
     return
 
 
