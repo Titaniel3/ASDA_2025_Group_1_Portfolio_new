@@ -11,7 +11,6 @@ def _():
     import seaborn as sns
     import matplotlib.pyplot as plt
     import marimo as mo
-
     import scipy.stats as stats
 
 
@@ -118,6 +117,7 @@ def _(mo):
         predict_btn
     ])
 
+
     form
     return height_in, len2_in, predict_btn, weight_in, width_in
 
@@ -161,7 +161,7 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
             }])
 
             prediction = rf.predict(input_data)[0]
-        
+
             # 4. Setup images
             fish_images = {
                 "Bream": "images/Bream.jpg", "Roach": "images/roach.jpg",
@@ -169,7 +169,7 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
                 "Perch": "images/perch-fish.jpg", "Pike": "images/pike-fish-species.jpg", 
                 "Smelt": "images/smelt.jpg"
             }
-        
+
             img_path = fish_images.get(prediction, "")
 
             # 5. Show Result
@@ -177,7 +177,7 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
                 mo.md(f"## 🎉 Result: This is a **{prediction}**!"),
                 mo.image(img_path) if img_path else mo.md("_Image not available_")
             ])
-        
+
         except Exception as e:
             result_display = mo.md(f"⚠️ **Error during prediction:** {e}")
 
