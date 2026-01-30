@@ -96,48 +96,51 @@ def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
 
 @app.cell
 def _(mo):
-
     length_input = mo.ui.number(label="Length2 (cm)")
     height_input = mo.ui.number(label="Height (cm)")
     width_input  = mo.ui.number(label="Width (cm)")
 
-    length_input, height_input, width_input
+    predict_btn = mo.ui.button(label="🔮 Predict Fish")
 
-    return height_input, length_input, width_input
+    mo.vstack([length_input, height_input, width_input, predict_btn])
+    return height_input, length_input, predict_btn, width_input
 
 
 @app.cell
-def _(height_input, length_input, mo, model, pd, width_input):
-    # Map species → image path (put your real paths)
+def _(height_input, length_input, mo, model, pd, predict_btn, width_input):
+
     fish_images = {
-        "Bream": "images/bream.jpg",
-        "Perch": "images/perch.jpg",
-        "Pike": "images/pike.jpg",
-        "Roach": "images/roach.jpg",
+        "Bream": "images/Bream.jpg",
+        "Perch": "images/perch-fish.jpg",
+        "Pike": "images/pike-fish-species.jpg",
+        "Roach": "images/roach.gif",
         "Smelt": "images/smelt.jpg",
-        "Parkki": "images/parkki.jpg",
-        "Whitefish": "images/whitefish.jpg"
+        "Parkki": "images/parrki.jpg",
+        "Whitefish": "images/Lake_whitefish.jpg"
     }
 
-    def predict_species(l, h, w):
-        sample = pd.DataFrame([{
-            "Length2": l,
-            "Height": h,
-            "Width": w
-        }])
-        return model.predict(sample)[0]
+    output = mo.md("Enter values and click Predict")
 
-    # Only predict if user entered values
-    if length_input.value and height_input.value and width_input.value:
-        species = predict_species(length_input.value, height_input.value, width_input.value)
-        img_path = fish_images.get(species, "")
+    if predict_btn.value:
 
-        mo.vstack([
-            mo.md(f"## 🐟 Predicted Species: **{species}**"),
-            mo.image(img_path)
-        ])
-    else:
-        mo.md("⬆️ Enter measurements to predict fish species")
+        if None not in (length_input.value, height_input.value, width_input.value):
+            sample = pd.DataFrame([{
+                "Length2": length_input.value,
+                "Height": height_input.value,
+                "Width": width_input.value
+            }])
+
+            species = model.predict(sample)[0]
+            img_path = fish_images.get(species, "")
+
+            output = mo.vstack([
+                mo.md(f"## 🐟 Predicted Species: **{species}**"),
+                mo.image(img_path)
+            ])
+        else:
+            output = mo.md("⚠️ Please enter all measurements.")
+
+    output
 
     return
 
