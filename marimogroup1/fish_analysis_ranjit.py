@@ -12,20 +12,25 @@ def _():
     import matplotlib.pyplot as plt
     import marimo as mo
     import scipy.stats as stats
-
-
     from statsmodels.stats.outliers_influence import variance_inflation_factor
-
     from sklearn.model_selection import train_test_split
-
     from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-
-
-
     import statsmodels.api as sm
-
     from sklearn.model_selection import train_test_split
-    return mo, pd, train_test_split
+    from sklearn.linear_model import LogisticRegression
+    import plotly.express as px
+    from sklearn.metrics import accuracy_score, classification_report
+    import plotly.graph_objects as go
+    return (
+        LogisticRegression,
+        accuracy_score,
+        classification_report,
+        mo,
+        np,
+        pd,
+        px,
+        train_test_split,
+    )
 
 
 @app.cell
@@ -64,19 +69,29 @@ def _(df1, train_test_split):
 
 
 @app.cell
-def _(X_test, X_train, y_test, y_train):
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.metrics import accuracy_score, classification_report
+def _(
+    LogisticRegression,
+    X_test,
+    X_train,
+    accuracy_score,
+    classification_report,
+    y_test,
+    y_train,
+):
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.pipeline import make_pipeline
 
-
-    model = LogisticRegression(max_iter=1000,class_weight="balanced")
+    model = make_pipeline(
+        StandardScaler(),
+        LogisticRegression(max_iter=1000)
+    )
     model.fit(X_train, y_train)
 
     pred = model.predict(X_test)
 
     print("Accuracy:", accuracy_score(y_test, pred))
     print(classification_report(y_test, pred))
-    return accuracy_score, classification_report
+    return (model,)
 
 
 @app.cell
@@ -90,7 +105,7 @@ def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
 
     print("Accuracy:", accuracy_score(y_test, pred_rf))
     print(classification_report(y_test, pred_rf,zero_division=0))
-    return (rf,)
+    return
 
 
 @app.cell
@@ -123,12 +138,12 @@ def _(mo):
 
 
 @app.cell
-def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
+def _(height_in, len2_in, mo, model, np, pd, predict_btn, weight_in, width_in):
+
     # Stop execution until the button is clicked
     mo.stop(not predict_btn.value, mo.md("### Standing by... \n Fill the form and click **Predict**."))
 
     # 1. Define "Reasonable" limits based on your training data
-    # Max Weight was 1650, Max Height ~19, Max Width ~8
     limits = {
         "Weight": 1700,
         "Height": 22,
@@ -137,7 +152,6 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
     }
 
     # 2. Validation Check
-    # We check if any input is significantly higher than our training data
     too_large = [k for k, v in {
         "Weight": weight_in.value, 
         "Height": height_in.value, 
@@ -146,13 +160,13 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
     }.items() if v > limits.get(k, 100)]
 
     if too_large:
-        result_display = mo.md(f"🛑 **Unreasonable Value!** The input for **{', '.join(too_large)}** is much larger than any fish in our records. Please enter a realistic measurement.")
+        result_display = mo.md(f"🛑 **Unreasonable Value!** The input for **{', '.join(too_large)}** is much larger than any fish in our records.")
     elif any(v <= 0 for v in [weight_in.value, height_in.value, width_in.value, len2_in.value]):
         result_display = mo.md("⚠️ **Missing Data:** Please ensure all measurements are greater than 0.")
     else:
         # 3. Data is valid -> Proceed to Prediction
         try:
-            # Create the data row (Ensure column order matches your model.fit order)
+            # Create the data row
             input_data = pd.DataFrame([{
                 "Length2": len2_in.value,
                 "Height": height_in.value,
@@ -160,7 +174,14 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
                 "Weight": weight_in.value
             }])
 
-            prediction = rf.predict(input_data)[0]
+            # Predict Species
+            prediction = model.predict(input_data)[0]
+        
+            # --- NEW: CALCULATE CONFIDENCE SCORE ---
+            # predict_proba returns a list of probabilities (e.g., [0.1, 0.8, 0.1])
+            probs = model.predict_proba(input_data)[0]
+            confidence = np.max(probs) * 100
+            # ---------------------------------------
 
             # 4. Setup images
             fish_images = {
@@ -172,16 +193,91 @@ def _(height_in, len2_in, mo, pd, predict_btn, rf, weight_in, width_in):
 
             img_path = fish_images.get(prediction, "")
 
-            # 5. Show Result
+            # 5. Build the Result Display
+            # We use a color-coded span for the confidence score
+            conf_color = "green" if confidence > 85 else "orange" if confidence > 50 else "red"
+        
             result_display = mo.vstack([
                 mo.md(f"## 🎉 Result: This is a **{prediction}**!"),
+                mo.md(f"**Confidence Score:** <span style='color: {conf_color}; font-size: 1.2em;'>{confidence:.1f}%</span>"),
                 mo.image(img_path) if img_path else mo.md("_Image not available_")
             ])
 
         except Exception as e:
+            # Note: If this fails, make sure your model supports predict_proba (like RandomForest or LogisticRegression)
             result_display = mo.md(f"⚠️ **Error during prediction:** {e}")
 
     result_display
+    return
+
+
+@app.cell
+def _(df, mo, px):
+    counts = df['Species'].value_counts().reset_index()
+    counts.columns = ['Species', 'Count']
+
+    fig1 = px.bar(
+        counts, 
+        x='Species', 
+        y='Count', 
+        color='Species',
+        title="<b>Total Samples per Species</b>",
+        text_auto=True,
+        template="plotly_white"
+    )
+
+    mo.md(f"### 📊 Dataset Balance\n{mo.as_html(fig1)}")
+    return
+
+
+@app.cell
+def _(df, mo, px):
+    fig2 = px.scatter(
+        df, 
+        x="Length2", 
+        y="Weight", 
+        color="Species",
+        symbol="Species",
+        title="<b>Weight vs. Length Growth Curve</b>",
+        labels={"Length2": "Length (cm)", "Weight": "Weight (g)"}, 
+        template="plotly_white"
+    )
+
+    mo.md(f"### 📈 Growth Trends\n{mo.as_html(fig2)}")
+    return
+
+
+@app.cell
+def _(df, mo, px):
+    fig3 = px.box(
+        df, 
+        x="Species", 
+        y="Height", 
+        color="Species",
+        title="<b>Height Variation by Species</b>", # Shows confidence interval around the median
+        template="plotly_white"
+    )
+
+    mo.md(f"### 📏 Height Analysis\n{mo.as_html(fig3)}")
+    return
+
+
+@app.cell
+def _(df1, mo, px):
+
+
+    # Calculate correlation matrix for numeric columns
+    corr = df1.select_dtypes(include=['number']).corr()
+
+    fig4 = px.imshow(
+        corr, 
+        text_auto=True, 
+        aspect="auto",
+        color_continuous_scale='RdBu_r',
+        title="<b>Feature Correlation Heatmap</b>"
+    )
+
+    mo.md(f"### 🔗 Measurement Relationships\n{mo.as_html(fig4)}")
     return
 
 
