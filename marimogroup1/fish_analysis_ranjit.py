@@ -41,12 +41,6 @@ def _(pd):
 
 @app.cell
 def _(df):
-    df
-    return
-
-
-@app.cell
-def _(df):
     df1 = df.drop(["Length1", "Length3"], axis=1)
     return (df1,)
 
@@ -110,30 +104,36 @@ def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
 
 @app.cell
 def _(mo):
-    # Header and Instructions
-    header = mo.md("""
-        # 🐟 Fish Species Predictor
-        *Enter measurements within the normal range of our database.*
-    """)
+    # 1. Add a "How-to-use" guide at the top
+    instructions = mo.md("""
+        ### 📖 How to use:
+        1.  Look at the **typical ranges** mentioned in the labels.
+        2.  Enter your fish's measurements (Weight, Length, etc.).
+        3.  Click **Predict Species** to see the result and confidence score.
+    """).callout(kind="info")
 
-    # We set 'stop' limits based on your training data (e.g., max weight was 1650)
-    weight_in = mo.ui.number(label="Weight (g)", start=0, stop=1700, value=0, step=1)
-    len2_in = mo.ui.number(label="Length (cm)", start=0, stop=68, value=0, step=0.1)
-    height_in = mo.ui.number(label="Height (cm)", start=0, stop=20, value=0, step=0.1)
-    width_in = mo.ui.number(label="Width (cm)", start=0, stop=10, value=0, step=0.1)
+    # 2. Use labels to show "Example" or "Typical" values
+    # This acts as a placeholder that never disappears
+    weight_in = mo.ui.number(label="Weight in grams (e.g., 300)", start=0, stop=1800, value=0)
+    len2_in = mo.ui.number(label="Length in cm (e.g., 25.4)", start=0, stop=70, value=0)
+    height_in = mo.ui.number(label="Height in cm (e.g., 11.5)", start=0, stop=20, value=0)
+    width_in = mo.ui.number(label="Width in cm (e.g., 4.0)", start=0, stop=15, value=0)
 
     predict_btn = mo.ui.run_button(label="🔮 Predict Species")
 
-    # Layout the form
+    # 3. Organize the UI with clear spacing
     form = mo.vstack([
-        header,
+        mo.md("# 🐟 Fish Species Predictor"),
+        instructions,
+        mo.md("---"),
         mo.hstack([weight_in, len2_in], justify="start"),
         mo.hstack([height_in, width_in], justify="start"),
-        predict_btn
+        mo.md(" "), # Spacer
+        mo.hstack([predict_btn], justify="start")
     ])
 
-
     form
+
     return height_in, len2_in, predict_btn, weight_in, width_in
 
 
@@ -145,10 +145,10 @@ def _(height_in, len2_in, mo, model, np, pd, predict_btn, weight_in, width_in):
 
     # 1. Define "Reasonable" limits based on your training data
     limits = {
-        "Weight": 1700,
-        "Height": 22,
-        "Width": 12,
-        "Length2": 68
+        "Weight": 1800,
+        "Height": 20,
+        "Width": 15,
+        "Length2": 70
     }
 
     # 2. Validation Check
@@ -176,7 +176,7 @@ def _(height_in, len2_in, mo, model, np, pd, predict_btn, weight_in, width_in):
 
             # Predict Species
             prediction = model.predict(input_data)[0]
-        
+
             # --- NEW: CALCULATE CONFIDENCE SCORE ---
             # predict_proba returns a list of probabilities (e.g., [0.1, 0.8, 0.1])
             probs = model.predict_proba(input_data)[0]
@@ -196,7 +196,7 @@ def _(height_in, len2_in, mo, model, np, pd, predict_btn, weight_in, width_in):
             # 5. Build the Result Display
             # We use a color-coded span for the confidence score
             conf_color = "green" if confidence > 85 else "orange" if confidence > 50 else "red"
-        
+
             result_display = mo.vstack([
                 mo.md(f"## 🎉 Result: This is a **{prediction}**!"),
                 mo.md(f"**Confidence Score:** <span style='color: {conf_color}; font-size: 1.2em;'>{confidence:.1f}%</span>"),
