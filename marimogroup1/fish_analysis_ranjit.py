@@ -8,19 +8,12 @@ app = marimo.App(width="medium")
 def _():
     import pandas as pd
     import numpy as np
-    import seaborn as sns
-    import matplotlib.pyplot as plt
     import marimo as mo
     import scipy.stats as stats
-    from statsmodels.stats.outliers_influence import variance_inflation_factor
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-    import statsmodels.api as sm
     from sklearn.model_selection import train_test_split
     from sklearn.linear_model import LogisticRegression
     import plotly.express as px
     from sklearn.metrics import accuracy_score, classification_report
-    import plotly.graph_objects as go
     return (
         LogisticRegression,
         accuracy_score,
@@ -89,20 +82,6 @@ def _(
 
 
 @app.cell
-def _(X_test, X_train, accuracy_score, classification_report, y_test, y_train):
-    from sklearn.ensemble import RandomForestClassifier
-
-    rf = RandomForestClassifier(n_estimators=200,random_state=42)
-    rf.fit(X_train, y_train)
-
-    pred_rf = rf.predict(X_test)
-
-    print("Accuracy:", accuracy_score(y_test, pred_rf))
-    print(classification_report(y_test, pred_rf,zero_division=0))
-    return
-
-
-@app.cell
 def _(mo):
     # 1. Add a "How-to-use" guide at the top
     instructions = mo.md("""
@@ -133,7 +112,6 @@ def _(mo):
     ])
 
     form
-
     return height_in, len2_in, predict_btn, weight_in, width_in
 
 
