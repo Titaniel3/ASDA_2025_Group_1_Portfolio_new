@@ -64,7 +64,6 @@ def _(pd):
     except FileNotFoundError:
         # WASM/GitHub Pages (Production)
         from urllib.request import urlopen
-        from io import BytesIO
 
         url = "http://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/datasets/Fish_final.xlsx"
         with urlopen(url) as response:
