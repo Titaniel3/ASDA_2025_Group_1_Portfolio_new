@@ -9,10 +9,12 @@ def _():
     import pandas as pd
     import numpy as np
     import marimo as mo
+    import plotly.express as px
     return (
         pd,
         np,
         mo,
+        px,
     )
 
 
@@ -47,6 +49,14 @@ def _(np):
     }
 
     return (model_weights,)
+
+
+@app.cell
+def _(pd):
+    # Lade die Fisch-Daten für Visualisierungen
+    df = pd.read_csv("../datasets/Fish.csv")
+    df_clean = df.drop(["Length1", "Length3"], axis=1)
+    return (df, df_clean)
 
 
 @app.cell
@@ -203,19 +213,20 @@ def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, 
             )
 
             # ============================================================
-            # FISCHBILDER (Online-URLs, funktionieren im WASM-Export)
+            # FISCHBILDER (Lokale Dateien aus images/ Ordner)
+            # Marimo packt diese automatisch in den WASM-Export
             # ============================================================
             fish_images = {
-                "Bream": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Abramis_brama.jpg/320px-Abramis_brama.jpg",
-                "Roach": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rutilus_rutilus.jpg/320px-Rutilus_rutilus.jpg",
-                "Whitefish": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Coregonus_lavaretus.jpg/320px-Coregonus_lavaretus.jpg",
-                "Parkki": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Perca_fluviatilis.jpg/320px-Perca_fluviatilis.jpg",
-                "Perch": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Perca_fluviatilis.jpg/320px-Perca_fluviatilis.jpg",
-                "Pike": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Esox_lucius1.jpg/320px-Esox_lucius1.jpg",
-                "Smelt": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Osmerus_eperlanus.jpg/320px-Osmerus_eperlanus.jpg"
+                "Bream": "images/Bream.jpg",
+                "Roach": "images/roach.jpg",
+                "Whitefish": "images/Lake_whitefish.jpg",
+                "Parkki": "images/parrki.jpg",
+                "Perch": "images/perch-fish.jpg",
+                "Pike": "images/pike-fish-species.jpg",
+                "Smelt": "images/smelt.jpg"
             }
 
-            img_url = fish_images.get(prediction, "")
+            img_path = fish_images.get(prediction, "")
 
             # ============================================================
             # ERGEBNIS-ANZEIGE MIT FARBCODIERUNG
@@ -230,7 +241,7 @@ def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, 
                     f"<span style='color: {conf_color}; font-size: 1.3em; font-weight: bold;'>"
                     f"{confidence:.1f}%</span>"
                 ),
-                mo.image(img_url) if img_url else mo.md("_Kein Bild verfügbar_")
+                mo.image(img_path) if img_path else mo.md("_Kein Bild verfügbar_")
             ])
 
         except Exception as e:
@@ -282,6 +293,77 @@ def _(mo):
     marimo export html fish_analysis_wasm.py --mode wasm
     ```
     """)
+    return
+
+
+@app.cell
+def _(df, mo, px):
+    # Datenset Balance Visualisierung
+    counts = df['Species'].value_counts().reset_index()
+    counts.columns = ['Species', 'Count']
+
+    fig1 = px.bar(
+        counts,
+        x='Species',
+        y='Count',
+        color='Species',
+        title="<b>Datensatz Balance - Proben pro Art</b>",
+        text_auto=True,
+        template="plotly_white"
+    )
+
+    mo.md(f"## 📊 Datensatz-Visualisierungen\n\n### Probenverteilung nach Art\n{mo.as_html(fig1)}")
+    return
+
+
+@app.cell
+def _(df, mo, px):
+    # Wachstumstrends
+    fig2 = px.scatter(
+        df,
+        x="Length2",
+        y="Weight",
+        color="Species",
+        symbol="Species",
+        title="<b>Länge vs. Gewicht - Wachstumskurven</b>",
+        labels={"Length2": "Länge (cm)", "Weight": "Gewicht (g)"},
+        template="plotly_white"
+    )
+
+    mo.md(f"### Wachstumstrends\n{mo.as_html(fig2)}")
+    return
+
+
+@app.cell
+def _(df, mo, px):
+    # Höhen-Variation
+    fig3 = px.box(
+        df,
+        x="Species",
+        y="Height",
+        color="Species",
+        title="<b>Höhen-Variation nach Art</b>",
+        template="plotly_white"
+    )
+
+    mo.md(f"### Höhen-Analyse\n{mo.as_html(fig3)}")
+    return
+
+
+@app.cell
+def _(df_clean, mo, px):
+    # Korrelations-Heatmap
+    corr = df_clean.select_dtypes(include=['number']).corr()
+
+    fig4 = px.imshow(
+        corr,
+        text_auto=True,
+        aspect="auto",
+        color_continuous_scale='RdBu_r',
+        title="<b>Feature-Korrelationen</b>"
+    )
+
+    mo.md(f"### Messungen - Beziehungen\n{mo.as_html(fig4)}")
     return
 
 
