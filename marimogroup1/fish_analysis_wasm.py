@@ -308,12 +308,12 @@ def _(df, mo):
     html_table = "<table style='width:100%; border-collapse: collapse;'>"
     html_table += "<tr style='background-color: #f0f0f0;'><th style='padding: 10px; text-align: left;'>Art</th><th style='padding: 10px;'>Anzahl</th><th style='padding: 10px;'>Prozent</th><th style='padding: 10px;'>Verteilung</th></tr>"
 
-    for _, row in counts.iterrows():
-        bar_width = int(row['Prozent'] * 3)  # Max 100% = 300px
+    for _, species_row in counts.iterrows():
+        bar_width = int(species_row['Prozent'] * 3)  # Max 100% = 300px
         html_table += f"<tr style='border-bottom: 1px solid #ddd;'>"
-        html_table += f"<td style='padding: 10px;'><strong>{row['Art']}</strong></td>"
-        html_table += f"<td style='padding: 10px; text-align: center;'>{int(row['Anzahl'])}</td>"
-        html_table += f"<td style='padding: 10px; text-align: center;'>{row['Prozent']}%</td>"
+        html_table += f"<td style='padding: 10px;'><strong>{species_row['Art']}</strong></td>"
+        html_table += f"<td style='padding: 10px; text-align: center;'>{int(species_row['Anzahl'])}</td>"
+        html_table += f"<td style='padding: 10px; text-align: center;'>{species_row['Prozent']}%</td>"
         html_table += f"<td style='padding: 10px;'><div style='width: {bar_width}px; height: 20px; background-color: #4CAF50; border-radius: 3px;'></div></td>"
         html_table += f"</tr>"
 
@@ -333,7 +333,7 @@ def _(df, mo):
     }).round(2)
 
     # Flatten column names
-    growth_stats.columns = ['_'.join(col).strip() for col in growth_stats.columns.values]
+    growth_stats.columns = ['_'.join(col).strip() for col in growth_stats.columns]
     growth_stats = growth_stats.reset_index()
 
     # HTML-Tabelle
@@ -345,12 +345,12 @@ def _(df, mo):
     html_growth += "<th style='padding: 8px;'>Höhe (cm)<br/>Min-Max</th>"
     html_growth += "</tr>"
 
-    for _, row in growth_stats.iterrows():
+    for _, growth_row in growth_stats.iterrows():
         html_growth += f"<tr style='border-bottom: 1px solid #ddd;'>"
-        html_growth += f"<td style='padding: 8px;'><strong>{row['Species']}</strong></td>"
-        html_growth += f"<td style='padding: 8px; text-align: center;'>{row['Length2_min']:.1f} - {row['Length2_max']:.1f}</td>"
-        html_growth += f"<td style='padding: 8px; text-align: center;'>{row['Weight_min']:.0f} - {row['Weight_max']:.0f}</td>"
-        html_growth += f"<td style='padding: 8px; text-align: center;'>{row['Height_min']:.2f} - {row['Height_max']:.2f}</td>"
+        html_growth += f"<td style='padding: 8px;'><strong>{growth_row['Species']}</strong></td>"
+        html_growth += f"<td style='padding: 8px; text-align: center;'>{growth_row['Length2_min']:.1f} - {growth_row['Length2_max']:.1f}</td>"
+        html_growth += f"<td style='padding: 8px; text-align: center;'>{growth_row['Weight_min']:.0f} - {growth_row['Weight_max']:.0f}</td>"
+        html_growth += f"<td style='padding: 8px; text-align: center;'>{growth_row['Height_min']:.2f} - {growth_row['Height_max']:.2f}</td>"
         html_growth += f"</tr>"
 
     html_growth += "</table>"
@@ -387,16 +387,16 @@ def _(df, mo):
     html_height += "<th style='padding: 8px;'>σ</th>"
     html_height += "</tr>"
 
-    for _, row in height_stats.iterrows():
+    for _, height_row in height_stats.iterrows():
         html_height += f"<tr style='border-bottom: 1px solid #ddd;'>"
-        html_height += f"<td style='padding: 8px;'><strong>{row['Species']}</strong></td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Min']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Q1']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Median']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Q3']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Max']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'><strong>{row['Mittelwert']:.2f}</strong></td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Stdabw']:.2f}</td>"
+        html_height += f"<td style='padding: 8px;'><strong>{height_row['Species']}</strong></td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Min']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Q1']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Median']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Q3']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Max']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'><strong>{height_row['Mittelwert']:.2f}</strong></td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Stdabw']:.2f}</td>"
         html_height += f"</tr>"
 
     html_height += "</table>"
@@ -433,15 +433,15 @@ def _(df_clean, mo):
     html_corr += "</tr>"
 
     # Daten
-    for idx, row_name in enumerate(corr.index):
+    for corr_idx, corr_row_name in enumerate(corr.index):
         html_corr += f"<tr>"
-        html_corr += f"<th style='padding: 8px; text-align: right; font-weight: bold;'>{row_name}</th>"
+        html_corr += f"<th style='padding: 8px; text-align: right; font-weight: bold;'>{corr_row_name}</th>"
 
-        for col_name in corr.columns:
-            value = corr.loc[row_name, col_name]
-            color = get_color(value)
-            html_corr += f"<td style='padding: 8px; text-align: center; background-color: {color}; border: 1px solid #ddd;'>"
-            html_corr += f"<strong>{value:.2f}</strong>"
+        for corr_col_name in corr.columns:
+            corr_value = corr.loc[corr_row_name, corr_col_name]
+            corr_color = get_color(corr_value)
+            html_corr += f"<td style='padding: 8px; text-align: center; background-color: {corr_color}; border: 1px solid #ddd;'>"
+            html_corr += f"<strong>{corr_value:.2f}</strong>"
             html_corr += f"</td>"
 
         html_corr += f"</tr>"
