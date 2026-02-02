@@ -9,12 +9,10 @@ def _():
     import pandas as pd
     import numpy as np
     import marimo as mo
-    import plotly.express as px
     return (
         pd,
         np,
         mo,
-        px,
     )
 
 
@@ -297,73 +295,160 @@ def _(mo):
 
 
 @app.cell
-def _(df, mo, px):
-    # Datenset Balance Visualisierung
+def _(df, mo):
+    # Datenset Balance - HTML Tabelle
     counts = df['Species'].value_counts().reset_index()
-    counts.columns = ['Species', 'Count']
+    counts.columns = ['Art', 'Anzahl']
 
-    fig1 = px.bar(
-        counts,
-        x='Species',
-        y='Count',
-        color='Species',
-        title="<b>Datensatz Balance - Proben pro Art</b>",
-        text_auto=True,
-        template="plotly_white"
-    )
+    # Berechne Gesamtanzahl
+    total = counts['Anzahl'].sum()
+    counts['Prozent'] = (counts['Anzahl'] / total * 100).round(1)
 
-    mo.md(f"## 📊 Datensatz-Visualisierungen\n\n### Probenverteilung nach Art\n{mo.as_html(fig1)}")
+    # HTML-Tabelle mit Balkengrafik
+    html_table = "<table style='width:100%; border-collapse: collapse;'>"
+    html_table += "<tr style='background-color: #f0f0f0;'><th style='padding: 10px; text-align: left;'>Art</th><th style='padding: 10px;'>Anzahl</th><th style='padding: 10px;'>Prozent</th><th style='padding: 10px;'>Verteilung</th></tr>"
+
+    for _, row in counts.iterrows():
+        bar_width = int(row['Prozent'] * 3)  # Max 100% = 300px
+        html_table += f"<tr style='border-bottom: 1px solid #ddd;'>"
+        html_table += f"<td style='padding: 10px;'><strong>{row['Art']}</strong></td>"
+        html_table += f"<td style='padding: 10px; text-align: center;'>{int(row['Anzahl'])}</td>"
+        html_table += f"<td style='padding: 10px; text-align: center;'>{row['Prozent']}%</td>"
+        html_table += f"<td style='padding: 10px;'><div style='width: {bar_width}px; height: 20px; background-color: #4CAF50; border-radius: 3px;'></div></td>"
+        html_table += f"</tr>"
+
+    html_table += "</table>"
+
+    mo.md(f"## 📊 Datensatz Balance\n\n### Probenverteilung nach Art\n{html_table}")
     return
 
 
 @app.cell
-def _(df, mo, px):
-    # Wachstumstrends
-    fig2 = px.scatter(
-        df,
-        x="Length2",
-        y="Weight",
-        color="Species",
-        symbol="Species",
-        title="<b>Länge vs. Gewicht - Wachstumskurven</b>",
-        labels={"Length2": "Länge (cm)", "Weight": "Gewicht (g)"},
-        template="plotly_white"
-    )
+def _(df, mo):
+    # Wachstumstrends - Statistik-Tabelle
+    growth_stats = df.groupby('Species').agg({
+        'Length2': ['min', 'max', 'mean'],
+        'Weight': ['min', 'max', 'mean'],
+        'Height': ['min', 'max', 'mean']
+    }).round(2)
 
-    mo.md(f"### Wachstumstrends\n{mo.as_html(fig2)}")
+    # Flatten column names
+    growth_stats.columns = ['_'.join(col).strip() for col in growth_stats.columns.values]
+    growth_stats = growth_stats.reset_index()
+
+    # HTML-Tabelle
+    html_growth = "<table style='width:100%; border-collapse: collapse; font-size: 0.9em;'>"
+    html_growth += "<tr style='background-color: #2196F3; color: white;'>"
+    html_growth += "<th style='padding: 8px;'>Art</th>"
+    html_growth += "<th style='padding: 8px;'>Länge (cm)<br/>Min-Max</th>"
+    html_growth += "<th style='padding: 8px;'>Gewicht (g)<br/>Min-Max</th>"
+    html_growth += "<th style='padding: 8px;'>Höhe (cm)<br/>Min-Max</th>"
+    html_growth += "</tr>"
+
+    for _, row in growth_stats.iterrows():
+        html_growth += f"<tr style='border-bottom: 1px solid #ddd;'>"
+        html_growth += f"<td style='padding: 8px;'><strong>{row['Species']}</strong></td>"
+        html_growth += f"<td style='padding: 8px; text-align: center;'>{row['Length2_min']:.1f} - {row['Length2_max']:.1f}</td>"
+        html_growth += f"<td style='padding: 8px; text-align: center;'>{row['Weight_min']:.0f} - {row['Weight_max']:.0f}</td>"
+        html_growth += f"<td style='padding: 8px; text-align: center;'>{row['Height_min']:.2f} - {row['Height_max']:.2f}</td>"
+        html_growth += f"</tr>"
+
+    html_growth += "</table>"
+
+    mo.md(f"### 📈 Wachstumstrends\n\n{html_growth}")
     return
 
 
 @app.cell
-def _(df, mo, px):
-    # Höhen-Variation
-    fig3 = px.box(
-        df,
-        x="Species",
-        y="Height",
-        color="Species",
-        title="<b>Höhen-Variation nach Art</b>",
-        template="plotly_white"
-    )
+def _(df, mo):
+    # Höhen-Analyse - Statistik-Tabelle
+    height_stats = df.groupby('Species')['Height'].agg([
+        ('Min', 'min'),
+        ('Q1', lambda x: x.quantile(0.25)),
+        ('Median', 'median'),
+        ('Q3', lambda x: x.quantile(0.75)),
+        ('Max', 'max'),
+        ('Mittelwert', 'mean'),
+        ('Stdabw', 'std')
+    ]).round(2)
 
-    mo.md(f"### Höhen-Analyse\n{mo.as_html(fig3)}")
+    height_stats = height_stats.reset_index()
+
+    # HTML-Tabelle
+    html_height = "<table style='width:100%; border-collapse: collapse; font-size: 0.9em;'>"
+    html_height += "<tr style='background-color: #FF9800; color: white;'>"
+    html_height += "<th style='padding: 8px;'>Art</th>"
+    html_height += "<th style='padding: 8px;'>Min</th>"
+    html_height += "<th style='padding: 8px;'>Q1</th>"
+    html_height += "<th style='padding: 8px;'>Median</th>"
+    html_height += "<th style='padding: 8px;'>Q3</th>"
+    html_height += "<th style='padding: 8px;'>Max</th>"
+    html_height += "<th style='padding: 8px;'>Ø</th>"
+    html_height += "<th style='padding: 8px;'>σ</th>"
+    html_height += "</tr>"
+
+    for _, row in height_stats.iterrows():
+        html_height += f"<tr style='border-bottom: 1px solid #ddd;'>"
+        html_height += f"<td style='padding: 8px;'><strong>{row['Species']}</strong></td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Min']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Q1']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Median']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Q3']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Max']:.2f}</td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'><strong>{row['Mittelwert']:.2f}</strong></td>"
+        html_height += f"<td style='padding: 8px; text-align: center;'>{row['Stdabw']:.2f}</td>"
+        html_height += f"</tr>"
+
+    html_height += "</table>"
+
+    mo.md(f"### 📏 Höhen-Analyse\n\n{html_height}")
     return
 
 
 @app.cell
-def _(df_clean, mo, px):
-    # Korrelations-Heatmap
-    corr = df_clean.select_dtypes(include=['number']).corr()
+def _(df_clean, mo):
+    # Korrelations-Heatmap als HTML-Tabelle
+    corr = df_clean.select_dtypes(include=['number']).corr().round(3)
 
-    fig4 = px.imshow(
-        corr,
-        text_auto=True,
-        aspect="auto",
-        color_continuous_scale='RdBu_r',
-        title="<b>Feature-Korrelationen</b>"
-    )
+    # Farben für Korrelationen (von rot zu blau)
+    def get_color(value):
+        # Normalisiere auf 0-1
+        norm_val = (value + 1) / 2
+        if norm_val < 0.5:
+            # Rot
+            intensity = int((0.5 - norm_val) * 2 * 255)
+            return f'rgb(255, {255-intensity}, {255-intensity})'
+        else:
+            # Blau
+            intensity = int((norm_val - 0.5) * 2 * 255)
+            return f'rgb({255-intensity}, {255-intensity}, 255)'
 
-    mo.md(f"### Messungen - Beziehungen\n{mo.as_html(fig4)}")
+    # HTML-Heatmap
+    html_corr = "<table style='border-collapse: collapse; margin: 20px 0;'>"
+
+    # Header mit Spaltennamen
+    html_corr += "<tr><td style='padding: 8px;'></td>"
+    for col in corr.columns:
+        html_corr += f"<th style='padding: 8px; text-align: center; font-weight: bold;'>{col}</th>"
+    html_corr += "</tr>"
+
+    # Daten
+    for idx, row_name in enumerate(corr.index):
+        html_corr += f"<tr>"
+        html_corr += f"<th style='padding: 8px; text-align: right; font-weight: bold;'>{row_name}</th>"
+
+        for col_name in corr.columns:
+            value = corr.loc[row_name, col_name]
+            color = get_color(value)
+            html_corr += f"<td style='padding: 8px; text-align: center; background-color: {color}; border: 1px solid #ddd;'>"
+            html_corr += f"<strong>{value:.2f}</strong>"
+            html_corr += f"</td>"
+
+        html_corr += f"</tr>"
+
+    html_corr += "</table>"
+
+    mo.md(f"### 🔗 Messungen - Beziehungen\n\n**Feature-Korrelationen (von -1 bis +1):**\n{html_corr}")
     return
 
 
