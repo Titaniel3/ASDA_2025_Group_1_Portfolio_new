@@ -9,10 +9,16 @@ def _():
     import pandas as pd
     import numpy as np
     import marimo as mo
+    import requests
+    from io import BytesIO
+    from PIL import Image
     return (
         pd,
         np,
         mo,
+        requests,
+        BytesIO,
+        Image,
     )
 
 
@@ -51,8 +57,20 @@ def _(np):
 
 @app.cell
 def _(pd):
-    # Lade Fisch-Daten von GitHub Pages
-    df = pd.read_excel("http://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/datasets/Fish_final.xlsx")
+    # Lade Fisch-Daten von GitHub Pages (WASM-kompatibel)
+    try:
+        # Lokal (Entwicklung)
+        df = pd.read_excel("datasets/Fish_final.xlsx")
+    except FileNotFoundError:
+        # WASM/GitHub Pages (Production)
+        from urllib.request import urlopen
+        from io import BytesIO
+
+        url = "http://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/datasets/Fish_final.xlsx"
+        with urlopen(url) as response:
+            excel_data = BytesIO(response.read())
+        df = pd.read_excel(excel_data)
+
     df_clean = df.drop(["Length1", "Length3"], axis=1)
     return (df, df_clean)
 
@@ -161,7 +179,7 @@ def _(mo):
 
 
 @app.cell
-def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, width_in, model_weights):
+def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, width_in, model_weights, requests, BytesIO, Image):
 
     # Stoppe bis Button geklickt wird
     mo.stop(not predict_btn.value, mo.md(
@@ -211,20 +229,29 @@ def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, 
             )
 
             # ============================================================
-            # FISCHBILDER (Lokale Dateien aus images/ Ordner)
-            # Marimo packt diese automatisch in den WASM-Export
+            # FISCHBILDER (Von GitHub Raw geladen)
             # ============================================================
-            fish_images = {
-                "Bream": "images/Bream.jpg",
-                "Roach": "images/roach.jpg",
-                "Whitefish": "images/Lake_whitefish.jpg",
-                "Parkki": "images/parrki.jpg",
-                "Perch": "images/perch-fish.jpg",
-                "Pike": "images/pike-fish-species.jpg",
-                "Smelt": "images/smelt.jpg"
+            fish_image_urls = {
+                "Bream": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/bream.png",
+                "Roach": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/Roach.png",
+                "Whitefish": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/Whitefish.png",
+                "Parkki": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/Parrki.png",
+                "Perch": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/Perch.png",
+                "Pike": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/Pike.png",
+                "Smelt": "https://raw.githubusercontent.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/refs/heads/main/additional_material/Images_Fish/Smelt.png"
             }
 
-            img_path = fish_images.get(prediction, "")
+            # Lade Bild von GitHub
+            img_url = fish_image_urls.get(prediction, "")
+            if img_url:
+                try:
+                    response = requests.get(img_url)
+                    img = Image.open(BytesIO(response.content))
+                    img_display = mo.image(img)
+                except Exception as e:
+                    img_display = mo.md(f"⚠️ Bild konnte nicht geladen werden")
+            else:
+                img_display = mo.md("_Kein Bild verfügbar_")
 
             # ============================================================
             # ERGEBNIS-ANZEIGE MIT FARBCODIERUNG
@@ -239,7 +266,7 @@ def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, 
                     f"<span style='color: {conf_color}; font-size: 1.3em; font-weight: bold;'>"
                     f"{confidence:.1f}%</span>"
                 ),
-                mo.image(img_path) if img_path else mo.md("_Kein Bild verfügbar_")
+                img_display
             ])
 
         except Exception as e:
