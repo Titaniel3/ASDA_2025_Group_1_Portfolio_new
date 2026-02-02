@@ -51,24 +51,8 @@ def _(np):
 
 @app.cell
 def _(pd):
-    # Lade die Fisch-Daten (optimiert für GitHub Pages + lokale Entwicklung)
-    # GitHub Pages URL auf docs/ folder ausgerichtet
-    github_pages_url = "https://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/datasets/Fish_final.xlsx"
-
-    try:
-        # Versuche von GitHub Pages zu laden (HTML-WASM Export online)
-        df = pd.read_excel(github_pages_url)
-    except Exception as e:
-        # Fallback auf lokale Datei (für lokale Entwicklung)
-        try:
-            df = pd.read_excel("datasets/Fish_final.xlsx")
-        except:
-            # Letztes Fallback: Fish.csv
-            try:
-                df = pd.read_csv("datasets/Fish.csv")
-            except:
-                raise Exception(f"Konnte Daten nicht laden. URL: {github_pages_url}")
-
+    # Lade Fisch-Daten von GitHub Pages
+    df = pd.read_excel("http://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/datasets/Fish_final.xlsx")
     df_clean = df.drop(["Length1", "Length3"], axis=1)
     return (df, df_clean)
 
