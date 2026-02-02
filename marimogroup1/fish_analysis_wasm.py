@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.19.4"
+__generated_with = "0.19.6"
 app = marimo.App(width="medium")
 
 
@@ -12,18 +12,14 @@ def _():
     import requests
     from io import BytesIO
     from PIL import Image
-    return (
-        pd,
-        np,
-        mo,
-        requests,
-        BytesIO,
-        Image,
-    )
+    import plotly.express as px
+    import plotly.io as pio
+    import plotly.graph_objects as go
+    return BytesIO, Image, go, mo, np, pd, pio, px, requests
 
 
 @app.cell
-def _(np):
+def _():
     # ========================================================================
     # PRE-TRAINED MODEL WEIGHTS (Logistic Regression with StandardScaler)
     # Trainiert auf 159 Fish Samples mit 81.76% Genauigkeit
@@ -51,31 +47,25 @@ def _(np):
         "scaler_mean": [28.415723270440253, 8.970993710691824, 4.417485534591195, 398.3264150943396],
         "scaler_scale": [10.68257580056147, 4.27270771991657, 1.6804942383152872, 356.8508229894959]
     }
-
     return (model_weights,)
 
 
 @app.cell
-def _(pd):
-    # Lade Fisch-Daten von GitHub Pages (WASM-kompatibel)
-    try:
-        # Lokal (Entwicklung)
-        df = pd.read_excel("datasets/Fish_final.xlsx")
-    except FileNotFoundError:
-        # WASM/GitHub Pages (Production)
-        from urllib.request import urlopen
+def _(BytesIO, pd):
+    from urllib.request import urlopen
 
-        url = "http://titaniel3.github.io/ASDA_2025_Group_1_Portfolio_new/datasets/Fish_final.xlsx"
-        with urlopen(url) as response:
-            excel_data = BytesIO(response.read())
-        df = pd.read_excel(excel_data)
+    # Lade Fisch-Daten von GitHub Pages (WASM-kompatibel)
+    url = "https://github.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/raw/refs/heads/main/datasets/Fish.csv"
+    with urlopen(url) as response:
+        csv_data = BytesIO(response.read())
+    df = pd.read_csv(csv_data)
 
     df_clean = df.drop(["Length1", "Length3"], axis=1)
-    return (df, df_clean)
+    return (df,)
 
 
 @app.cell
-def _(np, model_weights):
+def _(np):
     def predict_fish_species(length2, height, width, weight, model_weights):
         """
         Vorhersage der Fischart basierend auf biometrischen Messwerten.
@@ -113,7 +103,6 @@ def _(np, model_weights):
         confidence = probs[0][pred_idx] * 100
 
         return prediction, confidence
-
     return (predict_fish_species,)
 
 
@@ -123,50 +112,51 @@ def _(mo):
     # INTERAKTIVE BENUTZEROBERFLÄCHE
     # ========================================================================
     instructions = mo.md("""
-    ### 📖 Anleitung:
-    1. Schaue die typischen **Wertbereiche** in den Eingabefeldern an
-    2. Gib die Fischmaße ein (Länge, Höhe, Breite, Gewicht)
-    3. Klicke **Vorhersage treffen** um die Art zu bestimmen
+    ### 📖 Instructions:
+    1. Look at the typical **value ranges** shown in the input fields
+    2. Enter the fish measurements (length, height, width, weight)
+    3. Click **Make prediction** to determine the species
+
     """).callout(kind="info")
 
     # Input-Felder mit Beispielwerten und sinnvollen Grenzen
     weight_in = mo.ui.number(
-        label="Gewicht in Gramm (z.B. 300)",
+        label="Weight in Gramm (z.B. 300)",
         start=0,
         stop=1800,
         value=300,
         step=10
     )
     len2_in = mo.ui.number(
-        label="Länge (Length2) in cm (z.B. 28.4)",
+        label="Length in cm (z.B. 28.4)",
         start=0,
         stop=70,
         value=28.4,
         step=1
     )
     height_in = mo.ui.number(
-        label="Höhe in cm (z.B. 9.0)",
+        label="Height in cm (z.B. 9.0)",
         start=0,
         stop=20,
         value=9.0,
         step=0.5
     )
     width_in = mo.ui.number(
-        label="Breite in cm (z.B. 4.4)",
+        label="Width in cm (z.B. 4.4)",
         start=0,
         stop=15,
         value=4.4,
         step=0.5
     )
 
-    predict_btn = mo.ui.run_button(label="🔮 Vorhersage treffen")
+    predict_btn = mo.ui.run_button(label="🔮 Make Prediction")
 
     # Layout
     form = mo.vstack([
-        mo.md("# 🐟 Fischarten-Klassifizierer"),
+        mo.md("# 🐟 Fish Classifier"),
         instructions,
         mo.md("---"),
-        mo.md("### Messwerte eingeben:"),
+        mo.md("### Input Fish Measurments:"),
         mo.hstack([weight_in, len2_in], justify="start"),
         mo.hstack([height_in, width_in], justify="start"),
         mo.md(" "),
@@ -178,7 +168,19 @@ def _(mo):
 
 
 @app.cell
-def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, width_in, model_weights, requests, BytesIO, Image):
+def _(
+    BytesIO,
+    Image,
+    height_in,
+    len2_in,
+    mo,
+    model_weights,
+    predict_btn,
+    predict_fish_species,
+    requests,
+    weight_in,
+    width_in,
+):
 
     # Stoppe bis Button geklickt wird
     mo.stop(not predict_btn.value, mo.md(
@@ -244,8 +246,8 @@ def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, 
             img_url = fish_image_urls.get(prediction, "")
             if img_url:
                 try:
-                    response = requests.get(img_url)
-                    img = Image.open(BytesIO(response.content))
+                    response_image = requests.get(img_url)
+                    img = Image.open(BytesIO(response_image.content))
                     img_display = mo.image(img)
                 except Exception as e:
                     img_display = mo.md(f"⚠️ Bild konnte nicht geladen werden")
@@ -276,205 +278,153 @@ def _(height_in, len2_in, mo, np, predict_btn, predict_fish_species, weight_in, 
 
 
 @app.cell
+def _(go, mo, pio):
+    # Inject plotly.js ONCE (offline / GitHub Pages safe)
+    _bootstrap = go.Figure()
+    mo.Html(
+        pio.to_html(
+            _bootstrap,
+            include_plotlyjs="inline",
+            full_html=False,
+        )
+    )
+
+    def plot(fig):
+        """Render a plotly figure without re-embedding plotly.js."""
+        return mo.Html(
+            pio.to_html(
+                fig,
+                include_plotlyjs=False,
+                full_html=False,
+                config={
+                    "responsive": True,
+                    "displayModeBar": True,
+                    "scrollZoom": True,
+                },
+            )
+        )
+    return (plot,)
+
+
+@app.cell
+def _(df, mo, plot, px):
+    counts = df["Species"].value_counts().reset_index()
+    counts.columns = ["Species", "Count"]
+
+    fig1 = px.bar(
+        counts,
+        x="Species",
+        y="Count",
+        color="Species",
+        title="Total Samples per Species",
+        text_auto=True,
+        template="plotly_white",
+    )
+
+    mo.md("### 📊 Dataset Balance")
+    plot(fig1)
+    return (fig1,)
+
+
+@app.cell
+def _(fig1):
+    fig1
+    return
+
+
+@app.cell
+def _(df, mo, plot, px):
+    fig2 = px.scatter(
+        df,
+        x="Length2",
+        y="Weight",
+        color="Species",
+        symbol="Species",
+        title="Weight vs. Length Growth Curve",
+        labels={"Length2": "Length (cm)", "Weight": "Weight (g)"},
+        template="plotly_white",
+    )
+
+    mo.md("### 📈 Growth Trends")
+    plot(fig2)
+    return (fig2,)
+
+
+@app.cell
+def _(fig2):
+    fig2
+    return
+
+
+@app.cell
+def _(df, mo, plot, px):
+    fig3 = px.box(
+        df,
+        x="Species",
+        y="Height",
+        color="Species",
+        title="Height Variation by Species",
+        template="plotly_white",
+    )
+
+    mo.md("### 📏 Height Analysis")
+    plot(fig3)
+    return (fig3,)
+
+
+@app.cell
+def _(fig3):
+    fig3
+    return
+
+
+@app.cell
+def _(df, mo, plot, px):
+    corr = df.select_dtypes(include=["number"]).corr()
+
+    fig4 = px.imshow(
+        corr,
+        text_auto=True,
+        aspect="auto",
+        color_continuous_scale='RdBu_r',
+        title="Feature Correlation Heatmap",
+    )
+
+    mo.md("### 🔗 Measurement Relationships")
+    plot(fig4)
+    return (fig4,)
+
+
+@app.cell
+def _(fig4):
+    fig4
+    return
+
+
+@app.cell
 def _(mo):
-    # ========================================================================
-    # DATENBANK-STATISTIKEN & VISUALISIERUNGEN
-    # ========================================================================
-    mo.md("""
-    ---
-    ## 📊 Datensatz-Informationen
-    
-    **Modell-Details:**
-    - **Typ:** Logistic Regression mit StandardScaler Normalisierung
-    - **Features:** Length2 (Länge), Height (Höhe), Width (Breite), Weight (Gewicht)
-    - **Klassen:** 7 Fischarten (Bream, Parkki, Perch, Pike, Roach, Smelt, Whitefish)
-    - **Trainings-Genauigkeit:** 81.76%
-    - **Gewichte eingebettet:** Ja (1.0 KB JSON)
-    - **Runtime:** 100% im Browser (WASM-kompatibel ✓)
-    
-    **Besonderheiten dieses Notebooks:**
-    - ✅ Alle ML-Abhängigkeiten (sklearn) durch manuelle Implementierung ersetzt
-    - ✅ Pre-trained Gewichte direkt im Notebook eingebettet
-    - ✅ Funktioniert vollständig als HTML-WASM Export
-    - ✅ Keine externe Datenquellen erforderlich
-    - ✅ Läuft offline im Browser
+    mo.md(r"""
+    ## But how much is the fish? We couldn't find out.
     """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md("""
-    ---
-    ### ℹ️ Technische Information
-    
-    Dieses Notebook ist optimiert für den Export als HTML-WASM Datei.
-    Es nutzt vorab trainierte Modellgewichte und implementiert die
-    Vorhersage manuell mit NumPy, ohne die Abhängigkeit von scikit-learn.
-    
-    **Für die Verwendung im Browser speichern Sie das Notebook als HTML-WASM:**
-    ```
-    marimo export html fish_analysis_wasm.py --mode wasm
-    ```
-    """)
-    return
-
-
-@app.cell
-def _(df, mo):
-    # Datenset Balance - HTML Tabelle
-    counts = df['Species'].value_counts().reset_index()
-    counts.columns = ['Art', 'Anzahl']
-
-    # Berechne Gesamtanzahl
-    total = counts['Anzahl'].sum()
-    counts['Prozent'] = (counts['Anzahl'] / total * 100).round(1)
-
-    # HTML-Tabelle mit Balkengrafik
-    html_table = "<table style='width:100%; border-collapse: collapse;'>"
-    html_table += "<tr style='background-color: #f0f0f0;'><th style='padding: 10px; text-align: left;'>Art</th><th style='padding: 10px;'>Anzahl</th><th style='padding: 10px;'>Prozent</th><th style='padding: 10px;'>Verteilung</th></tr>"
-
-    for _, species_row in counts.iterrows():
-        bar_width = int(species_row['Prozent'] * 3)  # Max 100% = 300px
-        html_table += f"<tr style='border-bottom: 1px solid #ddd;'>"
-        html_table += f"<td style='padding: 10px;'><strong>{species_row['Art']}</strong></td>"
-        html_table += f"<td style='padding: 10px; text-align: center;'>{int(species_row['Anzahl'])}</td>"
-        html_table += f"<td style='padding: 10px; text-align: center;'>{species_row['Prozent']}%</td>"
-        html_table += f"<td style='padding: 10px;'><div style='width: {bar_width}px; height: 20px; background-color: #4CAF50; border-radius: 3px;'></div></td>"
-        html_table += f"</tr>"
-
-    html_table += "</table>"
-
-    mo.md(f"## 📊 Datensatz Balance\n\n### Probenverteilung nach Art\n{html_table}")
-    return
-
-
-@app.cell
-def _(df, mo):
-    # Wachstumstrends - Statistik-Tabelle
-    growth_stats = df.groupby('Species').agg({
-        'Length2': ['min', 'max', 'mean'],
-        'Weight': ['min', 'max', 'mean'],
-        'Height': ['min', 'max', 'mean']
-    }).round(2)
-
-    # Flatten column names
-    growth_stats.columns = ['_'.join(col).strip() for col in growth_stats.columns]
-    growth_stats = growth_stats.reset_index()
-
-    # HTML-Tabelle
-    html_growth = "<table style='width:100%; border-collapse: collapse; font-size: 0.9em;'>"
-    html_growth += "<tr style='background-color: #2196F3; color: white;'>"
-    html_growth += "<th style='padding: 8px;'>Art</th>"
-    html_growth += "<th style='padding: 8px;'>Länge (cm)<br/>Min-Max</th>"
-    html_growth += "<th style='padding: 8px;'>Gewicht (g)<br/>Min-Max</th>"
-    html_growth += "<th style='padding: 8px;'>Höhe (cm)<br/>Min-Max</th>"
-    html_growth += "</tr>"
-
-    for _, growth_row in growth_stats.iterrows():
-        html_growth += f"<tr style='border-bottom: 1px solid #ddd;'>"
-        html_growth += f"<td style='padding: 8px;'><strong>{growth_row['Species']}</strong></td>"
-        html_growth += f"<td style='padding: 8px; text-align: center;'>{growth_row['Length2_min']:.1f} - {growth_row['Length2_max']:.1f}</td>"
-        html_growth += f"<td style='padding: 8px; text-align: center;'>{growth_row['Weight_min']:.0f} - {growth_row['Weight_max']:.0f}</td>"
-        html_growth += f"<td style='padding: 8px; text-align: center;'>{growth_row['Height_min']:.2f} - {growth_row['Height_max']:.2f}</td>"
-        html_growth += f"</tr>"
-
-    html_growth += "</table>"
-
-    mo.md(f"### 📈 Wachstumstrends\n\n{html_growth}")
-    return
-
-
-@app.cell
-def _(df, mo):
-    # Höhen-Analyse - Statistik-Tabelle
-    height_stats = df.groupby('Species')['Height'].agg([
-        ('Min', 'min'),
-        ('Q1', lambda x: x.quantile(0.25)),
-        ('Median', 'median'),
-        ('Q3', lambda x: x.quantile(0.75)),
-        ('Max', 'max'),
-        ('Mittelwert', 'mean'),
-        ('Stdabw', 'std')
-    ]).round(2)
-
-    height_stats = height_stats.reset_index()
-
-    # HTML-Tabelle
-    html_height = "<table style='width:100%; border-collapse: collapse; font-size: 0.9em;'>"
-    html_height += "<tr style='background-color: #FF9800; color: white;'>"
-    html_height += "<th style='padding: 8px;'>Art</th>"
-    html_height += "<th style='padding: 8px;'>Min</th>"
-    html_height += "<th style='padding: 8px;'>Q1</th>"
-    html_height += "<th style='padding: 8px;'>Median</th>"
-    html_height += "<th style='padding: 8px;'>Q3</th>"
-    html_height += "<th style='padding: 8px;'>Max</th>"
-    html_height += "<th style='padding: 8px;'>Ø</th>"
-    html_height += "<th style='padding: 8px;'>σ</th>"
-    html_height += "</tr>"
-
-    for _, height_row in height_stats.iterrows():
-        html_height += f"<tr style='border-bottom: 1px solid #ddd;'>"
-        html_height += f"<td style='padding: 8px;'><strong>{height_row['Species']}</strong></td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Min']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Q1']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Median']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Q3']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Max']:.2f}</td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'><strong>{height_row['Mittelwert']:.2f}</strong></td>"
-        html_height += f"<td style='padding: 8px; text-align: center;'>{height_row['Stdabw']:.2f}</td>"
-        html_height += f"</tr>"
-
-    html_height += "</table>"
-
-    mo.md(f"### 📏 Höhen-Analyse\n\n{html_height}")
-    return
-
-
-@app.cell
-def _(df_clean, mo):
-    # Korrelations-Heatmap als HTML-Tabelle
-    corr = df_clean.select_dtypes(include=['number']).corr().round(3)
-
-    # Farben für Korrelationen (von rot zu blau)
-    def get_color(value):
-        # Normalisiere auf 0-1
-        norm_val = (value + 1) / 2
-        if norm_val < 0.5:
-            # Rot
-            intensity = int((0.5 - norm_val) * 2 * 255)
-            return f'rgb(255, {255-intensity}, {255-intensity})'
-        else:
-            # Blau
-            intensity = int((norm_val - 0.5) * 2 * 255)
-            return f'rgb({255-intensity}, {255-intensity}, 255)'
-
-    # HTML-Heatmap
-    html_corr = "<table style='border-collapse: collapse; margin: 20px 0;'>"
-
-    # Header mit Spaltennamen
-    html_corr += "<tr><td style='padding: 8px;'></td>"
-    for corr_col in corr.columns:
-        html_corr += f"<th style='padding: 8px; text-align: center; font-weight: bold;'>{corr_col}</th>"
-    html_corr += "</tr>"
-
-    # Daten
-    for corr_idx, corr_row_name in enumerate(corr.index):
-        html_corr += f"<tr>"
-        html_corr += f"<th style='padding: 8px; text-align: right; font-weight: bold;'>{corr_row_name}</th>"
-
-        for corr_col_name in corr.columns:
-            corr_value = corr.loc[corr_row_name, corr_col_name]
-            corr_color = get_color(corr_value)
-            html_corr += f"<td style='padding: 8px; text-align: center; background-color: {corr_color}; border: 1px solid #ddd;'>"
-            html_corr += f"<strong>{corr_value:.2f}</strong>"
-            html_corr += f"</td>"
-
-        html_corr += f"</tr>"
-
-    html_corr += "</table>"
-
-    mo.md(f"### 🔗 Messungen - Beziehungen\n\n**Feature-Korrelationen (von -1 bis +1):**\n{html_corr}")
+    mo.Html(
+        """
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+          <iframe
+            src="https://www.youtube.com/embed/cbB3iGRHtqA?start=118"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          </iframe>
+        </div>
+        """
+    )
     return
 
 

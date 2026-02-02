@@ -96,33 +96,26 @@
       ]
     },
     {
-      "id": "Xref",
-      "code_hash": "7be0c55b20287a34c52e04bf44e2be16",
+      "id": "PKri",
+      "code_hash": "740d5171870e965e46b0be253a4bf2fa",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"fish-species-predictor\">\ud83d\udc1f Fish Species Predictor</h1></span><marimo-callout-output data-html='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;h3 id=&#92;&quot;how-to-use&#92;&quot;&gt;\ud83d\udcd6 How to use:&lt;/h3&gt;&#92;n&lt;ol&gt;&#92;n&lt;li&gt;Look at the &lt;strong&gt;typical ranges&lt;/strong&gt; mentioned in the labels.&lt;/li&gt;&#92;n&lt;li&gt;Enter your fish&#x27;s measurements (Weight, Length, etc.).&lt;/li&gt;&#92;n&lt;li&gt;Click &lt;strong&gt;Predict Species&lt;/strong&gt; to see the result and confidence score.&lt;/li&gt;&#92;n&lt;/ol&gt;&lt;/span&gt;&quot;' data-kind='&quot;info&quot;'></marimo-callout-output><span class=\"markdown prose dark:prose-invert contents\"><hr /></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-0' random-id='b1796baa-290c-8ea2-cddd-a5f149d1af1d'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Weight in grams (e.g., 300)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1800' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-1' random-id='7f8b4f4d-c378-c5fb-80f9-55dc77de9cd7'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Length in cm (e.g., 25.4)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='70' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-2' random-id='8c753305-ce8a-994c-b546-8e7b8de0e53e'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Height in cm (e.g., 11.5)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='20' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='PKri-3' random-id='4253e639-cf2a-1048-d03e-57ef60db979f'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Width in cm (e.g., 4.0)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='15' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><span class=\"markdown prose dark:prose-invert contents\"></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='PKri-4' random-id='a633abeb-7335-05d9-7193-1f6761e417d3'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;\ud83d\udd2e Predict Species&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;neutral&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element></div></div>"
           }
         }
       ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Accuracy: 0.8125\n              precision    recall  f1-score   support\n\n       Bream       1.00      1.00      1.00        10\n      Parkki       1.00      1.00      1.00         1\n       Perch       0.70      0.78      0.74         9\n        Pike       1.00      0.67      0.80         3\n       Roach       0.25      1.00      0.40         1\n       Smelt       1.00      1.00      1.00         5\n   Whitefish       0.00      0.00      0.00         3\n\n    accuracy                           0.81        32\n   macro avg       0.71      0.78      0.71        32\nweighted avg       0.80      0.81      0.79        32\n\n",
-          "mimetype": "text/plain"
-        }
-      ]
+      "console": []
     },
     {
-      "id": "YAVy",
-      "code_hash": "acd233f34a160e3e9ea8d4f902505dcf",
+      "id": "Xref",
+      "code_hash": "6db51150e57b7ba8c7beaed99cb88894",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"fish-species-predictor\">\ud83d\udc1f Fish Species Predictor</h1></span><marimo-callout-output data-html='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;h3 id=&#92;&quot;how-to-use&#92;&quot;&gt;\ud83d\udcd6 How to use:&lt;/h3&gt;&#92;n&lt;ol&gt;&#92;n&lt;li&gt;Look at the &lt;strong&gt;typical ranges&lt;/strong&gt; mentioned in the labels.&lt;/li&gt;&#92;n&lt;li&gt;Enter your fish&#x27;s measurements (Weight, Length, etc.).&lt;/li&gt;&#92;n&lt;li&gt;Click &lt;strong&gt;Predict Species&lt;/strong&gt; to see the result and confidence score.&lt;/li&gt;&#92;n&lt;/ol&gt;&lt;/span&gt;&quot;' data-kind='&quot;info&quot;'></marimo-callout-output><span class=\"markdown prose dark:prose-invert contents\"><hr /></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='YAVy-0' random-id='9eabd668-d170-8215-f9bd-2327185d50e8'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Weight in grams (e.g., 300)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1800' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='YAVy-1' random-id='3ac0efcd-7794-a72d-b6ae-3197062b38c8'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Length in cm (e.g., 25.4)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='70' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='YAVy-2' random-id='e8a61e40-be02-8de8-b690-c0eeb095c07d'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Height in cm (e.g., 11.5)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='20' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element><marimo-ui-element object-id='YAVy-3' random-id='f5375908-b3c6-1d5d-c92d-e11afe2f172f'><marimo-number data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Width in cm (e.g., 4.0)&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='15' data-debounce='false' data-full-width='false' data-disabled='false'></marimo-number></marimo-ui-element></div><span class=\"markdown prose dark:prose-invert contents\"></span><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='YAVy-4' random-id='baad8317-8cc6-a819-dc7e-76a7dbd78d08'><marimo-button data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;\ud83d\udd2e Predict Species&lt;/span&gt;&lt;/span&gt;&quot;' data-kind='&quot;neutral&quot;' data-disabled='false' data-full-width='false'></marimo-button></marimo-ui-element></div></div>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"standing-by\">Standing by...</h3>\n<span class=\"paragraph\">Fill the form and click <strong>Predict</strong>.</span></span>"
           }
         }
       ],
@@ -130,19 +123,6 @@
     },
     {
       "id": "SFPL",
-      "code_hash": "6db51150e57b7ba8c7beaed99cb88894",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"result-this-is-a-perch\">\ud83c\udf89 Result: This is a <strong>Perch</strong>!</h2></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Confidence Score:</strong> <span style='color: green; font-size: 1.2em;'>98.8%</span></span></span><img src='./@file/54529-12324-ilsnpimh.jpg' /></div>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "BYtC",
       "code_hash": "1dc2b805887608a6869516654461219f",
       "outputs": [
         {
@@ -155,7 +135,7 @@
       "console": []
     },
     {
-      "id": "RGSE",
+      "id": "BYtC",
       "code_hash": "36ce6b5a2a1491e82f5fdedbe944efd9",
       "outputs": [
         {
@@ -168,7 +148,7 @@
       "console": []
     },
     {
-      "id": "Kclp",
+      "id": "RGSE",
       "code_hash": "a1b80ad8967039a9b78b8c758862d916",
       "outputs": [
         {
@@ -181,7 +161,7 @@
       "console": []
     },
     {
-      "id": "emfo",
+      "id": "Kclp",
       "code_hash": "ab16baf7774acb64b2a6432a0e7487ab",
       "outputs": [
         {
