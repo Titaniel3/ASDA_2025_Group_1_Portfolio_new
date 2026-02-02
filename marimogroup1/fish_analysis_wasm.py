@@ -51,8 +51,21 @@ def _(np):
 
 @app.cell
 def _(pd):
-    # Lade die Fisch-Daten für Visualisierungen
-    df = pd.read_csv("../datasets/Fish.csv")
+    # Lade die Fisch-Daten von GitHub (für WASM-Kompatibilität)
+    # Verwendet Fish_final.xlsx von GitHub
+    github_url = "https://github.com/Titaniel3/ASDA_2025_Group_1_Portfolio_new/raw/main/datasets/Fish_final.xlsx"
+
+    try:
+        # Versuche von GitHub zu laden (funktioniert im HTML-WASM Export)
+        df = pd.read_excel(github_url)
+    except Exception as e:
+        # Fallback auf lokale Datei (für lokale Entwicklung)
+        try:
+            df = pd.read_excel("datasets/Fish_final.xlsx")
+        except:
+            # Letztes Fallback: Fish.csv
+            df = pd.read_csv("datasets/Fish.csv")
+
     df_clean = df.drop(["Length1", "Length3"], axis=1)
     return (df, df_clean)
 
@@ -428,8 +441,8 @@ def _(df_clean, mo):
 
     # Header mit Spaltennamen
     html_corr += "<tr><td style='padding: 8px;'></td>"
-    for col in corr.columns:
-        html_corr += f"<th style='padding: 8px; text-align: center; font-weight: bold;'>{col}</th>"
+    for corr_col in corr.columns:
+        html_corr += f"<th style='padding: 8px; text-align: center; font-weight: bold;'>{corr_col}</th>"
     html_corr += "</tr>"
 
     # Daten
