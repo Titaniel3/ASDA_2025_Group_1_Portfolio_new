@@ -11,7 +11,7 @@ def _():
     import matplotlib.pyplot as plt
     import numpy as np
     import json
-    #import plotly.express as px
+    import plotly.express as px
     return json, mo, np, pd, plt
 
 
@@ -621,7 +621,6 @@ def _(df):
     clean_min = int(df[COL["cleanliness"]].min())
     clean_max = int(df[COL["cleanliness"]].max())
 
-
     return (
         COL,
         bedrooms_vals,
@@ -777,7 +776,6 @@ def _(
 
     # ensure coordinates exist
     d = d.dropna(subset=[COL["lat"], COL["lon"]])
-
     return (d,)
 
 
@@ -804,7 +802,6 @@ def _(COL, d, pd):
 
         d_map = d_map[cols].head(MAX_POINTS)
         map_points = d_map.to_dict(orient="records")
-
     return (MAX_POINTS,)
 
 
@@ -839,7 +836,7 @@ def _(COL, MAX_POINTS, d, json, mo):
             <script>
                 const points = {map_points_json_v2};
                 const map = L.map('leaflet-map').setView([{center_lat}, {center_lon}], 12);
-            
+
                 L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
                     attribution: '&copy; OpenStreetMap'
                 }}).addTo(map);
