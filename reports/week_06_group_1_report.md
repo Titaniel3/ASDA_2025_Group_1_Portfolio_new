@@ -1,5 +1,14 @@
 # World Bank Correlation Report
 
+## 0. Authors of the report
+
+| Name | Contribution |
+|------|--------------|
+| Shreyas Krishnamurthy     |     Governance and institutional quality, descriptive dataset overview         |
+| Daniel Lichtmannecker     |   Human well-being and health, final report creation         |
+|  Tobias Demming    |    Data cleaning, Environmental sustainability,           |
+| Ranjit Singh     |      Data cleaning, Economic performance and poverty reduction  |
+
 We extend the research from last week by now looking in-depth in different variables and seeing if they are correlated with each other. For that, we cluster the dataset into four different areas: 
 
 - Governance and institutional quality (Shreyas)
