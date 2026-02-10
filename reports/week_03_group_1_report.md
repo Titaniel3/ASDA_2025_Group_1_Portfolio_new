@@ -5,7 +5,7 @@
 | :---- | :---- |
 | Shreyas Krishnamurthy | Data collection,Graph plotting   |
 |Daniel Lichtmannecker  | Data collection, Data cleaning, reporting, Graph plotting    |
-| Tobias Demming |  Reporting and analysis,Graph plotting     |
+| Tobias Demming |  Reporting , analysis,Graph plotting     |
 | Ranjit Singh |  Data collection, Analysis, graph plotting  |
 | Saddam Khan| Data collection|
 
