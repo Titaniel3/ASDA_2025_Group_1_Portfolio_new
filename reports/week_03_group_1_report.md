@@ -1,4 +1,14 @@
 # 🧱 Lego Inventory Dataset Cleaning — Project Report
+## 0. Authors of the report
+
+| Name | Contribution |
+| :---- | :---- |
+| Shreyas Krishnamurthy | Data collection,Graph plotting   |
+|Daniel Lichtmannecker  | Data collection, Data cleaning, reporting, Graph plotting    |
+| Tobias Demming |  Reporting and analysis,Graph plotting     |
+| Ranjit Singh |  Data collection, Analysis, graph plotting  |
+| Saddam Khan| Data collection|
+
 
 ## 1. Dataset Overview (Clean Version)
 
@@ -10,7 +20,6 @@ The cleaned LEGO dataset used for this analysis can be found [here](../additiona
 | Item | Description |
 |------|--------------|
 | **Dataset Name** | Lego Inventory Dataset  |
-| **Authors** | Tobias Demming, Ranjit Singh, Daniel Lichtmannecker, Saddam Kham, Shreyas Krishnamurthy |
 | **Number of Entries** |  185 |
 | **Number of Features/Variables** | 10 ("Transparent" was deleted, as only one group used it) |
 | **Format File** | .csv |
