@@ -14,6 +14,7 @@
 - Can we predict sales of a game?
 3. Data Cleaning steps 
 - Missing values for years and platform
+-> All below 1 million global sales are deleted, the rest is manually researched and put in the data set.
 - Create new column for platform family (Nintendo, Playstations, ...)
 - Create new column for game family (Mario, Pokemon, GTA, ...) 
 - Deal with duplicates
@@ -21,5 +22,6 @@
 5. Answer research questions
 6. Methodological limitations
 - What about platforms like steam? Do they lead to sales showing a completely wrong picture?
+- Older games have longer time frame than newer games
 7. AI Disclaimer
 8. Appendix 
